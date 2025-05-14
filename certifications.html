@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ElMehdi's Homepage - Certifications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="icon" href="media/spinning_earth.gif" type="image/gif">
+    <style>
+        body {
+            /* Space background */
+            background-image: url("media/space.gif");
+            background-color: #000033; /* Dark blue fallback */
+            background-repeat: repeat;
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000000;
+        }
+        
+        /* Responsive adjustments */
+        @media only screen and (max-width: 800px) {
+            .page-container {
+                width: 95% !important;
+                margin: 10px auto !important;
+            }
+            
+            .title {
+                font-size: 40px !important;
+            }
+            
+            .nav a {
+                display: inline-block;
+                margin: 5px !important;
+            }
+        }
+        
+        .page-container {
+            width: 800px;
+            margin: 0 auto;
+            background-color: #d3d3d3; /* Light gray background like in screenshot */
+            border: 2px solid #000080;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .title {
+            font-size: 60px;
+            font-weight: bold;
+            text-shadow: 3px 3px 0px #ff00ff, 6px 6px 0px #9900cc;
+            color: #6600cc;
+            margin: 20px 0;
+            transform: rotate(-5deg);
+            display: inline-block;
+        }
+        
+        .sparkles {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+            font-size: 20px;
+            color: #ffcc00;
+        }
+        
+        .nav {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #ffffff;
+            border: 1px solid #000080;
+            margin-bottom: 20px;
+        }
+        
+        .nav a {
+            font-size: 20px;
+            color: #000080;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+            padding: 5px 10px;
+        }
+        
+        .nav a:hover {
+            background-color: #ccffff;
+            border: 1px dashed #0000ff;
+        }
+        
+        .nav a.active {
+            background-color: #6600cc;
+            color: white;
+            border-bottom: 3px solid #ff00ff;
+        }
+        
+        .content {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .cert-item {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border: 1px dashed #aaaaaa;
+            text-align: left;
+            position: relative;
+        }
+        
+        .cert-item.new::after {
+            content: "NEW!";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff0000;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 3px 8px;
+            font-size: 12px;
+            animation: blinker 1s step-end infinite;
+        }
+        
+        [dir="rtl"] .cert-item.new::after {
+            right: auto;
+            left: 10px;
+        }
+        
+        .cert-name {
+            font-size: 24px;
+            color: #6600cc;
+            margin-bottom: 5px;
+        }
+        
+        .cert-issuer {
+            font-size: 18px;
+            color: #000080;
+            margin-bottom: 5px;
+        }
+        
+        .cert-date {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #666666;
+        }
+        
+        .cert-description {
+            margin-top: 10px;
+        }
+        
+        .language-selector {
+            text-align: right;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .language-selector a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #0000ff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .language-selector a:hover {
+            text-decoration: underline;
+        }
+        
+        .divider {
+            height: 5px;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            margin: 20px 0;
+        }
+        
+        .rainbow-text {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: rainbow 5s infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            56% { color: blue; }
+            70% { color: indigo; }
+            84% { color: violet; }
+            100% { color: red; }
+        }
+        
+        .blink {
+            animation: blinker 1s step-end infinite;
+        }
+        
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+        
+        marquee {
+            background-color: #ffeecc;
+            padding: 5px;
+            border: 1px solid #ffcc99;
+            margin: 10px 0;
+        }
+        
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .badge {
+            width: 120px;
+            height: 120px;
+            background-color: #ffffff;
+            border: 2px solid #cccccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000080;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Hide content for different languages initially */
+        .content-fr, .content-ar {
+            display: none;
+        }
+        
+        /* Additional style for RTL content */
+        [dir="rtl"] .content-ar {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Language selector simplified -->
+        <div class="language-selector">
+            <a onclick="switchLanguage('en')" data-en="English" data-fr="Anglais" data-ar="الإنجليزية">English</a> |
+            <a onclick="switchLanguage('fr')" data-en="French" data-fr="Français" data-ar="الفرنسية">Français</a> |
+            <a onclick="switchLanguage('ar')" data-en="Arabic" data-fr="Arabe" data-ar="العربية">العربية</a>
+        </div>
+
+        <!-- Header with sparkles -->
+        <div class="header">
+            <div class="sparkles">✧･ﾟ: *✧･ﾟ:* ✧･ﾟ: *✧･ﾟ:*</div>
+            <div class="title" data-en="Certifications" data-fr="Certifications" data-ar="الشهادات">Certifications</div>
+            <div class="sparkles" style="left: auto; right: 80px;">*:･ﾟ✧*:･ﾟ✧ *:･ﾟ✧*:･ﾟ✧</div>
+        </div>
+
+        <!-- Navigation bar -->
+        <div class="nav">
+            <a href="index.html" data-en="Home" data-fr="Accueil" data-ar="الرئيسية">Home</a>
+            <a href="work.html" data-en="Work" data-fr="Travail" data-ar="العمل">Work</a>
+            <a href="education.html" data-en="Education" data-fr="Éducation" data-ar="التعليم">Education</a>
+            <a href="certifications.html" class="active" data-en="Certifications" data-fr="Certifications" data-ar="الشهادات">Certifications</a>
+        </div>
+        
+        <div class="content">
+            <!-- English Content -->
+            <div class="content-en">
+                <h1>My Certifications</h1>
+                <marquee scrollamount="5">Check out my professional certifications and achievements!</marquee>
+                
+                <div class="cert-item new">
+                    <div class="cert-name">Data Analysis with SQL</div>
+                    <div class="cert-issuer">Meta</div>
+                    <div class="cert-date">January 2024</div>
+                    <div class="cert-description">
+                        <p>Professional certification focused on data analysis using SQL queries and database management.</p>
+                        <p>Mastered concepts in database design, optimization, and advanced querying techniques.</p>
+                        <p>Completed practical projects demonstrating SQL-based analytical capabilities.</p>
+                    </div>
+                </div>
+                
+                <div class="cert-item">
+                    <div class="cert-name">Machine Learning with Python</div>
+                    <div class="cert-issuer">IBM</div>
+                    <div class="cert-date">July 2023</div>
+                    <div class="cert-description">
+                        <p>Comprehensive certification covering machine learning algorithms and implementations.</p>
+                        <p>Developed skills in data preprocessing, model training, and performance evaluation.</p>
+                        <p>Applied machine learning techniques to solve real-world problems.</p>
+                    </div>
+                </div>
+                
+                <div class="cert-item">
+                    <div class="cert-name">Python for Everybody</div>
+                    <div class="cert-issuer">University of Michigan</div>
+                    <div class="cert-date">February 2023</div>
+                    <div class="cert-description">
+                        <p>Specialized in Python programming fundamentals and advanced concepts.</p>
+                        <p>Learned data structures, web scraping, and database integration with Python.</p>
+                        <p>Built various applications demonstrating Python's versatility in different domains.</p>
+                    </div>
+                </div>
+                
+                <h2>Technical Skills</h2>
+                <div class="badge-container">
+                    <div class="badge">SQL</div>
+                    <div class="badge">Python</div>
+                    <div class="badge">MongoDB</div>
+                    <div class="badge">Pandas</div>
+                    <div class="badge">PowerBI</div>
+                </div>
+                
+                <div class="rainbow-text">Always improving my skills!</div>
+            </div>
+            
+            <!-- French Content -->
+            <div class="content-fr">
+                <h1>Mes Certifications</h1>
+                <marquee scrollamount="5">Découvrez mes certifications professionnelles et réalisations!</marquee>
+                
+                <div class="cert-item new">
+                    <div class="cert-name">Analyse de Données avec SQL</div>
+                    <div class="cert-issuer">Meta</div>
+                    <div class="cert-date">Janvier 2024</div>
+                    <div class="cert-description">
+                        <p>Certification professionnelle axée sur l'analyse de données à l'aide de requêtes SQL et la gestion de bases de données.</p>
+                        <p>Maîtrise des concepts de conception de bases de données, d'optimisation et de techniques de requêtes avancées.</p>
+                        <p>Réalisation de projets pratiques démontrant des capacités analytiques basées sur SQL.</p>
+                    </div>
+                </div>
+                
+                <div class="cert-item">
+                    <div class="cert-name">Machine Learning avec Python</div>
+                    <div class="cert-issuer">IBM</div>
+                    <div class="cert-date">Juillet 2023</div>
+                    <div class="cert-description">
+                        <p>Certification complète couvrant les algorithmes d'apprentissage automatique et leurs implémentations.</p>
+                        <p>Développement de compétences en prétraitement de données, en entraînement de modèles et en évaluation de performances.</p>
+                        <p>Application de techniques d'apprentissage automatique pour résoudre des problèmes réels.</p>
+                    </div>
+                </div>
+                
+                <div class="cert-item">
+                    <div class="cert-name">Python pour Tous</div>
+                    <div class="cert-issuer">Université du Michigan</div>
+                    <div class="cert-date">Février 2023</div>
+                    <div class="cert-description">
+                        <p>Spécialisation dans les fondamentaux de la programmation Python et les concepts avancés.</p>
+                        <p>Apprentissage des structures de données, du web scraping et de l'intégration de bases de données avec Python.</p>
+                        <p>Développement de diverses applications démontrant la polyvalence de Python dans différents domaines.</p>
+                    </div>
+                </div>
+                
+                <h2>Compétences Techniques</h2>
+                <div class="badge-container">
+                    <div class="badge">SQL</div>
+                    <div class="badge">Python</div>
+                    <div class="badge">MongoDB</div>
+                    <div class="badge">Pandas</div>
+                    <div class="badge">PowerBI</div>
+                </div>
+                
+                <div class="rainbow-text">J'améliore constamment mes compétences!</div>
+            </div>
+            
+            <!-- Arabic Content -->
+            <div class="content-ar">
+                <h1>شهاداتي المهنية</h1>
+                <marquee scrollamount="5" direction="right">تحقق من شهاداتي المهنية وإنجازاتي!</marquee>
+                
+                <div class="cert-item new" style="text-align: right;">
+                    <div class="cert-name">تحليل البيانات باستخدام SQL</div>
+                    <div class="cert-issuer">ميتا</div>
+                    <div class="cert-date">يناير 2024</div>
+                    <div class="cert-description">
+                        <p>شهادة مهنية تركز على تحليل البيانات باستخدام استعلامات SQL وإدارة قواعد البيانات.</p>
+                        <p>إتقان المفاهيم في تصميم قواعد البيانات والتحسين وتقنيات الاستعلام المتقدمة.</p>
+                        <p>إكمال المشاريع العملية التي توضح القدرات التحليلية المستندة إلى SQL.</p>
+                    </div>
+                </div>
+                
+                <div class="cert-item" style="text-align: right;">
+                    <div class="cert-name">تعلم الآلة باستخدام Python</div>
+                    <div class="cert-issuer">IBM</div>
+                    <div class="cert-date">يوليو 2023</div>
+                    <div class="cert-description">
+                        <p>شهادة شاملة تغطي خوارزميات التعلم الآلي وتطبيقاتها.</p>
+                        <p>تطوير المهارات في معالجة البيانات الأولية وتدريب النماذج وتقييم الأداء.</p>
+                        <p>تطبيق تقنيات التعلم الآلي لحل المشكلات الواقعية.</p>
+                    </div>
+                </div>
+                
+                <div class="cert-item" style="text-align: right;">
+                    <div class="cert-name">Python للجميع</div>
+                    <div class="cert-issuer">جامعة ميشيغان</div>
+                    <div class="cert-date">فبراير 2023</div>
+                    <div class="cert-description">
+                        <p>متخصص في أساسيات برمجة Python والمفاهيم المتقدمة.</p>
+                        <p>تعلمت هياكل البيانات وكشط الويب ودمج قواعد البيانات مع Python.</p>
+                        <p>بناء تطبيقات مختلفة توضح تعدد استخدامات Python في مجالات مختلفة.</p>
+                    </div>
+                </div>
+                
+                <h2>المهارات التقنية</h2>
+                <div class="badge-container">
+                    <div class="badge">SQL</div>
+                    <div class="badge">Python</div>
+                    <div class="badge">MongoDB</div>
+                    <div class="badge">Pandas</div>
+                    <div class="badge">PowerBI</div>
+                </div>
+                
+                <div class="rainbow-text">أطور مهاراتي دائماً!</div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div style="text-align: center; margin: 15px 0;">
+            <img src="media/linux_powered.gif" alt="Linux Powered" style="margin: 0 10px;">
+            <img src="media/madewithnotepad2.gif" alt="Made with Notepad" style="margin: 0 10px;">
+            <img src="media/valid-html5.gif" alt="Valid HTML" style="margin: 0 10px;">
+        </div>
+    </div>
+    
+    <script>
+        // Simple language switcher function
+        function switchLanguage(lang) {
+            // Save language preference
+            localStorage.setItem('preferred-language', lang);
+            
+            // Handle RTL for Arabic
+            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            
+            // Show correct language content
+            document.querySelectorAll('.content-en, .content-fr, .content-ar').forEach(function(element) {
+                element.style.display = 'none';
+            });
+            document.querySelectorAll('.content-' + lang).forEach(function(element) {
+                element.style.display = 'block';
+            });
+            
+            // Update all elements with data-* attributes
+            document.querySelectorAll('[data-' + lang + ']').forEach(function(element) {
+                element.textContent = element.getAttribute('data-' + lang);
+            });
+        }
+        
+        // Apply the saved language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set active navigation link
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav a').forEach(function(link) {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Load saved language or default to English
+            const savedLanguage = localStorage.getItem('preferred-language') || 'en';
+            switchLanguage(savedLanguage);
+        });
+    </script>
+    
+</body>
+</html>

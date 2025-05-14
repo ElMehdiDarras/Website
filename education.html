@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ElMehdi's Homepage - Education</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="icon" href="media/spinning_earth.gif" type="image/gif">
+    <style>
+        body {
+            /* Space background */
+            background-image: url("media/space.gif");
+            background-color: #000033; /* Dark blue fallback */
+            background-repeat: repeat;
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000000;
+        }
+        
+        /* Responsive adjustments */
+        @media only screen and (max-width: 800px) {
+            .page-container {
+                width: 95% !important;
+                margin: 10px auto !important;
+            }
+            
+            .title {
+                font-size: 40px !important;
+            }
+            
+            .nav a {
+                display: inline-block;
+                margin: 5px !important;
+            }
+        }
+        
+        .page-container {
+            width: 800px;
+            margin: 0 auto;
+            background-color: #d3d3d3; /* Light gray background like in screenshot */
+            border: 2px solid #000080;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .title {
+            font-size: 60px;
+            font-weight: bold;
+            text-shadow: 3px 3px 0px #ff00ff, 6px 6px 0px #9900cc;
+            color: #6600cc;
+            margin: 20px 0;
+            transform: rotate(-5deg);
+            display: inline-block;
+        }
+        
+        .sparkles {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+            font-size: 20px;
+            color: #ffcc00;
+        }
+        
+        .nav {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #ffffff;
+            border: 1px solid #000080;
+            margin-bottom: 20px;
+        }
+        
+        .nav a {
+            font-size: 20px;
+            color: #000080;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+            padding: 5px 10px;
+        }
+        
+        .nav a:hover {
+            background-color: #ccffff;
+            border: 1px dashed #0000ff;
+        }
+        
+        .nav a.active {
+            background-color: #6600cc;
+            color: white;
+            border-bottom: 3px solid #ff00ff;
+        }
+        
+        .content {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .education-item {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border: 1px dashed #aaaaaa;
+            text-align: left;
+        }
+        
+        .education-degree {
+            font-size: 24px;
+            color: #6600cc;
+            margin-bottom: 5px;
+        }
+        
+        .education-school {
+            font-size: 18px;
+            color: #000080;
+            margin-bottom: 5px;
+        }
+        
+        .education-period {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #666666;
+        }
+        
+        .education-description {
+            margin-top: 10px;
+        }
+        
+        .language-selector {
+            text-align: right;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .language-selector a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #0000ff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .language-selector a:hover {
+            text-decoration: underline;
+        }
+        
+        .divider {
+            height: 5px;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            margin: 20px 0;
+        }
+        
+        .rainbow-text {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: rainbow 5s infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            56% { color: blue; }
+            70% { color: indigo; }
+            84% { color: violet; }
+            100% { color: red; }
+        }
+        
+        .blink {
+            animation: blinker 1s step-end infinite;
+        }
+        
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+        
+        marquee {
+            background-color: #ffeecc;
+            padding: 5px;
+            border: 1px solid #ffcc99;
+            margin: 10px 0;
+        }
+        
+        /* Hide content for different languages initially */
+        .content-fr, .content-ar {
+            display: none;
+        }
+        
+        /* Additional style for RTL content */
+        [dir="rtl"] .content-ar {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Language selector simplified -->
+        <div class="language-selector">
+            <a onclick="switchLanguage('en')" data-en="English" data-fr="Anglais" data-ar="الإنجليزية">English</a> |
+            <a onclick="switchLanguage('fr')" data-en="French" data-fr="Français" data-ar="الفرنسية">Français</a> |
+            <a onclick="switchLanguage('ar')" data-en="Arabic" data-fr="Arabe" data-ar="العربية">العربية</a>
+        </div>
+
+        <!-- Header with sparkles -->
+        <div class="header">
+            <div class="sparkles">✧･ﾟ: *✧･ﾟ:* ✧･ﾟ: *✧･ﾟ:*</div>
+            <div class="title" data-en="Education" data-fr="Éducation" data-ar="التعليم">Education</div>
+            <div class="sparkles" style="left: auto; right: 80px;">*:･ﾟ✧*:･ﾟ✧ *:･ﾟ✧*:･ﾟ✧</div>
+        </div>
+
+        <!-- Navigation bar -->
+        <div class="nav">
+            <a href="index.html" data-en="Home" data-fr="Accueil" data-ar="الرئيسية">Home</a>
+            <a href="work.html" data-en="Work" data-fr="Travail" data-ar="العمل">Work</a>
+            <a href="education.html" class="active" data-en="Education" data-fr="Éducation" data-ar="التعليم">Education</a>
+            <a href="certifications.html" data-en="Certifications" data-fr="Certifications" data-ar="الشهادات">Certifications</a>
+        </div>
+        
+        <div class="content">
+            <!-- English Content -->
+            <div class="content-en">
+                <h1>My Education</h1>
+                <marquee scrollamount="5">Here's my educational background and achievements!</marquee>
+                
+                <div class="education-item">
+                    <div class="education-degree">Engineering Degree in Computer Science and Networks - MIAGE specialization</div>
+                    <div class="education-school">ÉCOLE MAROCAINE DES SCIENCES DE L'INGÉNIEUR (EMSI)</div>
+                    <div class="education-period">2022 - 2025</div>
+                    <div class="education-description">
+                        <p>Specialized in Computer Science Methods Applied to Business Management (MIAGE).</p>
+                        <p>Developed expertise in software engineering, network infrastructure.</p>
+                        <p>Currently completing final year projects and internships.</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-degree">Specialized Technician in Computer Network Technologies</div>
+                    <div class="education-school">OFFICE DE LA FORMATION PROFESSIONNELLE (OFPPT)</div>
+                    <div class="education-period">2020 - 2022</div>
+                    <div class="education-description">
+                        <p>Focused on network infrastructure, configuration, and maintenance.</p>
+                        <p>Gained hands-on experience with routing, switching, and network security.</p>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">Always learning new things!</div>
+            </div>
+            
+            <!-- French Content -->
+            <div class="content-fr">
+                <h1>Mon Éducation</h1>
+                <marquee scrollamount="5">Voici mon parcours éducatif et mes réalisations!</marquee>
+                
+                <div class="education-item">
+                    <div class="education-degree">Diplôme d'Ingénieur en Informatique et Réseaux - spécialisation MIAGE</div>
+                    <div class="education-school">ÉCOLE MAROCAINE DES SCIENCES DE L'INGÉNIEUR (EMSI)</div>
+                    <div class="education-period">2022 - 2025</div>
+                    <div class="education-description">
+                        <p>Spécialisé dans les Méthodes Informatiques Appliquées à la Gestion des Entreprises (MIAGE).</p>
+                        <p>Développement d'expertise en génie logiciel et infrastructure réseau.</p>
+                        <p>Actuellement en train de compléter les projets et stages de dernière année.</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-degree">Technicien Spécialisé en Technologies des Réseaux Informatiques</div>
+                    <div class="education-school">OFFICE DE LA FORMATION PROFESSIONNELLE (OFPPT)</div>
+                    <div class="education-period">2020 - 2022</div>
+                    <div class="education-description">
+                        <p>Concentré sur l'infrastructure réseau, la configuration et la maintenance.</p>
+                        <p>Acquisition d'expérience pratique en routage, commutation et sécurité réseau.</p>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">Toujours en train d'apprendre de nouvelles choses!</div>
+            </div>
+            
+            <!-- Arabic Content -->
+            <div class="content-ar">
+                <h1>تعليمي</h1>
+                <marquee scrollamount="5" direction="right">إليك خلفيتي التعليمية وإنجازاتي!</marquee>
+                
+                <div class="education-item" style="text-align: right;">
+                    <div class="education-degree">شهادة هندسة في علوم الحاسوب والشبكات - تخصص MIAGE</div>
+                    <div class="education-school">المدرسة المغربية لعلوم المهندس (EMSI)</div>
+                    <div class="education-period">2022 - 2025</div>
+                    <div class="education-description">
+                        <p>متخصص في طرق المعلوماتية المطبقة على إدارة الأعمال (MIAGE).</p>
+                        <p>طورت خبرة في هندسة البرمجيات والبنية التحتية للشبكات.</p>
+                        <p>أكمل حاليًا مشاريع وتدريبات السنة النهائية.</p>
+                    </div>
+                </div>
+                
+                <div class="education-item" style="text-align: right;">
+                    <div class="education-degree">فني متخصص في تقنيات شبكات الحاسوب</div>
+                    <div class="education-school">مكتب التكوين المهني وإنعاش الشغل (OFPPT)</div>
+                    <div class="education-period">2020 - 2022</div>
+                    <div class="education-description">
+                        <p>ركزت على البنية التحتية للشبكات وتكوينها وصيانتها.</p>
+                        <p>اكتسبت خبرة عملية في التوجيه والتبديل وأمن الشبكات.</p>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">أتعلم دائماً أشياء جديدة!</div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div style="text-align: center; margin: 15px 0;">
+            <img src="media/linux_powered.gif" alt="Linux Powered" style="margin: 0 10px;">
+            <img src="media/madewithnotepad2.gif" alt="Made with Notepad" style="margin: 0 10px;">
+            <img src="media/valid-html5.gif" alt="Valid HTML" style="margin: 0 10px;">
+        </div>
+    </div>
+    
+    <script>
+        // Simple language switcher function
+        function switchLanguage(lang) {
+            // Save language preference
+            localStorage.setItem('preferred-language', lang);
+            
+            // Handle RTL for Arabic
+            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            
+            // Show correct language content
+            document.querySelectorAll('.content-en, .content-fr, .content-ar').forEach(function(element) {
+                element.style.display = 'none';
+            });
+            document.querySelectorAll('.content-' + lang).forEach(function(element) {
+                element.style.display = 'block';
+            });
+            
+            // Update all elements with data-* attributes
+            document.querySelectorAll('[data-' + lang + ']').forEach(function(element) {
+                element.textContent = element.getAttribute('data-' + lang);
+            });
+        }
+        
+        // Apply the saved language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set active navigation link
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav a').forEach(function(link) {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Load saved language or default to English
+            const savedLanguage = localStorage.getItem('preferred-language') || 'en';
+            switchLanguage(savedLanguage);
+        });
+    </script>
+    
+</body>
+</html>

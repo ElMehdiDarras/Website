@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ElMehdi's Homepage - Work</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="icon" href="media/spinning_earth.gif" type="image/gif">
+    <style>
+        body {
+            /* Space background */
+            background-image: url("media/space.gif");
+            background-color: #000033; /* Dark blue fallback */
+            background-repeat: repeat;
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000000;
+        }
+        
+        /* Responsive adjustments */
+        @media only screen and (max-width: 800px) {
+            .page-container {
+                width: 95% !important;
+                margin: 10px auto !important;
+            }
+            
+            .title {
+                font-size: 40px !important;
+            }
+            
+            .nav a {
+                display: inline-block;
+                margin: 5px !important;
+            }
+        }
+        
+        .page-container {
+            width: 800px;
+            margin: 0 auto;
+            background-color: #d3d3d3; /* Light gray background like in screenshot */
+            border: 2px solid #000080;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .title {
+            font-size: 60px;
+            font-weight: bold;
+            text-shadow: 3px 3px 0px #ff00ff, 6px 6px 0px #9900cc;
+            color: #6600cc;
+            margin: 20px 0;
+            transform: rotate(-5deg);
+            display: inline-block;
+        }
+        
+        .sparkles {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+            font-size: 20px;
+            color: #ffcc00;
+        }
+        
+        .nav {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #ffffff;
+            border: 1px solid #000080;
+            margin-bottom: 20px;
+        }
+        
+        .nav a {
+            font-size: 20px;
+            color: #000080;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+            padding: 5px 10px;
+        }
+        
+        .nav a:hover {
+            background-color: #ccffff;
+            border: 1px dashed #0000ff;
+        }
+        
+        .nav a.active {
+            background-color: #6600cc;
+            color: white;
+            border-bottom: 3px solid #ff00ff;
+        }
+        
+        .content {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .work-item {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border: 1px dashed #aaaaaa;
+            text-align: left;
+        }
+        
+        .work-title {
+            font-size: 24px;
+            color: #6600cc;
+            margin-bottom: 5px;
+        }
+        
+        .work-company {
+            font-size: 18px;
+            color: #000080;
+            margin-bottom: 5px;
+        }
+        
+        .work-period {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #666666;
+        }
+        
+        .work-description {
+            margin-top: 10px;
+        }
+        
+        .language-selector {
+            text-align: right;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .language-selector a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #0000ff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .language-selector a:hover {
+            text-decoration: underline;
+        }
+        
+        .divider {
+            height: 5px;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            margin: 20px 0;
+        }
+        
+        .rainbow-text {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: rainbow 5s infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            56% { color: blue; }
+            70% { color: indigo; }
+            84% { color: violet; }
+            100% { color: red; }
+        }
+        
+        .blink {
+            animation: blinker 1s step-end infinite;
+        }
+        
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+        
+        marquee {
+            background-color: #ffeecc;
+            padding: 5px;
+            border: 1px solid #ffcc99;
+            margin: 10px 0;
+        }
+        
+        /* Hide content for different languages initially */
+        .content-fr, .content-ar {
+            display: none;
+        }
+        
+        /* Additional style for RTL content */
+        [dir="rtl"] .content-ar {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Language selector simplified -->
+        <div class="language-selector">
+            <a onclick="switchLanguage('en')" data-en="English" data-fr="Anglais" data-ar="الإنجليزية">English</a> |
+            <a onclick="switchLanguage('fr')" data-en="French" data-fr="Français" data-ar="الفرنسية">Français</a> |
+            <a onclick="switchLanguage('ar')" data-en="Arabic" data-fr="Arabe" data-ar="العربية">العربية</a>
+        </div>
+
+        <!-- Header with sparkles -->
+        <div class="header">
+            <div class="sparkles">✧･ﾟ: *✧･ﾟ:* ✧･ﾟ: *✧･ﾟ:*</div>
+            <div class="title" data-en="Work Experience" data-fr="Expérience Professionnelle" data-ar="الخبرة المهنية">Work Experience</div>
+            <div class="sparkles" style="left: auto; right: 80px;">*:･ﾟ✧*:･ﾟ✧ *:･ﾟ✧*:･ﾟ✧</div>
+        </div>
+
+        <!-- Navigation bar -->
+        <div class="nav">
+            <a href="index.html" data-en="Home" data-fr="Accueil" data-ar="الرئيسية">Home</a>
+            <a href="work.html" class="active" data-en="Work" data-fr="Travail" data-ar="العمل">Work</a>
+            <a href="education.html" data-en="Education" data-fr="Éducation" data-ar="التعليم">Education</a>
+            <a href="certifications.html" data-en="Certifications" data-fr="Certifications" data-ar="الشهادات">Certifications</a>
+        </div>
+        
+        <div class="content">
+            <!-- English Content -->
+            <div class="content-en">
+                <h1>My Work Experience</h1>
+                <marquee scrollamount="5">Check out my professional experience below!</marquee>
+                
+                <div class="work-item">
+                    <div class="work-title">Intern - Data Center Monitoring System</div>
+                    <div class="work-company">NetSense | Casablanca, Morocco</div>
+                    <div class="work-period">March 2025 - Present</div>
+                    <div class="work-description">
+                        <p>Development of a data center equipment monitoring system with real-time alerts.</p>
+                        <p>Architecture based on Node.js, React, Socket.IO and MongoDB for proactive detection of infrastructure incidents.</p>
+                    </div>
+                </div>
+                
+                <div class="work-item">
+                    <div class="work-title">Intern - Technical Incident Management</div>
+                    <div class="work-company">National Airports Office (ONDA) | Casablanca, Morocco</div>
+                    <div class="work-period">July 2024 - August 2024</div>
+                    <div class="work-description">
+                        <p>Design of a web application for technical incident management using Django.</p>
+                        <p>Implementation of ticket assignment system, user management and detailed intervention tracking with comprehensive reports.</p>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">More experiences coming soon!</div>
+            </div>
+            
+            <!-- French Content -->
+            <div class="content-fr">
+                <h1>Mon Expérience Professionnelle</h1>
+                <marquee scrollamount="5">Découvrez mon expérience professionnelle ci-dessous!</marquee>
+                
+                <div class="work-item">
+                    <div class="work-title">Stagiaire - Système de Surveillance de Centre de Données</div>
+                    <div class="work-company">NetSense | Casablanca, Maroc</div>
+                    <div class="work-period">Mars 2025 - Présent</div>
+                    <div class="work-description">
+                        <p>Développement d'un système de surveillance d'équipement de centre de données avec alertes en temps réel.</p>
+                        <p>Architecture basée sur Node.js, React, Socket.IO et MongoDB pour la détection proactive des incidents d'infrastructure.</p>
+                    </div>
+                </div>
+                
+                <div class="work-item">
+                    <div class="work-title">Stagiaire - Gestion d'Incidents Techniques</div>
+                    <div class="work-company">Office National Des Aéroports (ONDA) | Casablanca, Maroc</div>
+                    <div class="work-period">Juillet 2024 - Août 2024</div>
+                    <div class="work-description">
+                        <p>Conception d'une application web pour la gestion des incidents techniques utilisant Django.</p>
+                        <p>Mise en œuvre d'un système d'attribution de tickets, de gestion des utilisateurs et de suivi détaillé des interventions avec des rapports complets.</p>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">Plus d'expériences à venir!</div>
+            </div>
+            
+            <!-- Arabic Content -->
+            <div class="content-ar">
+                <h1>خبرتي المهنية</h1>
+                <marquee scrollamount="5" direction="right">تحقق من خبرتي المهنية أدناه!</marquee>
+                
+                <div class="work-item" style="text-align: right;">
+                    <div class="work-title">متدرب - نظام مراقبة مركز البيانات</div>
+                    <div class="work-company">نتسنس | الدار البيضاء، المغرب</div>
+                    <div class="work-period">مارس 2025 - حتى الآن</div>
+                    <div class="work-description">
+                        <p>تطوير نظام مراقبة معدات مركز البيانات مع تنبيهات في الوقت الحقيقي.</p>
+                        <p>بنية قائمة على Node.js و React و Socket.IO و MongoDB للكشف الاستباقي عن حوادث البنية التحتية.</p>
+                    </div>
+                </div>
+                
+                <div class="work-item" style="text-align: right;">
+                    <div class="work-title">متدرب - إدارة الحوادث التقنية</div>
+                    <div class="work-company">المكتب الوطني للمطارات (ONDA) | الدار البيضاء، المغرب</div>
+                    <div class="work-period">يوليو 2024 - أغسطس 2024</div>
+                    <div class="work-description">
+                        <p>تصميم تطبيق ويب لإدارة الحوادث التقنية باستخدام Django.</p>
+                        <p>تنفيذ نظام تخصيص التذاكر وإدارة المستخدمين وتتبع التدخل المفصل مع تقارير شاملة.</p>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">المزيد من الخبرات قريبًا!</div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div style="text-align: center; margin: 15px 0;">
+            <img src="media/linux_powered.gif" alt="Linux Powered" style="margin: 0 10px;">
+            <img src="media/madewithnotepad2.gif" alt="Made with Notepad" style="margin: 0 10px;">
+            <img src="media/valid-html5.gif" alt="Valid HTML" style="margin: 0 10px;">
+        </div>
+    </div>
+    
+    <script>
+        // Simple language switcher function
+        function switchLanguage(lang) {
+            // Save language preference
+            localStorage.setItem('preferred-language', lang);
+            
+            // Handle RTL for Arabic
+            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            
+            // Show correct language content
+            document.querySelectorAll('.content-en, .content-fr, .content-ar').forEach(function(element) {
+                element.style.display = 'none';
+            });
+            document.querySelectorAll('.content-' + lang).forEach(function(element) {
+                element.style.display = 'block';
+            });
+            
+            // Update all elements with data-* attributes
+            document.querySelectorAll('[data-' + lang + ']').forEach(function(element) {
+                element.textContent = element.getAttribute('data-' + lang);
+            });
+        }
+        
+        // Apply the saved language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set active navigation link
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav a').forEach(function(link) {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Load saved language or default to English
+            const savedLanguage = localStorage.getItem('preferred-language') || 'en';
+            switchLanguage(savedLanguage);
+        });
+    </script>
+    
+</body>
+</html>

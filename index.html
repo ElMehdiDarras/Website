@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ElMehdi's Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="icon" href="media/spinning_earth.gif" type="image/gif">
+    <style>
+        body {
+            /* Space background */
+            background-image: url("media/space.gif");
+            background-color: #000033; /* Dark blue fallback */
+            background-repeat: repeat;
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000000;
+        }
+        
+        /* Responsive adjustments */
+        @media only screen and (max-width: 800px) {
+            .page-container {
+                width: 95% !important;
+                margin: 10px auto !important;
+            }
+            
+            .title {
+                font-size: 40px !important;
+            }
+            
+            .nav a {
+                display: inline-block;
+                margin: 5px !important;
+            }
+            
+            .main-content {
+                flex-direction: column !important;
+            }
+            
+            .center-content, .right-sidebar {
+                width: 100% !important;
+            }
+            
+            .visitor-counter, .qr-section {
+                width: 100% !important;
+                float: none !important;
+                margin-top: 15px !important;
+            }
+        }
+        
+        .page-container {
+            width: 800px;
+            margin: 0 auto;
+            background-color: #d3d3d3; /* Light gray background like in screenshot */
+            border: 2px solid #000080;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .title {
+            font-size: 60px;
+            font-weight: bold;
+            text-shadow: 3px 3px 0px #ff00ff, 6px 6px 0px #9900cc;
+            color: #6600cc;
+            margin: 20px 0;
+            transform: rotate(-5deg);
+            display: inline-block;
+        }
+        
+        .sparkles {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+            font-size: 20px;
+            color: #ffcc00;
+        }
+        
+        .nav {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #ffffff;
+            border: 1px solid #000080;
+            margin-bottom: 20px;
+        }
+        
+        .nav a {
+            font-size: 20px;
+            color: #000080;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+            padding: 5px 10px;
+        }
+        
+        .nav a:hover {
+            background-color: #ccffff;
+            border: 1px dashed #0000ff;
+        }
+        
+        .nav a.active {
+            background-color: #6600cc;
+            color: white;
+            border-bottom: 3px solid #ff00ff;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .center-content {
+            width: 70%;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            padding: 20px;
+            text-align: center;
+            margin-right: 15px;
+        }
+        
+        .right-sidebar {
+            width: 23%;
+            padding-left: 0;
+        }
+        
+        /* Make Welcome Message Rainbow Text */
+        .rainbow-welcome {
+            background: none;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            display: block;
+        }
+        
+        .rainbow-welcome span:nth-child(1) { color: #ff0000; } /* red */
+        .rainbow-welcome span:nth-child(2) { color: #ff7700; } /* orange */
+        .rainbow-welcome span:nth-child(3) { color: #ffff00; } /* yellow */
+        .rainbow-welcome span:nth-child(4) { color: #77ff00; } /* light green */
+        .rainbow-welcome span:nth-child(5) { color: #00ff00; } /* green */
+        .rainbow-welcome span:nth-child(6) { color: #0000ff; } /* blue */
+        .rainbow-welcome span:nth-child(7) { color: #8a2be2; } /* purple */
+        .rainbow-welcome span:nth-child(8) { color: #ff00ff; } /* magenta */
+        .rainbow-welcome span:nth-child(9) { color: #ff0000; } /* red */
+        .rainbow-welcome span:nth-child(10) { color: #ff7700; } /* orange */
+        .rainbow-welcome span:nth-child(11) { color: #ffff00; } /* yellow */
+        .rainbow-welcome span:nth-child(12) { color: #77ff00; } /* light green */
+        .rainbow-welcome span:nth-child(13) { color: #00ff00; } /* green */
+        .rainbow-welcome span:nth-child(14) { color: #0000ff; } /* blue */
+        .rainbow-welcome span:nth-child(15) { color: #8a2be2; } /* purple */
+        .rainbow-welcome span:nth-child(16) { color: #ff00ff; } /* magenta */
+        .rainbow-welcome span:nth-child(17) { color: #ff0000; } /* red */
+        .rainbow-welcome span:nth-child(18) { color: #ff7700; } /* orange */
+        
+        .under-construction {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .construction-bar {
+            display: inline-block;
+            background-color: #ffff00;
+            padding: 5px 20px;
+            border: 2px solid #000000;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+        }
+        
+        .rainbow-text {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: rainbow 5s infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            56% { color: blue; }
+            70% { color: indigo; }
+            84% { color: violet; }
+            100% { color: red; }
+        }
+        
+        .divider {
+            height: 5px;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            margin: 20px 0;
+        }
+        
+        .webring {
+            background-color: #eeeeff;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #9999cc;
+            margin: 20px 0;
+        }
+        
+        .webring a {
+            margin: 0 5px;
+            color: #0000ff;
+        }
+        
+        .visitor-counter {
+            text-align: center;
+            margin: 15px 0;
+            width: 100%;
+        }
+        
+        .counter-digits {
+            display: inline-block;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 2px 5px;
+            margin: 0 1px;
+            font-family: monospace;
+            font-size: 18px;
+            border: 1px solid #666666;
+        }
+        
+        .qr-section {
+            text-align: center;
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border: 1px dashed #999999;
+            width: 100%;
+        }
+        
+        .qr-container {
+            margin: 10px auto;
+            background-color: #ffffff;
+            padding: 10px;
+            width: 80px;
+            height: 80px;
+            border: 1px solid #cccccc;
+        }
+        
+        .blink {
+            animation: blinker 1s step-end infinite;
+        }
+        
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+        
+        marquee {
+            background-color: #ffeecc;
+            padding: 5px;
+            border: 1px solid #ffcc99;
+            margin: 10px 0;
+        }
+        
+        .contact-buttons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .contact-button {
+            padding: 8px 15px;
+            background: linear-gradient(to bottom, #ffcc66, #ff9933);
+            border: 2px outset #ff9933;
+            color: #000000;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+        }
+        
+        .contact-button:hover {
+            background: linear-gradient(to bottom, #ffdd77, #ffaa44);
+        }
+        
+        .contact-button:active {
+            border-style: inset;
+        }
+        
+        /* Language selection styling */
+        .language-selector {
+            text-align: right;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .language-selector a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #0000ff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .language-selector a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Hide content for different languages initially */
+        .content-fr, .content-ar {
+            display: none;
+        }
+        
+        /* Additional style for RTL content */
+        [dir="rtl"] .content-ar {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Language selector simplified -->
+        <div class="language-selector">
+            <a onclick="switchLanguage('en')" data-en="English" data-fr="Anglais" data-ar="الإنجليزية">English</a> |
+            <a onclick="switchLanguage('fr')" data-en="French" data-fr="Français" data-ar="الفرنسية">Français</a> |
+            <a onclick="switchLanguage('ar')" data-en="Arabic" data-fr="Arabe" data-ar="العربية">العربية</a>
+        </div>
+
+        <!-- Header with sparkles -->
+        <div class="header">
+            <div class="sparkles">✧･ﾟ: *✧･ﾟ:* ✧･ﾟ: *✧･ﾟ:*</div>
+            <div class="title" data-en="ElMehdi's Homepage" data-fr="Page d'accueil d'ElMehdi" data-ar="صفحة المهدي الشخصية">ElMehdi's Homepage</div>
+            <div class="sparkles" style="left: auto; right: 80px;">*:･ﾟ✧*:･ﾟ✧ *:･ﾟ✧*:･ﾟ✧</div>
+        </div>
+
+        <!-- Navigation bar -->
+        <div class="nav">
+            <a href="index.html" class="active" data-en="Home" data-fr="Accueil" data-ar="الرئيسية">Home</a>
+            <a href="work.html" data-en="Work" data-fr="Travail" data-ar="العمل">Work</a>
+            <a href="education.html" data-en="Education" data-fr="Éducation" data-ar="التعليم">Education</a>
+            <a href="certifications.html" data-en="Certifications" data-fr="Certifications" data-ar="الشهادات">Certifications</a>
+        </div>
+        
+        <div class="main-content">
+            <div class="center-content">
+                <!-- English Content -->
+                <div class="content-en">
+                    <div class="rainbow-welcome">
+                        <span>W</span><span>e</span><span>l</span><span>c</span><span>o</span><span>m</span><span>e</span>
+                        <span> </span>
+                        <span>t</span><span>o</span>
+                        <span> </span>
+                        <span>m</span><span>y</span>
+                        <span> </span>
+                        <span>H</span><span>o</span><span>m</span><span>e</span><span>p</span><span>a</span><span>g</span><span>e</span><span>!</span>
+                    </div>
+                    
+                    <p style="text-align: center;">Hi modern web folks!</p>
+                    
+                    <p style="text-align: center;">My name is ElMehdi Darras and this is my Web 1.0-style homepage!</p>
+                    
+                    <p style="text-align: center;">Before you start complaining about the design, I do not give a <blink style="color: #ff0000; font-weight: bold;">FUCK</blink> it's a personal site!</p>
+                    
+                    <p style="text-align: center;">This is my little corner of the internet where I showcase my work and projects.</p>
+                    
+                    <div class="under-construction">
+                        <img src="media/consbar.gif" alt="Construction Bar" style="margin: 0 10px;">
+                    </div>
+                    
+                    <marquee scrollamount="5">Check out my latest projects! More content coming soon!</marquee>
+                    
+                    <h2>About Me</h2>
+                    <p>I'm a <span>Computer Science Engineer</span> specializing in MIAGE (Computer Science Methods Applied to Business Management) with a passion for creating innovative tech solutions.</p>
+                    <p>I enjoy working with SQL, Python, JavaScript, and data analysis tools. I'm currently based in Casablanca, Morocco.</p>
+                    <p>Feel free to explore my website!</p>
+                    
+                    <div style="text-align: center; margin: 15px 0;">
+                        <a href="mailto:elmehdidarras@gmail.com"><img src="media/email.gif" alt="Email Me" style="margin: 0 10px;"></a>
+                    </div>
+                    
+                    <h2>My Projects</h2>
+                    <ul style="text-align: left; display: inline-block;">
+                        <li><a href="#">RAG System for Pulmonary Diagnostics</a> - Medical diagnostic support system using Retrieval Augmented Generation technology</li>
+                        <li><a href="#">F1 Race Strategy Analysis</a> - Formula 1 strategy analysis tool studying the impact of pit stops and tire wear</li>
+                        <li><a href="#">Data Center Monitoring System</a> - Real-time equipment monitoring system with alerts (current internship project)</li>
+                    </ul>
+                    
+                    <div class="rainbow-text">Thanks for visiting!</div>
+                    
+                    <div style="text-align: center; margin: 15px 0;">
+                        <img src="media/kittylink.gif" alt="Kitty Link" style="margin: 0 10px;">
+                        <img src="media/neko.gif" alt="Neko" style="margin: 0 10px;">
+                    </div>
+                </div>
+                
+                <!-- French Content -->
+                <div class="content-fr">
+                    <div class="rainbow-welcome">
+                        <span>B</span><span>i</span><span>e</span><span>n</span><span>v</span><span>e</span><span>n</span><span>u</span><span>e</span>
+                        <span> </span>
+                        <span>s</span><span>u</span><span>r</span>
+                        <span> </span>
+                        <span>m</span><span>a</span>
+                        <span> </span>
+                        <span>p</span><span>a</span><span>g</span><span>e</span><span>!</span>
+                    </div>
+                    
+                    <p style="text-align: center;">Salut les gens du web moderne!</p>
+                    
+                    <p style="text-align: center;">Je m'appelle ElMehdi Darras et voici ma page d'accueil style Web 1.0!</p>
+                    
+                    <p style="text-align: center;">Avant de commencer à vous plaindre du design, je n'en ai rien à <blink style="color: #ff0000; font-weight: bold;">FOUTRE</blink> c'est un site personnel!</p>
+                    
+                    <p style="text-align: center;">C'est mon petit coin d'internet où je présente mon travail et mes projets.</p>
+                    
+                    <div class="under-construction">
+                        <img src="media/consbar.gif" alt="Barre de Construction" style="margin: 0 10px;">
+                    </div>
+                    
+                    <marquee scrollamount="5">Découvrez mes derniers projets! Plus de contenu à venir!</marquee>
+                    
+                    <h2>À Propos de Moi</h2>
+                    <p>Je suis un <span>Ingénieur en Informatique</span> spécialisé en MIAGE (Méthodes Informatiques Appliquées à la Gestion des Entreprises) avec une passion pour la création de solutions technologiques innovantes.</p>
+                    <p>J'aime travailler avec SQL, Python, JavaScript et des outils d'analyse de données. Je suis actuellement basé à Casablanca, au Maroc.</p>
+                    <p>N'hésitez pas à explorer mon site web!</p>
+                    
+                    <div style="text-align: center; margin: 15px 0;">
+                        <a href="mailto:elmehdidarras@gmail.com"><img src="media/email.gif" alt="Envoyez-moi un Email" style="margin: 0 10px;"></a>
+                    </div>
+                    
+                    <h2>Mes Projets</h2>
+                    <ul style="text-align: left; display: inline-block;">
+                        <li><a href="#">Système RAG pour Diagnostics Pulmonaires</a> - Système de support au diagnostic médical utilisant la technologie de Génération Augmentée par Récupération</li>
+                        <li><a href="#">Analyse de Stratégie de Course F1</a> - Outil d'analyse de stratégie de Formule 1 étudiant l'impact des arrêts aux stands et de l'usure des pneus</li>
+                        <li><a href="#">Système de Surveillance de Centre de Données</a> - Système de surveillance d'équipement en temps réel avec alertes (projet de stage actuel)</li>
+                    </ul>
+                    
+                    <div class="rainbow-text">Merci de votre visite!</div>
+                    
+                    <div style="text-align: center; margin: 15px 0;">
+                        <img src="media/kittylink.gif" alt="Lien Chaton" style="margin: 0 10px;">
+                        <img src="media/neko.gif" alt="Neko" style="margin: 0 10px;">
+                    </div>
+                </div>
+                
+                <!-- Arabic Content -->
+                <div class="content-ar">
+                    <div class="rainbow-welcome">
+                        <span>م</span><span>ر</span><span>ح</span><span>ب</span><span>ا</span>
+                        <span> </span>
+                        <span>ب</span><span>ك</span>
+                        <span> </span>
+                        <span>ف</span><span>ي</span>
+                        <span> </span>
+                        <span>ص</span><span>ف</span><span>ح</span><span>ت</span><span>ي</span>
+                        <span>!</span>
+                    </div>
+                    
+                    <p style="text-align: center;">مرحبًا بمستخدمي الويب الحديث!</p>
+                    
+                    <p style="text-align: center;">اسمي المهدي ضراس وهذه هي صفحتي الشخصية بطراز الويب 1.0!</p>
+                    
+                    <p style="text-align: center;">قبل أن تبدأ بالشكوى من التصميم، أنا لا أعطي <blink style="color: #ff0000; font-weight: bold;">أي اهتمام</blink> إنها صفحة شخصية!</p>
+                    
+                    <p style="text-align: center;">هذه زاويتي الصغيرة من الإنترنت حيث أعرض أعمالي ومشاريعي.</p>
+                           
+                    <div class="under-construction">
+                        <img src="media/consbar.gif" alt="شريط الإنشاء" style="margin: 0 10px;">
+                    </div>
+                    
+                    <marquee scrollamount="5" direction="right">تحقق من أحدث مشاريعي! المزيد من المحتوى قريبًا!</marquee>
+                    
+                    <h2>عن نفسي</h2>
+                    <p>أنا <span>مهندس علوم الحاسوب</span> متخصص في MIAGE (أساليب المعلوماتية المطبقة على إدارة الأعمال) مع شغف لإنشاء حلول تقنية مبتكرة.</p>
+                    <p>أستمتع بالعمل مع SQL و Python و JavaScript وأدوات تحليل البيانات. أنا حاليًا مقيم في الدار البيضاء، المغرب.</p>
+                    <p>لا تتردد في استكشاف موقعي!</p>
+                    
+                    <div style="text-align: center; margin: 15px 0;">
+                        <a href="mailto:elmehdidarras@gmail.com"><img src="media/email.gif" alt="أرسل لي بريدًا إلكترونيًا" style="margin: 0 10px;"></a>
+                    </div>
+                    
+                    <h2>مشاريعي</h2>
+                    <ul style="text-align: right; display: inline-block;">
+                        <li><a href="#">نظام RAG للتشخيص الرئوي</a> - نظام دعم التشخيص الطبي باستخدام تقنية RAG</li>
+                        <li><a href="#">تحليل استراتيجية سباق الفورمولا 1</a> - أداة تحليل استراتيجية الفورمولا 1 لدراسة تأثير توقفات الصيانة وتآكل الإطارات</li>
+                        <li><a href="#">نظام مراقبة مركز البيانات</a> - نظام مراقبة المعدات في الوقت الحقيقي مع تنبيهات (مشروع التدريب الحالي)</li>
+                    </ul>
+                    
+                    <div class="rainbow-text">شكراً لزيارتك!</div>
+                    
+                    <div style="text-align: center; margin: 15px 0;">
+                        <img src="media/kittylink.gif" alt="رابط القطة" style="margin: 0 10px;">
+                        <img src="media/neko.gif" alt="قطة" style="margin: 0 10px;">
+                    </div>
+                </div>
+                
+                <!-- Common content for all languages -->
+                <div class="divider"></div>
+                
+                <div style="text-align: center; margin: 15px 0;">
+                    <img src="media/linux_powered.gif" alt="Linux Powered" style="margin: 0 10px;">
+                    <img src="media/madewithnotepad2.gif" alt="Made with Notepad" style="margin: 0 10px;">
+                    <img src="media/valid-html5.gif" alt="Valid HTML" style="margin: 0 10px;">
+                </div>
+                
+                <div style="text-align: center; margin: 15px 0;">
+                    <img src="media/netscape.gif" alt="Best viewed with Netscape" style="margin: 0 10px;">
+                    <img src="media/mozbutd1.gif" alt="Get Mozilla" style="margin: 0 10px;">
+                    <img src="media/ieburnbtn.gif" alt="IE Burn" style="margin: 0 10px;">
+                </div>
+            </div>
+            <div class="right-sidebar">
+                <div class="visitor-counter">
+                    <span data-en="You are visitor number:" data-fr="Vous êtes le visiteur numéro:" data-ar="أنت الزائر رقم:">You are visitor number:</span>
+                    <div>
+                        <span class="counter-digits">0</span>
+                        <span class="counter-digits">0</span>
+                        <span class="counter-digits">0</span>
+                        <span class="counter-digits">0</span>
+                        <span class="counter-digits">4</span>
+                        <span class="counter-digits">2</span>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <img src="media/perfectsoldier2.gif" alt="Perfect Soldier" style="height: 40px;">
+                    </div>
+                </div>
+                
+                <div class="qr-section">
+                    <h3 style="margin-top: 0; font-size: 14px;" data-en="Scan me:" data-fr="Scannez-moi:" data-ar="امسحني ضوئيًا:">Scan me:</h3>
+                    <div>
+                      <img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=BEGIN%3AVCARD%0AVERSION%3A2.1%0AFN%3AElMehdi+Darras%0AN%3ADarras%3BElMehdi%0ATEL%3BHOME%3BVOICE%3A%2B212698065096%0AEMAIL%3BHOME%3BINTERNET%3Aelmehdidarras%40gmail.com%0AURL%3Ahttps%3A%2F%2Fgithub.com%2FElMehdiDarras%0AEND%3AVCARD%0A&amp;qzone=1&amp;margin=0&amp;size=150x150&amp;ecc=L" alt="qr code" width="80" height="80" />
+                    </div>
+                    <div class="contact-buttons">
+                        <button class="contact-button" style="font-size: 11px; padding: 5px 8px;" data-en="Save" data-fr="Enregistrer" data-ar="حفظ">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple language switcher function
+        function switchLanguage(lang) {
+            // Save language preference
+            localStorage.setItem('preferred-language', lang);
+            
+            // Handle RTL for Arabic
+            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            
+            // Show correct language content
+            document.querySelectorAll('.content-en, .content-fr, .content-ar').forEach(function(element) {
+                element.style.display = 'none';
+            });
+            document.querySelectorAll('.content-' + lang).forEach(function(element) {
+                element.style.display = 'block';
+            });
+            
+            // Update all elements with data-* attributes
+            document.querySelectorAll('[data-' + lang + ']').forEach(function(element) {
+                element.textContent = element.getAttribute('data-' + lang);
+            });
+        }
+        
+        // Apply the saved language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set active navigation link
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav a').forEach(function(link) {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Load saved language or default to English
+            const savedLanguage = localStorage.getItem('preferred-language') || 'en';
+            switchLanguage(savedLanguage);
+        });
+    </script>
+    
+</body>
+</html>
