@@ -360,10 +360,8 @@
                     
                     <p style="text-align: center;">Hi modern web folks!</p>
                     
-                    <p style="text-align: center;">My name is ElMehdi Darras and this is my Web 1.0-style homepage!</p>
-                    
-                    <p style="text-align: center;">Before you start complaining about the design, I do not give a <blink style="color: #ff0000; font-weight: bold;">FUCK</blink> it's a personal site!</p>
-                    
+                    <p style="text-align: center;">My name is ElMehdi Darras and this is my personal website !</p>
+                                        
                     <p style="text-align: center;">This is my little corner of the internet where I showcase my work and projects.</p>
                     
                     <div class="under-construction">
@@ -373,8 +371,8 @@
                     <marquee scrollamount="5">Check out my latest projects! More content coming soon!</marquee>
                     
                     <h2>About Me</h2>
-                    <p>I'm a <span>Computer Science Engineer</span> specializing in MIAGE (Computer Science Methods Applied to Business Management) with a passion for creating innovative tech solutions.</p>
-                    <p>I enjoy working with SQL, Python, JavaScript, and data analysis tools. I'm currently based in Casablanca, Morocco.</p>
+                    <p>I'm a <span>Computer Science Engineer</span> specializing in MIAGE (Computer Science Methods Applied to Business Management).</p>
+                    <p>I enjoy working with SQL, Python, and data analysis tools. I'm currently based in Casablanca, Morocco.</p>
                     <p>Feel free to explore my website!</p>
                     
                     <div style="text-align: center; margin: 15px 0;">
@@ -461,10 +459,8 @@
                     
                     <p style="text-align: center;">مرحبًا بمستخدمي الويب الحديث!</p>
                     
-                    <p style="text-align: center;">اسمي المهدي ضراس وهذه هي صفحتي الشخصية بطراز الويب 1.0!</p>
-                    
-                    <p style="text-align: center;">قبل أن تبدأ بالشكوى من التصميم، أنا لا أعطي <blink style="color: #ff0000; font-weight: bold;">أي اهتمام</blink> إنها صفحة شخصية!</p>
-                    
+                    <p style="text-align: center;">اسمي المهدي ضراص وهذه هي صفحتي الشخصي!</p>
+                                        
                     <p style="text-align: center;">هذه زاويتي الصغيرة من الإنترنت حيث أعرض أعمالي ومشاريعي.</p>
                            
                     <div class="under-construction">
@@ -474,8 +470,8 @@
                     <marquee scrollamount="5" direction="right">تحقق من أحدث مشاريعي! المزيد من المحتوى قريبًا!</marquee>
                     
                     <h2>عن نفسي</h2>
-                    <p>أنا <span>مهندس علوم الحاسوب</span> متخصص في MIAGE (أساليب المعلوماتية المطبقة على إدارة الأعمال) مع شغف لإنشاء حلول تقنية مبتكرة.</p>
-                    <p>أستمتع بالعمل مع SQL و Python و JavaScript وأدوات تحليل البيانات. أنا حاليًا مقيم في الدار البيضاء، المغرب.</p>
+                    <p>أنا <span>مهندس علوم الحاسوب</span> متخصص في MIAGE (أساليب المعلوماتية المطبقة على إدارة الأعمال).</p>
+                    <p>أستمتع بالعمل مع SQL و Python وأدوات تحليل البيانات. أنا حاليًا مقيم في الدار البيضاء، المغرب.</p>
                     <p>لا تتردد في استكشاف موقعي!</p>
                     
                     <div style="text-align: center; margin: 15px 0;">
@@ -539,6 +535,20 @@
                 </div>
             </div>
         </div>
+        <div id="chat-container" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 320px; height: 400px; background-color: #f0f0f0; border: 2px solid #6600cc; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1000; overflow: hidden; font-family: 'Comic Sans MS', Arial, sans-serif;">
+            <div style="background-color: #6600cc; color: white; padding: 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
+                <span data-en="ElMehdi's Assistant" data-fr="Assistant d'ElMehdi" data-ar="مساعد المهدي">ElMehdi's Assistant</span>
+                <button onclick="toggleChat()" style="background: none; border: none; color: white; font-size: 16px; cursor: pointer;">✖</button>
+            </div>
+            <div id="chat-messages" style="height: 300px; overflow-y: auto; padding: 10px; background-color: white; display: flex; flex-direction: column; gap: 10px;"></div>
+            <div style="display: flex; padding: 10px; background-color: #f0f0f0; border-top: 1px solid #ccc;">
+                <input id="chat-input" type="text" placeholder="Ask about my portfolio..." style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-right: 5px;" onkeypress="if(event.key === 'Enter') sendMessage()">
+                <button onclick="sendMessage()" style="background: linear-gradient(to bottom, #9900cc, #6600cc); color: white; border: none; border-radius: 4px; padding: 8px 15px; cursor: pointer;">Send</button>
+            </div>
+        </div>
+        <div id="chat-toggle" onclick="toggleChat()" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: linear-gradient(to bottom, #9900cc, #6600cc); border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 10px rgba(0,0,0,0.3); cursor: pointer; z-index: 1000;">
+            <div style="color: white; font-size: 24px;">💬</div>
+        </div>
     </div>
 
     <script>
@@ -580,6 +590,201 @@
             const savedLanguage = localStorage.getItem('preferred-language') || 'en';
             switchLanguage(savedLanguage);
         });
+        // Chat Bot functionality
+let chatHistory = [
+    {
+        role: "system", 
+        content: `You are ElMehdi's portfolio assistant. You help visitors learn about ElMehdi Darras.
+        
+Here's information about ElMehdi:
+- Name: ElMehdi Darras
+- Profession: Computer Science Engineer specializing in MIAGE (Computer Science Methods Applied to Business Management)
+- Location: Casablanca, Morocco
+- Languages: Arabic, French, English
+
+Education:
+1. Engineering Degree in Computer Science and Networks - MIAGE specialization
+   - School: ÉCOLE MAROCAINE DES SCIENCES DE L'INGÉNIEUR (EMSI)
+   - Period: 2022 - 2025
+   - Details: Specialized in software engineering, network infrastructure. Currently completing final year projects.
+
+2. Specialized Technician in Computer Network Technologies
+   - School: OFFICE DE LA FORMATION PROFESSIONNELLE (OFPPT)
+   - Period: 2020 - 2022
+   - Details: Focused on network infrastructure, configuration, maintenance, routing, switching, and network security.
+
+Work Experience:
+1. Intern - Data Center Monitoring System
+   - Company: NetSense (Casablanca, Morocco)
+   - Period: March 2025 - Present
+   - Description: Development of a data center equipment monitoring system with real-time alerts.
+   - Technologies: Node.js, React, Socket.IO, and MongoDB for proactive detection of infrastructure incidents.
+
+2. Intern - Technical Incident Management
+   - Company: National Airports Office (ONDA) (Casablanca, Morocco)
+   - Period: July 2024 - August 2024
+   - Description: Design of a web application for technical incident management using Django.
+   - Details: Implementation of ticket assignment system, user management and detailed intervention tracking with comprehensive reports.
+
+Certifications:
+1. Data Analysis with SQL
+   - Issuer: Meta
+   - Date: January 2024
+   - Details: Professional certification focused on data analysis using SQL queries and database management.
+
+2. Machine Learning with Python
+   - Issuer: IBM
+   - Date: July 2023
+   - Details: Comprehensive certification covering machine learning algorithms and implementations.
+
+3. Python for Everybody
+   - Issuer: University of Michigan
+   - Date: February 2023
+   - Details: Specialized in Python programming fundamentals and advanced concepts.
+
+Projects:
+1. RAG System for Pulmonary Diagnostics
+   - Description: Medical diagnostic support system using Retrieval Augmented Generation technology.
+
+2. F1 Race Strategy Analysis
+   - Description: Formula 1 strategy analysis tool studying the impact of pit stops and tire wear.
+
+3. Data Center Monitoring System
+   - Description: Real-time equipment monitoring system with alerts (current internship project).
+
+Technical Skills:
+- Languages: SQL, Python, JavaScript
+- Databases: MongoDB
+- Data Science: Pandas
+- Visualization: PowerBI
+- Web: Node.js, React, Socket.IO, Django
+
+Keep your answers concise and friendly. If you don't know something specific about ElMehdi that wasn't mentioned above, politely say you don't have that information.`
+    }
+];
+
+function toggleChat() {
+    const chatContainer = document.getElementById('chat-container');
+    const isVisible = chatContainer.style.display === 'block';
+    chatContainer.style.display = isVisible ? 'none' : 'block';
+    
+    // If opening the chat for the first time, show welcome message
+    if (!isVisible && document.getElementById('chat-messages').children.length === 0) {
+        const currentLang = localStorage.getItem('preferred-language') || 'en';
+        let welcomeMessage = "";
+        
+        if (currentLang === 'ar') {
+            welcomeMessage = "مرحبًا! أنا مساعد ElMehdi. يمكنني الإجابة على أسئلتك حول تعليمه وخبرته المهنية ومشاريعه ومهاراته. ماذا تحب أن تعرف؟";
+        } else if (currentLang === 'fr') {
+            welcomeMessage = "Bonjour ! Je suis l'assistant d'ElMehdi. Je peux répondre à vos questions sur sa formation, son expérience professionnelle, ses projets et ses compétences. Que souhaitez-vous savoir ?";
+        } else {
+            welcomeMessage = "Hello! I'm ElMehdi's assistant. I can answer your questions about his education, work experience, projects, and skills. What would you like to know?";
+        }
+        
+        addBotMessage(welcomeMessage);
+    }
+}
+
+function addUserMessage(message) {
+    const chatMessages = document.getElementById('chat-messages');
+    const messageElement = document.createElement('div');
+    messageElement.style.alignSelf = 'flex-end';
+    messageElement.style.backgroundColor = '#e6f7ff';
+    messageElement.style.borderRadius = '10px';
+    messageElement.style.padding = '8px 12px';
+    messageElement.style.maxWidth = '80%';
+    messageElement.style.wordWrap = 'break-word';
+    messageElement.textContent = message;
+    chatMessages.appendChild(messageElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    chatHistory.push({ role: 'user', content: message });
+}
+
+function addBotMessage(message) {
+    const chatMessages = document.getElementById('chat-messages');
+    const messageElement = document.createElement('div');
+    messageElement.style.alignSelf = 'flex-start';
+    messageElement.style.backgroundColor = '#f0f0f0';
+    messageElement.style.borderRadius = '10px';
+    messageElement.style.padding = '8px 12px';
+    messageElement.style.maxWidth = '80%';
+    messageElement.style.wordWrap = 'break-word';
+    messageElement.textContent = message;
+    chatMessages.appendChild(messageElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    chatHistory.push({ role: 'assistant', content: message });
+}
+
+function addTypingIndicator() {
+    const chatMessages = document.getElementById('chat-messages');
+    const indicatorElement = document.createElement('div');
+    indicatorElement.id = 'typing-indicator';
+    indicatorElement.style.alignSelf = 'flex-start';
+    indicatorElement.style.backgroundColor = '#f0f0f0';
+    indicatorElement.style.borderRadius = '10px';
+    indicatorElement.style.padding = '8px 12px';
+    indicatorElement.style.marginTop = '5px';
+    indicatorElement.textContent = '...';
+    chatMessages.appendChild(indicatorElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function removeTypingIndicator() {
+    const typingIndicator = document.getElementById('typing-indicator');
+    if (typingIndicator) {
+        typingIndicator.remove();
+    }
+}
+
+async function sendMessage() {
+    const chatInput = document.getElementById('chat-input');
+    const message = chatInput.value.trim();
+    
+    if (message) {
+        addUserMessage(message);
+        chatInput.value = '';
+        
+        // Show typing indicator
+        addTypingIndicator();
+        
+        try {
+            const response = await callVercelAPI(message);
+            removeTypingIndicator();
+            addBotMessage(response);
+        } catch (error) {
+            removeTypingIndicator();
+            addBotMessage("Sorry, I encountered an error. Please try again later.");
+            console.error("Error calling API:", error);
+        }
+    }
+}
+
+async function callVercelAPI(message) {
+    try {
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: message,
+                history: chatHistory
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        return data.choices[0].message.content;
+    } catch (error) {
+        console.error("Error calling Vercel API:", error);
+        return "I'm sorry, I couldn't connect to my knowledge source. Please try again later.";
+    }
+}
     </script>
     
 </body>
