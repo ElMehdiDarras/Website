@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>ElMehdi's Homepage</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
     <link rel="icon" href="media/spinning_earth.gif" type="image/gif">
     <style>
@@ -16,6 +16,115 @@
             padding: 0;
             color: #000000;
         }
+        /* Mobile-first responsive design improvements */
+@media only screen and (max-width: 768px) {
+    /* General container */
+    .page-container {
+        width: 95% !important;
+        margin: 5px auto !important;
+        padding: 5px !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Header and title */
+    .title {
+        font-size: 32px !important;
+        transform: rotate(-2deg) !important;
+    }
+    
+    /* Navigation */
+    .nav {
+        padding: 5px 0 !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    .nav a {
+        display: inline-block !important;
+        margin: 3px 8px !important;
+        padding: 5px 8px !important;
+        font-size: 16px !important;
+    }
+    
+    /* Content areas */
+    .main-content {
+        flex-direction: column !important;
+    }
+    
+    .center-content, 
+    .right-sidebar,
+    .content {
+        width: 100% !important;
+        margin-right: 0 !important;
+        padding: 10px !important;
+    }
+    
+    /* Text scaling */
+    p, li {
+        font-size: 16px !important;
+    }
+    
+    /* Images responsiveness */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Chatbot adjustments for mobile */
+    #chat-container {
+        width: 90% !important;
+        height: 75vh !important;
+        right: 5% !important;
+        left: 5% !important;
+        bottom: 70px !important;
+    }
+    
+    #chat-messages {
+        height: calc(75vh - 100px) !important;
+    }
+    
+    #chat-toggle {
+        bottom: 10px !important;
+        right: 10px !important;
+    }
+    
+    /* Rainbow text and special elements */
+    .rainbow-welcome {
+        font-size: 24px !important;
+    }
+    
+    .rainbow-text {
+        font-size: 20px !important;
+    }
+    
+    /* Project and education items */
+    .education-item,
+    .work-item,
+    .cert-item {
+        padding: 10px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    /* Tables (if any) */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        width: 100% !important;
+    }
+}
+
+/* Small phones */
+@media only screen and (max-width: 480px) {
+    .title {
+        font-size: 28px !important;
+    }
+    
+    .nav a {
+        font-size: 14px !important;
+        margin: 2px 5px !important;
+    }
+}
         
         /* Responsive adjustments */
         @media only screen and (max-width: 800px) {
@@ -49,7 +158,8 @@
         }
         
         .page-container {
-            width: 800px;
+            width: 95%;
+            max-width: 800px;
             margin: 0 auto;
             background-color: #d3d3d3; /* Light gray background like in screenshot */
             border: 2px solid #000080;
@@ -535,20 +645,27 @@
                 </div>
             </div>
         </div>
-        <div id="chat-container" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 320px; height: 400px; background-color: #f0f0f0; border: 2px solid #6600cc; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1000; overflow: hidden; font-family: 'Comic Sans MS', Arial, sans-serif;">
-            <div style="background-color: #6600cc; color: white; padding: 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
-                <span data-en="ElMehdi's Assistant" data-fr="Assistant d'ElMehdi" data-ar="مساعد المهدي">ElMehdi's Assistant</span>
-                <button onclick="toggleChat()" style="background: none; border: none; color: white; font-size: 16px; cursor: pointer;">✖</button>
-            </div>
-            <div id="chat-messages" style="height: 300px; overflow-y: auto; padding: 10px; background-color: white; display: flex; flex-direction: column; gap: 10px;"></div>
-            <div style="display: flex; padding: 10px; background-color: #f0f0f0; border-top: 1px solid #ccc;">
-                <input id="chat-input" type="text" placeholder="Ask about my portfolio..." style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-right: 5px;" onkeypress="if(event.key === 'Enter') sendMessage()">
-                <button onclick="sendMessage()" style="background: linear-gradient(to bottom, #9900cc, #6600cc); color: white; border: none; border-radius: 4px; padding: 8px 15px; cursor: pointer;">Send</button>
-            </div>
+<!-- Chat Bot Interface - Mobile Optimized -->
+<div id="chat-container" style="display: none; position: fixed; bottom: 80px; right: 5%; left: 5%; width: 90%; height: 75vh; background-color: #f0f0f0; border: 2px solid #6600cc; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1000; overflow: hidden; font-family: 'Comic Sans MS', Arial, sans-serif;">
+    <div style="background-color: #6600cc; color: white; padding: 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
+        <span data-en="ElMehdi's Assistant" data-fr="Assistant d'ElMehdi" data-ar="مساعد المهدي">ElMehdi's Assistant</span>
+        <div>
+            <button onclick="resetChat()" style="background: none; border: 1px solid white; color: white; font-size: 12px; cursor: pointer; margin-right: 10px; padding: 2px 5px; border-radius: 3px;">Reset</button>
+            <button onclick="toggleChat()" style="background: none; border: none; color: white; font-size: 16px; cursor: pointer;">✖</button>
         </div>
-        <div id="chat-toggle" onclick="toggleChat()" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: linear-gradient(to bottom, #9900cc, #6600cc); border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 10px rgba(0,0,0,0.3); cursor: pointer; z-index: 1000;">
-            <div style="color: white; font-size: 24px;">💬</div>
-        </div>
+    </div>
+    <div id="chat-messages" style="height: calc(75vh - 100px); overflow-y: auto; padding: 10px; background-color: white; display: flex; flex-direction: column; gap: 10px;"></div>
+    <div style="display: flex; padding: 10px; background-color: #f0f0f0; border-top: 1px solid #ccc;">
+        <input id="chat-input" type="text" placeholder="Ask about my portfolio..." style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-right: 5px; font-size: 16px;" onkeypress="if(event.key === 'Enter') sendMessage()">
+        <button onclick="sendMessage()" style="background: linear-gradient(to bottom, #9900cc, #6600cc); color: white; border: none; border-radius: 4px; padding: 8px 15px; cursor: pointer; font-size: 16px;">Send</button>
+    </div>
+</div>
+
+<!-- Chat Bot Toggle Button -->
+<div id="chat-toggle" onclick="toggleChat()" style="position: fixed; bottom: 15px; right: 15px; width: 60px; height: 60px; background: linear-gradient(to bottom, #9900cc, #6600cc); border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 10px rgba(0,0,0,0.3); cursor: pointer; z-index: 1000;">
+    <div style="color: white; font-size: 24px;">💬</div>
+</div>
+
     </div>
 
     <script>
@@ -590,13 +707,16 @@
             const savedLanguage = localStorage.getItem('preferred-language') || 'en';
             switchLanguage(savedLanguage);
         });
-        // Chat Bot functionality
-let chatHistory = [
+        let chatHistory = [
     {
         role: "system", 
-        content: `You are ElMehdi's portfolio assistant. You help visitors learn about ElMehdi Darras.
-        
-Here's information about ElMehdi:
+        content: `You are ElMehdi's portfolio assistant. You help visitors learn ONLY about ElMehdi Darras and his professional information.
+
+IMPORTANT: Only answer questions related to ElMehdi's education, work experience, skills, certifications, or projects. For ANY other questions, politely explain that you're only able to provide information about ElMehdi Darras and his professional background. DO NOT provide instructions, tutorials, or advice on topics outside of ElMehdi's portfolio.
+
+Here's the only information you should use to answer questions:
+
+About ElMehdi:
 - Name: ElMehdi Darras
 - Profession: Computer Science Engineer specializing in MIAGE (Computer Science Methods Applied to Business Management)
 - Location: Casablanca, Morocco
@@ -659,9 +779,23 @@ Technical Skills:
 - Visualization: PowerBI
 - Web: Node.js, React, Socket.IO, Django
 
-Keep your answers concise and friendly. If you don't know something specific about ElMehdi that wasn't mentioned above, politely say you don't have that information.`
+Keep your answers concise, well-formatted with proper spacing, and friendly. Use clear formatting for better readability. If asked about anything not included in the above information, politely explain that you only have information about ElMehdi's professional background.`
     }
 ];
+
+// Parse and format message text with improved styling
+function formatMessageText(text) {
+    // Add support for basic formatting
+    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Bold
+    text = text.replace(/\*(.*?)\*/g, '<em>$1</em>'); // Italic
+    
+    // Split by paragraphs and add proper spacing
+    const paragraphs = text.split('\n');
+    return paragraphs
+        .filter(p => p.trim() !== '')
+        .map(p => `<p style="margin: 0 0 8px 0;">${p}</p>`)
+        .join('');
+}
 
 function toggleChat() {
     const chatContainer = document.getElementById('chat-container');
@@ -685,6 +819,29 @@ function toggleChat() {
     }
 }
 
+function resetChat() {
+    // Keep only the system message
+    chatHistory = chatHistory.slice(0, 1);
+    
+    // Clear the chat UI
+    const chatMessages = document.getElementById('chat-messages');
+    chatMessages.innerHTML = '';
+    
+    // Add welcome message again
+    const currentLang = localStorage.getItem('preferred-language') || 'en';
+    let welcomeMessage = "";
+    
+    if (currentLang === 'ar') {
+        welcomeMessage = "تم إعادة تعيين المحادثة. كيف يمكنني مساعدتك في معرفة المزيد عن ElMehdi؟";
+    } else if (currentLang === 'fr') {
+        welcomeMessage = "Conversation réinitialisée. Comment puis-je vous aider à en savoir plus sur ElMehdi ?";
+    } else {
+        welcomeMessage = "Conversation reset. How can I help you learn more about ElMehdi?";
+    }
+    
+    addBotMessage(welcomeMessage);
+}
+
 function addUserMessage(message) {
     const chatMessages = document.getElementById('chat-messages');
     const messageElement = document.createElement('div');
@@ -694,6 +851,7 @@ function addUserMessage(message) {
     messageElement.style.padding = '8px 12px';
     messageElement.style.maxWidth = '80%';
     messageElement.style.wordWrap = 'break-word';
+    messageElement.style.marginBottom = '8px';
     messageElement.textContent = message;
     chatMessages.appendChild(messageElement);
     chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -710,7 +868,9 @@ function addBotMessage(message) {
     messageElement.style.padding = '8px 12px';
     messageElement.style.maxWidth = '80%';
     messageElement.style.wordWrap = 'break-word';
-    messageElement.textContent = message;
+    messageElement.style.marginBottom = '8px';
+    messageElement.style.lineHeight = '1.4';
+    messageElement.innerHTML = formatMessageText(message);
     chatMessages.appendChild(messageElement);
     chatMessages.scrollTop = chatMessages.scrollHeight;
     
@@ -726,7 +886,23 @@ function addTypingIndicator() {
     indicatorElement.style.borderRadius = '10px';
     indicatorElement.style.padding = '8px 12px';
     indicatorElement.style.marginTop = '5px';
-    indicatorElement.textContent = '...';
+    indicatorElement.style.marginBottom = '8px';
+    
+    // Animated typing indicator
+    indicatorElement.innerHTML = '<span style="display: inline-block; width: 8px; height: 8px; background-color: #666; border-radius: 50%; animation: typing-dot 1.4s infinite; animation-delay: 0s;"></span>' +
+                         '<span style="display: inline-block; width: 8px; height: 8px; background-color: #666; border-radius: 50%; margin-left: 4px; animation: typing-dot 1.4s infinite; animation-delay: 0.2s;"></span>' +
+                         '<span style="display: inline-block; width: 8px; height: 8px; background-color: #666; border-radius: 50%; margin-left: 4px; animation: typing-dot 1.4s infinite; animation-delay: 0.4s;"></span>';
+    
+    // Add animation style
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes typing-dot {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-4px); }
+        }
+    `;
+    document.head.appendChild(style);
+    
     chatMessages.appendChild(indicatorElement);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
@@ -785,7 +961,35 @@ async function callVercelAPI(message) {
         return "I'm sorry, I couldn't connect to my knowledge source. Please try again later.";
     }
 }
-    </script>
+
+// Additional mobile-friendly improvements
+document.addEventListener('DOMContentLoaded', function() {
+    // Make buttons more touch-friendly
+    const allButtons = document.querySelectorAll('button, .nav a');
+    allButtons.forEach(button => {
+        // Adding minimum touch target size for better mobile experience
+        if (!button.style.minHeight) button.style.minHeight = '44px';
+        if (!button.style.minWidth) button.style.minWidth = '44px';
+    });
     
+    // Add touch-based scrolling for navigation on mobile
+    const nav = document.querySelector('.nav');
+    if (nav && window.innerWidth <= 768) {
+        nav.style.overflowX = 'auto';
+        nav.style.webkitOverflowScrolling = 'touch';
+        nav.style.scrollBehavior = 'smooth';
+    }
+    
+    // Adjust for mobile when orientation changes
+    window.addEventListener('orientationchange', function() {
+        // Adjust chat container height if open
+        const chatContainer = document.getElementById('chat-container');
+        if (chatContainer && chatContainer.style.display === 'block') {
+            chatContainer.style.height = '75vh';
+            document.getElementById('chat-messages').style.height = 'calc(75vh - 100px)';
+        }
+    });
+});
+    </script>
 </body>
 </html>
