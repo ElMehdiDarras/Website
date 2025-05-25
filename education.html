@@ -107,6 +107,25 @@
             background-color: #f8f8f8;
             border: 1px dashed #aaaaaa;
             text-align: left;
+            position: relative;
+        }
+        
+        .education-item.current::after {
+            content: "CURRENT!";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #00cc00;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 3px 8px;
+            font-size: 12px;
+            animation: blinker 1s step-end infinite;
+        }
+        
+        [dir="rtl"] .education-item.current::after {
+            right: auto;
+            left: 10px;
         }
         
         .education-degree {
@@ -129,6 +148,48 @@
         
         .education-description {
             margin-top: 10px;
+        }
+        
+        .achievement-box {
+            background-color: #ffffcc;
+            border: 2px dashed #ffcc00;
+            padding: 10px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .achievement-box h3 {
+            color: #cc6600;
+            margin-top: 0;
+        }
+        
+        .gpa-display {
+            font-size: 36px;
+            font-weight: bold;
+            color: #6600cc;
+            text-shadow: 2px 2px 0px #ff00ff;
+            display: inline-block;
+            margin: 10px;
+        }
+        
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .subject-card {
+            background-color: #f0f0f0;
+            border: 1px solid #cccccc;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        .subject-card h4 {
+            color: #000080;
+            margin: 0 0 5px 0;
         }
         
         .language-selector {
@@ -192,6 +253,49 @@
             margin: 10px 0;
         }
         
+        .academic-timeline {
+            border-left: 3px solid #6600cc;
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: "●";
+            position: absolute;
+            left: -28px;
+            color: #6600cc;
+            font-size: 20px;
+            background-color: #d3d3d3;
+            padding: 0 2px;
+        }
+        
+        .fun-facts {
+            background-color: #e6f7ff;
+            border: 2px dotted #0099cc;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .fun-facts h3 {
+            color: #0066cc;
+            margin-top: 0;
+        }
+        
+        .fun-facts ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .fun-facts li::before {
+            content: "🎓 ";
+            margin-right: 5px;
+        }
+        
         /* Hide content for different languages initially */
         .content-fr, .content-ar {
             display: none;
@@ -202,83 +306,16 @@
             text-align: right;
         }
         
-        /* Chat Bot Styling */
-        #chat-container {
-            display: none; 
-            position: fixed; 
-            bottom: 80px; 
-            right: 20px; 
-            width: 350px; 
-            height: 450px; 
-            background-color: #f0f0f0; 
-            border: 2px solid #6600cc; 
-            border-radius: 10px; 
-            box-shadow: 0 0 10px rgba(0,0,0,0.3); 
-            z-index: 1000; 
-            overflow: hidden; 
-            font-family: 'Comic Sans MS', Arial, sans-serif;
+        [dir="rtl"] .academic-timeline {
+            border-left: none;
+            border-right: 3px solid #6600cc;
+            padding-left: 0;
+            padding-right: 20px;
         }
         
-        #chat-header {
-            background-color: #6600cc; 
-            color: white; 
-            padding: 10px; 
-            font-weight: bold; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-        }
-        
-        #chat-messages {
-            height: 350px; 
-            overflow-y: auto; 
-            padding: 10px; 
-            background-color: white; 
-            display: flex; 
-            flex-direction: column; 
-            gap: 10px;
-        }
-        
-        #chat-input-container {
-            display: flex; 
-            padding: 10px; 
-            background-color: #f0f0f0; 
-            border-top: 1px solid #ccc;
-        }
-        
-        #chat-input {
-            flex: 1; 
-            padding: 8px; 
-            border: 1px solid #ccc; 
-            border-radius: 4px; 
-            margin-right: 5px;
-            font-size: 16px;
-        }
-        
-        #chat-send-btn {
-            background: linear-gradient(to bottom, #9900cc, #6600cc); 
-            color: white; 
-            border: none; 
-            border-radius: 4px; 
-            padding: 8px 15px; 
-            cursor: pointer;
-            font-size: 16px;
-        }
-        
-        #chat-toggle {
-            position: fixed; 
-            bottom: 20px; 
-            right: 20px; 
-            width: 60px; 
-            height: 60px; 
-            background: linear-gradient(to bottom, #9900cc, #6600cc); 
-            border-radius: 50%; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            box-shadow: 0 0 10px rgba(0,0,0,0.3); 
-            cursor: pointer; 
-            z-index: 1000;
+        [dir="rtl"] .timeline-item::before {
+            left: auto;
+            right: -28px;
         }
         
         /* Mobile Responsive Styling */
@@ -322,15 +359,7 @@
             }
             
             /* Content areas */
-            .main-content {
-                flex-direction: column !important;
-            }
-            
-            .center-content, 
-            .right-sidebar,
             .content {
-                width: 100% !important;
-                margin-right: 0 !important;
                 padding: 10px !important;
             }
             
@@ -348,6 +377,14 @@
                 font-size: 16px !important;
             }
             
+            .gpa-display {
+                font-size: 28px !important;
+            }
+            
+            .subjects-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
             /* Text scaling */
             p, li {
                 font-size: 16px !important;
@@ -362,24 +399,6 @@
             img {
                 max-width: 100% !important;
                 height: auto !important;
-            }
-            
-            /* Chat Bot mobile adjustments */
-            #chat-container {
-                width: 90% !important;
-                height: 75vh !important;
-                right: 5% !important;
-                left: 5% !important;
-                bottom: 70px !important;
-            }
-            
-            #chat-messages {
-                height: calc(75vh - 100px) !important;
-            }
-            
-            #chat-toggle {
-                bottom: 10px !important;
-                right: 10px !important;
             }
         }
         
@@ -400,22 +419,16 @@
                 font-size: 18px !important;
             }
             
+            .gpa-display {
+                font-size: 24px !important;
+            }
+            
             h1 {
                 font-size: 24px !important;
             }
             
             h2 {
                 font-size: 20px !important;
-            }
-            
-            /* Chat adjustments for very small screens */
-            #chat-input {
-                font-size: 14px !important;
-            }
-            
-            #chat-send-btn {
-                padding: 8px 10px !important;
-                font-size: 14px !important;
             }
         }
     </style>
@@ -442,116 +455,226 @@
             <a href="work.html" data-en="Work" data-fr="Travail" data-ar="العمل">Work</a>
             <a href="education.html" class="active" data-en="Education" data-fr="Éducation" data-ar="التعليم">Education</a>
             <a href="certifications.html" data-en="Certifications" data-fr="Certifications" data-ar="الشهادات">Certifications</a>
-            <a href="guestbook.html" data-en="Guestbook" data-fr="Livre d'or" data-ar="سجل الزوار">Guestbook</a>
         </div>
         
         <div class="content">
             <!-- English Content -->
             <div class="content-en">
-                <h1>My Education</h1>
-                <marquee scrollamount="5">Here's my educational background and achievements!</marquee>
+                <h1>My Educational Journey</h1>
+                <marquee scrollamount="5">📚 Follow my academic path through the years! 📚</marquee>
                 
-                <div class="education-item">
-                    <div class="education-degree">Engineering Degree in Computer Science and Networks - MIAGE specialization</div>
-                    <div class="education-school">ÉCOLE MAROCAINE DES SCIENCES DE L'INGÉNIEUR (EMSI)</div>
-                    <div class="education-period">2022 - 2025</div>
-                    <div class="education-description">
-                        <p>Specialized in Computer Science Methods Applied to Business Management (MIAGE).</p>
-                        <p>Developed expertise in software engineering, network infrastructure.</p>
-                        <p>Currently completing final year projects and internships.</p>
+                <div class="academic-timeline">
+                    <div class="timeline-item">
+                        <div class="education-item current">
+                            <div class="education-degree">Engineering Degree in Computer Science and Networks - MIAGE specialization</div>
+                            <div class="education-school">ÉCOLE MAROCAINE DES SCIENCES DE L'INGÉNIEUR (EMSI)</div>
+                            <div class="education-period">2022 - 2025</div>
+                            <div class="education-description">
+                                <p><strong>MIAGE:</strong> Computer Science Methods Applied to Business Management</p>
+                                <p>🎯 <strong>Specialization:</strong> Bridging the gap between IT and business management</p>
+                                <p>💻 <strong>Core Focus:</strong> Software engineering, network infrastructure, and enterprise systems</p>
+                                <p>🚀 <strong>Current Status:</strong> Final year - completing capstone projects and internships</p>
+                            </div>
+                            
+                            <h4>📋 Key Subjects Studied:</h4>
+                            <div class="subjects-grid">
+                                <div class="subject-card">
+                                    <h4>Software Engineering</h4>
+                                    <p>Object-Oriented Programming, Design Patterns, Agile Development</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>Network Infrastructure</h4>
+                                    <p>TCP/IP, Network Security, System Administration</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>Database Systems</h4>
+                                    <p>SQL, NoSQL, Data Modeling, Database Administration</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>Business Management</h4>
+                                    <p>Project Management, Business Process Analysis, IT Strategy</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>Data Analysis</h4>
+                                    <p>Statistics, Data Mining, Business Intelligence</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>Web Development</h4>
+                                    <p>Full-Stack Development, APIs, Modern Frameworks</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="education-item">
+                            <div class="education-degree">Specialized Technician in Computer Network Technologies</div>
+                            <div class="education-school">OFFICE DE LA FORMATION PROFESSIONNELLE (OFPPT)</div>
+                            <div class="education-period">2020 - 2022</div>
+                            <div class="education-description">
+                                <p>🌐 <strong>Focus:</strong> Network infrastructure, configuration, and maintenance</p>
+                                <p>🔧 <strong>Hands-on Experience:</strong> Routing, switching, and network security</p>
+                                <p>📡 <strong>Technologies:</strong> Cisco, Windows Server, Linux Administration</p>
+                                <p>🛡️ <strong>Security:</strong> Firewall configuration, VPN setup, Network monitoring</p>
+                            </div>
+                            
+                            <div class="achievement-box">
+                                <h3>🎖️ Technical Certifications Earned</h3>
+                                <p>✅ Cisco CCNA fundamentals</p>
+                                <p>✅ Microsoft Windows Server Administration</p>
+                                <p>✅ Linux System Administration</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="education-item">
-                    <div class="education-degree">Specialized Technician in Computer Network Technologies</div>
-                    <div class="education-school">OFFICE DE LA FORMATION PROFESSIONNELLE (OFPPT)</div>
-                    <div class="education-period">2020 - 2022</div>
-                    <div class="education-description">
-                        <p>Focused on network infrastructure, configuration, and maintenance.</p>
-                        <p>Gained hands-on experience with routing, switching, and network security.</p>
-                    </div>
-                </div>
-                
-                <div class="rainbow-text">Always learning new things!</div>
+                <div class="rainbow-text">Knowledge is power! 🧠⚡</div>
             </div>
             
             <!-- French Content -->
             <div class="content-fr">
-                <h1>Mon Éducation</h1>
-                <marquee scrollamount="5">Voici mon parcours éducatif et mes réalisations!</marquee>
+                <h1>Mon Parcours Éducatif</h1>
+                <marquee scrollamount="5">📚 Suivez mon chemin académique à travers les années! 📚</marquee>
                 
-                <div class="education-item">
-                    <div class="education-degree">Diplôme d'Ingénieur en Informatique et Réseaux - spécialisation MIAGE</div>
-                    <div class="education-school">ÉCOLE MAROCAINE DES SCIENCES DE L'INGÉNIEUR (EMSI)</div>
-                    <div class="education-period">2022 - 2025</div>
-                    <div class="education-description">
-                        <p>Spécialisé dans les Méthodes Informatiques Appliquées à la Gestion des Entreprises (MIAGE).</p>
-                        <p>Développement d'expertise en génie logiciel et infrastructure réseau.</p>
-                        <p>Actuellement en train de compléter les projets et stages de dernière année.</p>
+                <div class="academic-timeline">
+                    <div class="timeline-item">
+                        <div class="education-item current">
+                            <div class="education-degree">Diplôme d'Ingénieur en Informatique et Réseaux - spécialisation MIAGE</div>
+                            <div class="education-school">ÉCOLE MAROCAINE DES SCIENCES DE L'INGÉNIEUR (EMSI)</div>
+                            <div class="education-period">2022 - 2025</div>
+                            <div class="education-description">
+                                <p><strong>MIAGE:</strong> Méthodes Informatiques Appliquées à la Gestion des Entreprises</p>
+                                <p>🎯 <strong>Spécialisation:</strong> Faire le lien entre l'informatique et la gestion d'entreprise</p>
+                                <p>💻 <strong>Focus Principal:</strong> Génie logiciel, infrastructure réseau, et systèmes d'entreprise</p>
+                                <p>🚀 <strong>Statut Actuel:</strong> Dernière année - finalisation des projets de fin d'études et stages</p>
+                            </div>
+                            
+                            <h4>📋 Matières Principales Étudiées:</h4>
+                            <div class="subjects-grid">
+                                <div class="subject-card">
+                                    <h4>Génie Logiciel</h4>
+                                    <p>Programmation Orientée Objet, Patterns de Conception, Développement Agile</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>Infrastructure Réseau</h4>
+                                    <p>TCP/IP, Sécurité Réseau, Administration Système</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>Systèmes de Base de Données</h4>
+                                    <p>SQL, NoSQL, Modélisation de Données, Administration BD</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>Gestion d'Entreprise</h4>
+                                    <p>Gestion de Projet, Analyse des Processus, Stratégie IT</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>Analyse de Données</h4>
+                                    <p>Statistiques, Data Mining, Business Intelligence</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>Développement Web</h4>
+                                    <p>Développement Full-Stack, APIs, Frameworks Modernes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="education-item">
+                            <div class="education-degree">Technicien Spécialisé en Technologies des Réseaux Informatiques</div>
+                            <div class="education-school">OFFICE DE LA FORMATION PROFESSIONNELLE (OFPPT)</div>
+                            <div class="education-period">2020 - 2022</div>
+                            <div class="education-description">
+                                <p>🌐 <strong>Focus:</strong> Infrastructure réseau, configuration et maintenance</p>
+                                <p>🔧 <strong>Expérience Pratique:</strong> Routage, commutation et sécurité réseau</p>
+                                <p>📡 <strong>Technologies:</strong> Cisco, Windows Server, Administration Linux</p>
+                                <p>🛡️ <strong>Sécurité:</strong> Configuration firewall, VPN, surveillance réseau</p>
+                            </div>
+                            
+                            <div class="achievement-box">
+                                <h3>🎖️ Certifications Techniques Obtenues</h3>
+                                <p>✅ Fondamentaux Cisco CCNA</p>
+                                <p>✅ Administration Microsoft Windows Server</p>
+                                <p>✅ Administration Système Linux</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="education-item">
-                    <div class="education-degree">Technicien Spécialisé en Technologies des Réseaux Informatiques</div>
-                    <div class="education-school">OFFICE DE LA FORMATION PROFESSIONNELLE (OFPPT)</div>
-                    <div class="education-period">2020 - 2022</div>
-                    <div class="education-description">
-                        <p>Concentré sur l'infrastructure réseau, la configuration et la maintenance.</p>
-                        <p>Acquisition d'expérience pratique en routage, commutation et sécurité réseau.</p>
-                    </div>
-                </div>
-                
-                <div class="rainbow-text">Toujours en train d'apprendre de nouvelles choses!</div>
+                <div class="rainbow-text">La connaissance c'est le pouvoir! 🧠⚡</div>
             </div>
             
             <!-- Arabic Content -->
             <div class="content-ar" dir="rtl">
-                <h1>تعليمي</h1>
-                <marquee scrollamount="5" direction="right">إليك خلفيتي التعليمية وإنجازاتي!</marquee>
+                <h1>رحلتي التعليمية</h1>
+                <marquee scrollamount="5" direction="right">📚 تابع مساري الأكاديمي عبر السنين! 📚</marquee>
                 
-                <div class="education-item" style="text-align: right;">
-                    <div class="education-degree">شهادة هندسة في علوم الحاسوب والشبكات - تخصص MIAGE</div>
-                    <div class="education-school">المدرسة المغربية لعلوم المهندس (EMSI)</div>
-                    <div class="education-period">2022 - 2025</div>
-                    <div class="education-description">
-                        <p>متخصص في طرق المعلوماتية المطبقة على إدارة الأعمال (MIAGE).</p>
-                        <p>طورت خبرة في هندسة البرمجيات والبنية التحتية للشبكات.</p>
-                        <p>أكمل حاليًا مشاريع وتدريبات السنة النهائية.</p>
+                <div class="academic-timeline">
+                    <div class="timeline-item">
+                        <div class="education-item current" style="text-align: right;">
+                            <div class="education-degree">شهادة هندسة في علوم الحاسوب والشبكات - تخصص MIAGE</div>
+                            <div class="education-school">المدرسة المغربية لعلوم المهندس (EMSI)</div>
+                            <div class="education-period">2022 - 2025</div>
+                            <div class="education-description">
+                                <p><strong>MIAGE:</strong> طرق المعلوماتية المطبقة على إدارة الأعمال</p>
+                                <p>🎯 <strong>التخصص:</strong> ربط الفجوة بين تكنولوجيا المعلومات وإدارة الأعمال</p>
+                                <p>💻 <strong>التركيز الأساسي:</strong> هندسة البرمجيات والبنية التحتية للشبكات وأنظمة المؤسسات</p>
+                                <p>🚀 <strong>الوضع الحالي:</strong> السنة الأخيرة - إكمال مشاريع التخرج والتدريبات</p>
+                            </div>
+                              
+                            <h4>📋 المواد الأساسية المدروسة:</h4>
+                            <div class="subjects-grid">
+                                <div class="subject-card">
+                                    <h4>هندسة البرمجيات</h4>
+                                    <p>البرمجة الكائنية، أنماط التصميم، التطوير الرشيق</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>البنية التحتية للشبكات</h4>
+                                    <p>TCP/IP، أمن الشبكات، إدارة الأنظمة</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>أنظمة قواعد البيانات</h4>
+                                    <p>SQL، NoSQL، نمذجة البيانات، إدارة قواعد البيانات</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>إدارة الأعمال</h4>
+                                    <p>إدارة المشاريع، تحليل العمليات التجارية، استراتيجية تكنولوجيا المعلومات</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>تحليل البيانات</h4>
+                                    <p>الإحصاءات، استخراج البيانات، ذكاء الأعمال</p>
+                                </div>
+                                <div class="subject-card">
+                                    <h4>تطوير الويب</h4>
+                                    <p>التطوير الشامل، واجهات برمجة التطبيقات، الأطر الحديثة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="education-item" style="text-align: right;">
+                            <div class="education-degree">فني متخصص في تقنيات شبكات الحاسوب</div>
+                            <div class="education-school">مكتب التكوين المهني وإنعاش الشغل (OFPPT)</div>
+                            <div class="education-period">2020 - 2022</div>
+                            <div class="education-description">
+                                <p>🌐 <strong>التركيز:</strong> البنية التحتية للشبكات والتكوين والصيانة</p>
+                                <p>🔧 <strong>الخبرة العملية:</strong> التوجيه والتبديل وأمن الشبكات</p>
+                                <p>📡 <strong>التقنيات:</strong> سيسكو، ويندوز سيرفر، إدارة لينكس</p>
+                                <p>🛡️ <strong>الأمان:</strong> تكوين الجدار الناري، إعداد VPN، مراقبة الشبكة</p>
+                            </div>
+                            
+                            <div class="achievement-box">
+                                <h3>🎖️ الشهادات التقنية المحصل عليها</h3>
+                                <p>✅ أساسيات سيسكو CCNA</p>
+                                <p>✅ إدارة مايكروسوفت ويندوز سيرفر</p>
+                                <p>✅ إدارة نظام لينكس</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="education-item" style="text-align: right;">
-                    <div class="education-degree">فني متخصص في تقنيات شبكات الحاسوب</div>
-                    <div class="education-school">مكتب التكوين المهني وإنعاش الشغل (OFPPT)</div>
-                    <div class="education-period">2020 - 2022</div>
-                    <div class="education-description">
-                        <p>ركزت على البنية التحتية للشبكات وتكوينها وصيانتها.</p>
-                        <p>اكتسبت خبرة عملية في التوجيه والتبديل وأمن الشبكات.</p>
-                    </div>
-                </div>
-                
-                <div class="rainbow-text">أتعلم دائماً أشياء جديدة!</div>
-            </div>
-            
-            <!-- Chat Bot Interface - Mobile Optimized -->
-            <div id="chat-container">
-                <div id="chat-header">
-                    <span data-en="ElMehdi's Assistant" data-fr="Assistant d'ElMehdi" data-ar="مساعد المهدي">ElMehdi's Assistant</span>
-                    <div>
-                        <button onclick="resetChat()" style="background: none; border: 1px solid white; color: white; font-size: 12px; cursor: pointer; margin-right: 10px; padding: 5px 10px; border-radius: 3px; min-height: 30px;">Reset</button>
-                        <button onclick="toggleChat()" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer; padding: 5px; min-height: 30px; min-width: 30px;">✖</button>
-                    </div>
-                </div>
-                <div id="chat-messages"></div>
-                <div id="chat-input-container">
-                    <input id="chat-input" type="text" placeholder="Ask about my portfolio..." onkeypress="if(event.key === 'Enter') sendMessage()">
-                    <button id="chat-send-btn" onclick="sendMessage()">Send</button>
-                </div>
-            </div>
-            
-            <!-- Chat Bot Toggle Button - Mobile Optimized -->
-            <div id="chat-toggle" onclick="toggleChat()">
-                <div style="color: white; font-size: 24px;">💬</div>
+                <div class="rainbow-text">المعرفة قوة! 🧠⚡</div>
             </div>
         </div>
         
@@ -585,30 +708,6 @@
                     element.textContent = element.getAttribute('data-' + lang);
                 }
             });
-            
-            // Update chatbot placeholder text
-            const chatInput = document.getElementById('chat-input');
-            if (chatInput) {
-                if (lang === 'fr') {
-                    chatInput.placeholder = "Posez une question sur mon portfolio...";
-                } else if (lang === 'ar') {
-                    chatInput.placeholder = "اسأل عن محفظتي...";
-                } else {
-                    chatInput.placeholder = "Ask about my portfolio...";
-                }
-            }
-            
-            // Update chat send button text
-            const sendBtn = document.getElementById('chat-send-btn');
-            if (sendBtn) {
-                if (lang === 'fr') {
-                    sendBtn.textContent = "Envoyer";
-                } else if (lang === 'ar') {
-                    sendBtn.textContent = "إرسال";
-                } else {
-                    sendBtn.textContent = "Send";
-                }
-            }
         }
         
         // Set initial language based on saved preference or browser language
@@ -634,310 +733,7 @@
                 if (!button.style.minHeight) button.style.minHeight = '44px';
                 if (!button.style.minWidth) button.style.minWidth = '44px';
             });
-            
-            // Adjust for mobile when orientation changes
-            window.addEventListener('orientationchange', function() {
-                // Adjust chat container height if open
-                const chatContainer = document.getElementById('chat-container');
-                if (chatContainer && chatContainer.style.display === 'block') {
-                    if (window.innerWidth <= 768) {
-                        chatContainer.style.height = '75vh';
-                        document.getElementById('chat-messages').style.height = 'calc(75vh - 100px)';
-                    } else {
-                        chatContainer.style.height = '450px';
-                        document.getElementById('chat-messages').style.height = '350px';
-                    }
-                }
-            });
         });
-        
-        // ChatBot Functionality
-        let chatHistory = [
-            {
-                role: "system", 
-                content: `You are ElMehdi's portfolio assistant. You help visitors learn ONLY about ElMehdi Darras and his professional information.
-
-IMPORTANT: Only answer questions related to ElMehdi's education, work experience, skills, certifications, or projects. For ANY other questions, politely explain that you're only able to provide information about ElMehdi Darras and his professional background. DO NOT provide instructions, tutorials, or advice on topics outside of ElMehdi's portfolio.
-
-Here's the only information you should use to answer questions:
-
-About ElMehdi:
-- Name: ElMehdi Darras
-- Profession: Computer Science Engineer specializing in MIAGE (Computer Science Methods Applied to Business Management)
-- Location: Casablanca, Morocco
-- Languages: Arabic, French, English
-
-Education:
-1. Engineering Degree in Computer Science and Networks - MIAGE specialization
-   - School: ÉCOLE MAROCAINE DES SCIENCES DE L'INGÉNIEUR (EMSI)
-   - Period: 2022 - 2025
-   - Details: Specialized in software engineering, network infrastructure. Currently completing final year projects.
-
-2. Specialized Technician in Computer Network Technologies
-   - School: OFFICE DE LA FORMATION PROFESSIONNELLE (OFPPT)
-   - Period: 2020 - 2022
-   - Details: Focused on network infrastructure, configuration, maintenance, routing, switching, and network security.
-
-Work Experience:
-1. Intern - Data Center Monitoring System
-   - Company: NetSense (Casablanca, Morocco)
-   - Period: March 2025 - Present
-   - Description: Development of a data center equipment monitoring system with real-time alerts.
-   - Technologies: Node.js, React, Socket.IO, and MongoDB for proactive detection of infrastructure incidents.
-
-2. Intern - Technical Incident Management
-   - Company: National Airports Office (ONDA) (Casablanca, Morocco)
-   - Period: July 2024 - August 2024
-   - Description: Design of a web application for technical incident management using Django.
-   - Details: Implementation of ticket assignment system, user management and detailed intervention tracking with comprehensive reports.
-
-Certifications:
-1. Data Analysis with SQL
-   - Issuer: Meta
-   - Date: January 2024
-   - Details: Professional certification focused on data analysis using SQL queries and database management.
-
-2. Machine Learning with Python
-   - Issuer: IBM
-   - Date: July 2023
-   - Details: Comprehensive certification covering machine learning algorithms and implementations.
-
-3. Python for Everybody
-   - Issuer: University of Michigan
-   - Date: February 2023
-   - Details: Specialized in Python programming fundamentals and advanced concepts.
-
-Projects:
-1. RAG System for Pulmonary Diagnostics
-   - Description: Medical diagnostic support system using Retrieval Augmented Generation technology.
-
-2. F1 Race Strategy Analysis
-   - Description: Formula 1 strategy analysis tool studying the impact of pit stops and tire wear.
-
-3. Data Center Monitoring System
-   - Description: Real-time equipment monitoring system with alerts (current internship project).
-
-Technical Skills:
-- Languages: SQL, Python, JavaScript
-- Databases: MongoDB
-- Data Science: Pandas
-- Visualization: PowerBI
-- Web: Node.js, React, Socket.IO, Django
-
-Keep your answers concise, well-formatted with proper spacing, and friendly. Use clear formatting for better readability. If asked about anything not included in the above information, politely explain that you only have information about ElMehdi's professional background.`
-            }
-        ];
-
-        // Parse and format message text with improved styling
-        function formatMessageText(text) {
-            // Add support for basic formatting
-            text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Bold
-            text = text.replace(/\*(.*?)\*/g, '<em>$1</em>'); // Italic
-            
-            // Split by paragraphs and add proper spacing
-            const paragraphs = text.split('\n');
-            return paragraphs
-                .filter(p => p.trim() !== '')
-                .map(p => `<p style="margin: 0 0 8px 0;">${p}</p>`)
-                .join('');
-        }
-
-        function toggleChat() {
-            const chatContainer = document.getElementById('chat-container');
-            const isVisible = chatContainer.style.display === 'block';
-            chatContainer.style.display = isVisible ? 'none' : 'block';
-            
-            // If opening the chat for the first time, show welcome message
-            if (!isVisible && document.getElementById('chat-messages').children.length === 0) {
-                const currentLang = localStorage.getItem('preferred-language') || 'en';
-                let welcomeMessage = "";
-                
-                if (currentLang === 'ar') {
-                    welcomeMessage = "مرحبًا! أنا مساعد ElMehdi. يمكنني الإجابة على أسئلتك حول تعليمه وخبرته المهنية ومشاريعه ومهاراته. ماذا تحب أن تعرف؟";
-                } else if (currentLang === 'fr') {
-                    welcomeMessage = "Bonjour ! Je suis l'assistant d'ElMehdi. Je peux répondre à vos questions sur sa formation, son expérience professionnelle, ses projets et ses compétences. Que souhaitez-vous savoir ?";
-                } else {
-                    welcomeMessage = "Hello! I'm ElMehdi's assistant. I can answer your questions about his education, work experience, projects, and skills. What would you like to know?";
-                }
-                
-                addBotMessage(welcomeMessage);
-            }
-        }
-
-        function resetChat() {
-            // Keep only the system message
-            chatHistory = chatHistory.slice(0, 1);
-            
-            // Clear the chat UI
-            const chatMessages = document.getElementById('chat-messages');
-            chatMessages.innerHTML = '';
-            
-            // Add welcome message again
-            const currentLang = localStorage.getItem('preferred-language') || 'en';
-            let welcomeMessage = "";
-            
-            if (currentLang === 'ar') {
-                welcomeMessage = "تم إعادة تعيين المحادثة. كيف يمكنني مساعدتك في معرفة المزيد عن ElMehdi؟";
-            } else if (currentLang === 'fr') {
-                welcomeMessage = "Conversation réinitialisée. Comment puis-je vous aider à en savoir plus sur ElMehdi ?";
-            } else {
-                welcomeMessage = "Conversation reset. How can I help you learn more about ElMehdi?";
-            }
-            
-            addBotMessage(welcomeMessage);
-        }
-
-        function addUserMessage(message) {
-            const chatMessages = document.getElementById('chat-messages');
-            const messageElement = document.createElement('div');
-            messageElement.style.alignSelf = 'flex-end';
-            messageElement.style.backgroundColor = '#e6f7ff';
-            messageElement.style.borderRadius = '10px';
-            messageElement.style.padding = '8px 12px';
-            messageElement.style.maxWidth = '80%';
-            messageElement.style.wordWrap = 'break-word';
-            messageElement.style.marginBottom = '8px';
-            messageElement.textContent = message;
-            chatMessages.appendChild(messageElement);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            
-            chatHistory.push({ role: 'user', content: message });
-        }
-
-        function addBotMessage(message) {
-            const chatMessages = document.getElementById('chat-messages');
-            const messageElement = document.createElement('div');
-            messageElement.style.alignSelf = 'flex-start';
-            messageElement.style.backgroundColor = '#f0f0f0';
-            messageElement.style.borderRadius = '10px';
-            messageElement.style.padding = '8px 12px';
-            messageElement.style.maxWidth = '80%';
-            messageElement.style.wordWrap = 'break-word';
-            messageElement.style.marginBottom = '8px';
-            messageElement.style.lineHeight = '1.4';
-            messageElement.innerHTML = formatMessageText(message);
-            chatMessages.appendChild(messageElement);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            
-            chatHistory.push({ role: 'assistant', content: message });
-        }
-
-        function addTypingIndicator() {
-            const chatMessages = document.getElementById('chat-messages');
-            const indicatorElement = document.createElement('div');
-            indicatorElement.id = 'typing-indicator';
-            indicatorElement.style.alignSelf = 'flex-start';
-            indicatorElement.style.backgroundColor = '#f0f0f0';
-            indicatorElement.style.borderRadius = '10px';
-            indicatorElement.style.padding = '8px 12px';
-            indicatorElement.style.marginTop = '5px';
-            indicatorElement.style.marginBottom = '8px';
-            
-            // Animated typing indicator
-            indicatorElement.innerHTML = '<span style="display: inline-block; width: 8px; height: 8px; background-color: #666; border-radius: 50%; animation: typing-dot 1.4s infinite; animation-delay: 0s;"></span>' +
-                             '<span style="display: inline-block; width: 8px; height: 8px; background-color: #666; border-radius: 50%; margin-left: 4px; animation: typing-dot 1.4s infinite; animation-delay: 0.2s;"></span>' +
-                             '<span style="display: inline-block; width: 8px; height: 8px; background-color: #666; border-radius: 50%; margin-left: 4px; animation: typing-dot 1.4s infinite; animation-delay: 0.4s;"></span>';
-            
-            // Add animation style
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes typing-dot {
-                    0%, 60%, 100% { transform: translateY(0); }
-                    30% { transform: translateY(-4px); }
-                }
-            `;
-            document.head.appendChild(style);
-            
-            chatMessages.appendChild(indicatorElement);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function removeTypingIndicator() {
-            const typingIndicator = document.getElementById('typing-indicator');
-            if (typingIndicator) {
-                typingIndicator.remove();
-            }
-        }
-
-        async function sendMessage() {
-            const chatInput = document.getElementById('chat-input');
-            const message = chatInput.value.trim();
-            
-            if (message) {
-                addUserMessage(message);
-                chatInput.value = '';
-                
-                // Show typing indicator
-                addTypingIndicator();
-                
-                try {
-                    const response = await generateSimpleResponse(message);
-                    removeTypingIndicator();
-                    addBotMessage(response);
-                } catch (error) {
-                    removeTypingIndicator();
-                    addBotMessage("Sorry, I encountered an error. Please try again later.");
-                    console.error("Error generating response:", error);
-                }
-            }
-        }
-
-        // Simple function to simulate API response (since we don't have a backend)
-        function generateSimpleResponse(message) {
-            // Simple rule-based responses
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    const lowerMsg = message.toLowerCase();
-                    
-                    // Education related questions
-                    if (lowerMsg.includes('education') || lowerMsg.includes('study') || lowerMsg.includes('degree') || lowerMsg.includes('school') || lowerMsg.includes('university')) {
-                        resolve("ElMehdi has an Engineering Degree in Computer Science and Networks with MIAGE specialization from EMSI (2022-2025), and a Specialized Technician degree in Computer Network Technologies from OFPPT (2020-2022).");
-                    } 
-                    // Work experience questions
-                    else if (lowerMsg.includes('work') || lowerMsg.includes('job') || lowerMsg.includes('career') || lowerMsg.includes('experience') || lowerMsg.includes('intern')) {
-                        resolve("ElMehdi is currently an intern at NetSense (March 2025-Present) developing a data center monitoring system. He also worked as an intern at the National Airports Office (ONDA) from July-August 2024, designing a web application for technical incident management.");
-                    } 
-                    // Skills questions
-                    else if (lowerMsg.includes('skill') || lowerMsg.includes('know') || lowerMsg.includes('technology') || lowerMsg.includes('tech') || lowerMsg.includes('can you do')) {
-                        resolve("ElMehdi's technical skills include:\n- Languages: SQL, Python, JavaScript\n- Databases: MongoDB\n- Data Science: Pandas\n- Visualization: PowerBI\n- Web Technologies: Node.js, React, Socket.IO, Django");
-                    } 
-                    // Certifications questions
-                    else if (lowerMsg.includes('certification') || lowerMsg.includes('certificate') || lowerMsg.includes('qualified')) {
-                        resolve("ElMehdi has three main certifications:\n1. Data Analysis with SQL from Meta (January 2024)\n2. Machine Learning with Python from IBM (July 2023)\n3. Python for Everybody from University of Michigan (February 2023)");
-                    } 
-                    // Projects questions
-                    else if (lowerMsg.includes('project') || lowerMsg.includes('portfolio') || lowerMsg.includes('built') || lowerMsg.includes('create') || lowerMsg.includes('develop')) {
-                        resolve("ElMehdi has worked on several projects including:\n1. RAG System for Pulmonary Diagnostics - A medical support system\n2. F1 Race Strategy Analysis - Analyzing pit stops and tire wear impact\n3. Data Center Monitoring System - His current internship project with real-time alerts");
-                    } 
-                    // Contact questions
-                    else if (lowerMsg.includes('contact') || lowerMsg.includes('email') || lowerMsg.includes('phone') || lowerMsg.includes('reach')) {
-                        resolve("You can contact ElMehdi via email at elmehdidarras@gmail.com.");
-                    } 
-                    // Location questions
-                    else if (lowerMsg.includes('where') || lowerMsg.includes('location') || lowerMsg.includes('country') || lowerMsg.includes('city') || lowerMsg.includes('live')) {
-                        resolve("ElMehdi is based in Casablanca, Morocco.");
-                    } 
-                    // Off-topic questions
-                    else if (lowerMsg.includes('weather') || lowerMsg.includes('movie') || lowerMsg.includes('restaurant') || 
-                            lowerMsg.includes('politics') || lowerMsg.includes('sports') || lowerMsg.includes('game') ||
-                            lowerMsg.includes('help me with') || lowerMsg.includes('how do I') || lowerMsg.includes('can you tell me how')) {
-                        resolve("I'm sorry, I can only provide information about ElMehdi Darras and his professional background. I don't have information about other topics or general knowledge.");
-                    } 
-                    // General questions about ElMehdi
-                    else if (lowerMsg.includes('who') || lowerMsg.includes('about') || lowerMsg.includes('tell me') || lowerMsg.includes('elmehdi')) {
-                        resolve("ElMehdi Darras is a Computer Science Engineer specializing in MIAGE (Computer Science Methods Applied to Business Management) based in Casablanca, Morocco. He speaks Arabic, French, and English. His expertise includes SQL, Python, JavaScript, and data analysis tools. He's currently working on a data center monitoring system as part of his internship at NetSense.");
-                    } 
-                    // Language related questions
-                    else if (lowerMsg.includes('language') || lowerMsg.includes('speak') || lowerMsg.includes('fluent')) {
-                        resolve("ElMehdi speaks Arabic, French, and English fluently.");
-                    } 
-                    // Vague or unrecognized questions
-                    else {
-                        resolve("I'm here to tell you about ElMehdi Darras. You can ask about his education, work experience, skills, certifications, or projects. How can I help you learn more about his professional background?");
-                    }
-                }, 1000); // 1-second delay to simulate processing
-            });
-        }
     </script>
 </body>
 </html>

@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Data Center Monitoring System - ElMehdi's Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="icon" href="media/spinning_earth.gif" type="image/gif">
+    <style>
+        body {
+            /* Space background */
+            background-image: url("media/space.gif");
+            background-color: #000033; /* Dark blue fallback */
+            background-repeat: repeat;
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000000;
+        }
+        
+        /* Page container - Mobile-first approach */
+        .page-container {
+            width: 95%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #d3d3d3; /* Light gray background like in screenshot */
+            border: 2px solid #000080;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .title {
+            font-size: 40px;
+            font-weight: bold;
+            text-shadow: 3px 3px 0px #ff00ff, 6px 6px 0px #9900cc;
+            color: #6600cc;
+            margin: 20px 0;
+            transform: rotate(-5deg);
+            display: inline-block;
+        }
+        
+        .sparkles {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+            font-size: 20px;
+            color: #ffcc00;
+        }
+        
+        .nav {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #ffffff;
+            border: 1px solid #000080;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+        
+        .nav::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome/Safari */
+        }
+        
+        .nav a {
+            font-size: 20px;
+            color: #000080;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+            padding: 5px 10px;
+            display: inline-block;
+            min-height: 44px; /* Better touch target */
+            line-height: 34px; /* Center text vertically */
+            box-sizing: border-box;
+        }
+        
+        .nav a:hover {
+            background-color: #ccffff;
+            border: 1px dashed #0000ff;
+        }
+        
+        .nav a.active {
+            background-color: #6600cc;
+            color: white;
+            border-bottom: 3px solid #ff00ff;
+        }
+        
+        .content {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            padding: 20px;
+        }
+        
+        .project-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .project-title {
+            font-size: 36px;
+            color: #6600cc;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px #ff00ff;
+        }
+        
+        .project-subtitle {
+            font-size: 18px;
+            color: #666666;
+            font-style: italic;
+        }
+        
+        .project-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #6600cc;
+            border-bottom: 2px dashed #9900cc;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .collaborator-card {
+            background-color: #f8f8f8;
+            border: 1px dashed #aaaaaa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        
+        .collaborator-name {
+            font-size: 20px;
+            color: #6600cc;
+            margin-bottom: 5px;
+        }
+        
+        .collaborator-role {
+            font-size: 16px;
+            color: #000080;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .feature-box {
+            background-color: #f0f0f0;
+            border: 1px solid #cccccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        
+        .feature-title {
+            font-size: 18px;
+            color: #6600cc;
+            margin-bottom: 10px;
+        }
+        
+        .tech-tags {
+            margin: 20px 0;
+        }
+        
+        .tech-tag {
+            display: inline-block;
+            background-color: #6600cc;
+            color: white;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        
+        .achievement-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .achievement-list li {
+            background-color: #f8f8f8;
+            border: 1px solid #dddddd;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        .achievement-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 10px;
+            color: #6600cc;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .project-links {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .project-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: linear-gradient(to bottom, #9900cc, #6600cc);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.4);
+        }
+        
+        .project-gallery {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .gallery-image {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #6600cc;
+            margin-bottom: 10px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .related-projects {
+            margin-top: 40px;
+        }
+        
+        .related-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .related-project {
+            width: 200px;
+            background-color: #f8f8f8;
+            border: 1px solid #cccccc;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        .related-project img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #cccccc;
+        }
+        
+        .related-project h3 {
+            font-size: 16px;
+            color: #6600cc;
+            margin: 10px 0;
+        }
+        
+        .language-selector {
+            text-align: right;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .language-selector a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #0000ff;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-block;
+            min-height: 44px; /* Better touch target */
+            line-height: 44px; /* Center text vertically */
+        }
+        
+        .language-selector a:hover {
+            text-decoration: underline;
+        }
+        
+        .divider {
+            height: 5px;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            margin: 20px 0;
+        }
+        
+        .rainbow-text {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: rainbow 5s infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            56% { color: blue; }
+            70% { color: indigo; }
+            84% { color: violet; }
+            100% { color: red; }
+        }
+        
+        .blink {
+            animation: blinker 1s step-end infinite;
+        }
+        
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .modal-content {
+            position: relative;
+            background-color: #222;
+            color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #6600cc;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 0 20px rgba(102, 0, 204, 0.5);
+        }
+        
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close-button:hover {
+            color: white;
+        }
+        
+        .modal-title {
+            color: #6600cc;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #444;
+        }
+        
+        .demo-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .demo-video {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .no-video {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background-color: #444;
+            border-radius: 5px;
+        }
+        
+        .no-video img {
+            width: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .demo-info h3 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+        
+        .demo-info ul {
+            padding-left: 20px;
+        }
+        
+        .demo-info li {
+            margin-bottom: 10px;
+        }
+        
+        .demo-note {
+            font-style: italic;
+            margin-top: 20px;
+            color: #aaa;
+        }
+        
+        /* Hide content for different languages initially */
+        .content-fr, .content-ar {
+            display: none;
+        }
+        
+        /* Additional style for RTL content */
+        [dir="rtl"] .content-ar {
+            text-align: right;
+        }
+        
+        /* Mobile Responsive Styling */
+        @media only screen and (max-width: 768px) {
+            /* General container */
+            .page-container {
+                width: 95% !important;
+                margin: 5px auto !important;
+                padding: 5px !important;
+                overflow-x: hidden !important;
+            }
+            
+            /* Header and title */
+            .title {
+                font-size: 32px !important;
+                transform: rotate(-2deg) !important;
+            }
+            
+            .sparkles {
+                font-size: 16px !important;
+                top: 10px !important;
+                left: 40px !important;
+            }
+            
+            .sparkles:last-child {
+                right: 40px !important;
+                left: auto !important;
+            }
+            
+            /* Navigation */
+            .nav {
+                padding: 5px 0 !important;
+            }
+            
+            .nav a {
+                margin: 3px 8px !important;
+                padding: 5px 8px !important;
+                font-size: 16px !important;
+                min-height: 40px !important;
+                line-height: 30px !important;
+            }
+            
+            /* Content areas */
+            .content {
+                padding: 10px !important;
+            }
+            
+            .project-title {
+                font-size: 28px !important;
+            }
+            
+            .section-title {
+                font-size: 22px !important;
+            }
+            
+            /* Related projects */
+            .related-box {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            
+            .related-project {
+                width: 90% !important;
+            }
+            
+            /* Text scaling */
+            p, li {
+                font-size: 16px !important;
+            }
+            
+            /* Rainbow text and special elements */
+            .rainbow-text {
+                font-size: 20px !important;
+            }
+            
+            /* Images responsiveness */
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+        }
+        
+        /* Small phones */
+        @media only screen and (max-width: 480px) {
+            .title {
+                font-size: 28px !important;
+            }
+            
+            .nav a {
+                font-size: 14px !important;
+                margin: 2px 5px !important;
+                min-height: 36px !important;
+                line-height: 26px !important;
+            }
+            
+            .project-title {
+                font-size: 24px !important;
+            }
+            
+            .section-title {
+                font-size: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Language selector simplified -->
+        <div class="language-selector">
+            <a onclick="switchLanguage('en')" data-en="English" data-fr="Anglais" data-ar="الإنجليزية">English</a> |
+            <a onclick="switchLanguage('fr')" data-en="French" data-fr="Français" data-ar="الفرنسية">Français</a> |
+            <a onclick="switchLanguage('ar')" data-en="Arabic" data-fr="Arabe" data-ar="العربية">العربية</a>
+        </div>
+
+        <!-- Header with sparkles -->
+        <div class="header">
+            <div class="sparkles">✧･ﾟ: *✧･ﾟ:* ✧･ﾟ: *✧･ﾟ:*</div>
+            <div class="title" data-en="Data Center Project" data-fr="Projet Centre de Données" data-ar="مشروع مركز البيانات">Data Center Project</div>
+            <div class="sparkles" style="left: auto; right: 80px;">*:･ﾟ✧*:･ﾟ✧ *:･ﾟ✧*:･ﾟ✧</div>
+        </div>
+
+        <!-- Navigation bar -->
+        <div class="nav">
+            <a href="index.html" data-en="Home" data-fr="Accueil" data-ar="الرئيسية">Home</a>
+            <a href="work.html" data-en="Work" data-fr="Travail" data-ar="العمل">Work</a>
+            <a href="education.html" data-en="Education" data-fr="Éducation" data-ar="التعليم">Education</a>
+            <a href="certifications.html" data-en="Certifications" data-fr="Certifications" data-ar="الشهادات">Certifications</a>
+        </div>
+        
+        <div class="content">
+            <!-- English Content -->
+            <div class="content-en">
+                <div class="project-header">
+                    <h1 class="project-title">Data Center Monitoring System</h1>
+                    <p class="project-subtitle">Real-time equipment monitoring system with alerts for proactive detection of infrastructure incidents</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Project Overview</h2>
+                    <p>The Data Center Monitoring System is a modern solution developed to replace an obsolete environmental alarm supervision system (AlarmManager) at Maroc Telecom. This new system provides real-time monitoring of critical environmental conditions across multiple data center sites, with immediate alerts for any detected anomalies.</p>
+                    <p>The platform uses a microservices architecture with high availability (1+1 geographic redundancy) to ensure continuous operation even in the event of a site failure. The system integrates with existing BF2300 monitoring boxes deployed across 15 different sites while providing a modern, intuitive interface for operators to efficiently manage alarms.</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Team & Collaborators</h2>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">ElMehdi Darras</h3>
+                        <p class="collaborator-role">Solo Developer</p>
+                        <p>Sole developer responsible for the entire project implementation, including frontend, backend, and infrastructure setup. Designed and developed the complete system architecture, monitoring interface, and real-time notification system using React, Node.js, and Socket.IO. Also handled database design, API development, and deployment of the high-availability infrastructure.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Key Features</h2>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Real-time Monitoring & Alerts</h3>
+                        <p>The system continuously monitors environmental conditions across all sites, including temperature, power supply, cooling systems, and security parameters. When anomalies are detected, instant notifications are sent through multiple channels (web interface, email, SMS) with appropriate escalation based on severity.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Geographical Site Visualization</h3>
+                        <p>Interactive map showing all monitored sites with color-coded status indicators. Operators can quickly identify problem areas and drill down for detailed information about specific sites or equipment.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">High Availability Architecture</h3>
+                        <p>The system is designed with 1+1 geographic redundancy, ensuring 99.995% availability (less than 26 minutes of downtime per year). Automatic failover mechanisms redirect traffic to the redundant site in case of primary site failure.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Multi-level User Management</h3>
+                        <p>Role-based access control system with three user levels: Agents (site-specific access), Supervisors (multi-site monitoring), and Administrators (complete system configuration). Each role has appropriate permissions and customized views.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Technical Implementation</h2>
+                    <p>The Data Center Monitoring System was developed using a modern technology stack with a focus on reliability, scalability, and real-time performance:</p>
+                    
+                    <h3>Technology Stack</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">Socket.IO</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Redux</span>
+                        <span class="tech-tag">Material UI</span>
+                        <span class="tech-tag">JWT</span>
+                        <span class="tech-tag">Chart.js</span>
+                    </div>
+                    
+                    <h3>System Architecture</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> React.js application with Material UI components and Redux for state management. Real-time updates using Socket.IO client for instant alarm visibility.</li>
+                        <li><strong>Backend:</strong> Node.js with Express.js providing RESTful APIs and Socket.IO for bidirectional communication. Microservices architecture for modularity and scalability.</li>
+                        <li><strong>Database:</strong> MongoDB with geographic replication for high availability and data integrity. Designed for efficient storage of alarm history and configuration data.</li>
+                        <li><strong>Connectivity:</strong> Custom TCP/IP communication protocols with the existing BF2300 monitoring boxes on port 50000, maintaining backward compatibility.</li>
+                        <li><strong>Infrastructure:</strong> Deployed on redundant Dell PowerEdge R250 servers across two geographic locations with automated failover mechanisms.</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Project Gallery</h2>
+                    <div class="project-gallery">
+                        <img class="gallery-image" src="media/datacenter-dashboard.png" alt="Data Center Dashboard">
+                        <p>Main monitoring dashboard showing site status overview and active alarms</p>
+                        
+                        <img class="gallery-image" src="media/datacenter-map.png" alt="Geographic Site Map">
+                        <p>Interactive geographic map visualization of monitored sites</p>
+                        
+                        <img class="gallery-image" src="media/datacenter-sitedetail.png" alt="Site Detail View">
+                        <p>Detailed view of site configuration and connected equipment</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Key Achievements</h2>
+                    <ul class="achievement-list">
+                        <li>Successfully migrated from the legacy AlarmManager system without service interruption across 11 sites</li>
+                        <li>Reduced alarm response time by 68% through instant multi-channel notifications</li>
+                        <li>Implemented a scalable solution capable of handling up to 100 simultaneous alarms without performance degradation</li>
+                        <li>Designed a comprehensive reporting system for trend analysis and proactive maintenance planning</li>
+                    </ul>
+                </div>
+                
+                
+                <div class="project-section related-projects">
+                    <h2 class="section-title">Related Projects</h2>
+                    <div class="related-box">
+                        <div class="related-project">
+                            <img src="media/Introduction.png" alt="RAG System for Pulmonary Diagnostics">
+                            <h3>RAG System for Pulmonary Diagnostics</h3>
+                            <a href="project-rag.html">View Project</a>
+                        </div>
+                        <div class="related-project">
+                            <img src="media/f1-project-thumb.png" alt="F1 Race Strategy Analysis">
+                            <h3>F1 Race Strategy Analysis</h3>
+                            <a href="project-f1.html">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">Thanks for checking out my project!</div>
+            </div>
+            
+            <!-- French Content -->
+            <div class="content-fr">
+                <div class="project-header">
+                    <h1 class="project-title">Système de Surveillance de Centre de Données</h1>
+                    <p class="project-subtitle">Système de surveillance d'équipement en temps réel avec alertes pour la détection proactive des incidents d'infrastructure</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Aperçu du Projet</h2>
+                    <p>Le Système de Surveillance de Centre de Données est une solution moderne développée pour remplacer un système obsolète de supervision d'alarmes environnementales (AlarmManager) chez Maroc Telecom. Ce nouveau système fournit une surveillance en temps réel des conditions environnementales critiques sur plusieurs sites de centres de données, avec des alertes immédiates pour toute anomalie détectée.</p>
+                    <p>La plateforme utilise une architecture de microservices avec haute disponibilité (redondance géographique 1+1) pour assurer un fonctionnement continu même en cas de défaillance d'un site. Le système s'intègre aux boîtiers de surveillance BF2300 existants déployés sur 15 sites différents tout en fournissant une interface moderne et intuitive permettant aux opérateurs de gérer efficacement les alarmes.</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Équipe et Collaborateurs</h2>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">ElMehdi Darras</h3>
+                        <p class="collaborator-role">Développeur Unique</p>
+                        <p>Seul développeur responsable de l'ensemble de l'implémentation du projet, y compris le frontend, le backend et la configuration de l'infrastructure. A conçu et développé l'architecture complète du système, l'interface de surveillance et le système de notification en temps réel en utilisant React, Node.js et Socket.IO. A également géré la conception de la base de données, le développement de l'API et le déploiement de l'infrastructure à haute disponibilité.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Caractéristiques Principales</h2>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Surveillance en Temps Réel et Alertes</h3>
+                        <p>Le système surveille en permanence les conditions environnementales sur tous les sites, y compris la température, l'alimentation électrique, les systèmes de refroidissement et les paramètres de sécurité. Lorsque des anomalies sont détectées, des notifications instantanées sont envoyées via plusieurs canaux (interface web, e-mail, SMS) avec une escalade appropriée en fonction de la gravité.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Visualisation Géographique des Sites</h3>
+                        <p>Carte interactive montrant tous les sites surveillés avec des indicateurs de statut en couleur. Les opérateurs peuvent rapidement identifier les zones problématiques et approfondir pour obtenir des informations détaillées sur des sites ou équipements spécifiques.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Architecture Haute Disponibilité</h3>
+                        <p>Le système est conçu avec une redondance géographique 1+1, assurant une disponibilité de 99,995% (moins de 26 minutes d'indisponibilité par an). Des mécanismes de basculement automatique redirigent le trafic vers le site redondant en cas de défaillance du site principal.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Gestion des Utilisateurs Multi-niveaux</h3>
+                        <p>Système de contrôle d'accès basé sur les rôles avec trois niveaux d'utilisateurs: Agents (accès spécifique au site), Superviseurs (surveillance multi-sites) et Administrateurs (configuration complète du système). Chaque rôle dispose de permissions appropriées et de vues personnalisées.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Implémentation Technique</h2>
+                    <p>Le Système de Surveillance de Centre de Données a été développé en utilisant une pile technologique moderne avec un accent sur la fiabilité, l'évolutivité et les performances en temps réel:</p>
+                    
+                    <h3>Stack Technologique</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">Socket.IO</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Redux</span>
+                        <span class="tech-tag">Material UI</span>
+                        <span class="tech-tag">JWT</span>
+                        <span class="tech-tag">Chart.js</span>
+                    </div>
+                    
+                    <h3>Architecture du Système</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> Application React.js avec composants Material UI et Redux pour la gestion d'état. Mises à jour en temps réel utilisant Socket.IO client pour une visibilité instantanée des alarmes.</li>
+                        <li><strong>Backend:</strong> Node.js avec Express.js fournissant des API RESTful et Socket.IO pour une communication bidirectionnelle. Architecture de microservices pour la modularité et l'évolutivité.</li>
+                        <li><strong>Base de données:</strong> MongoDB avec réplication géographique pour une haute disponibilité et l'intégrité des données. Conçue pour un stockage efficace de l'historique des alarmes et des données de configuration.</li>
+                        <li><strong>Connectivité:</strong> Protocoles de communication TCP/IP personnalisés avec les boîtiers de surveillance BF2300 existants sur le port 50000, maintenant une compatibilité ascendante.</li>
+                        <li><strong>Infrastructure:</strong> Déployée sur des serveurs Dell PowerEdge R250 redondants répartis sur deux emplacements géographiques avec des mécanismes de basculement automatisés.</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Galerie du Projet</h2>
+                    <div class="project-gallery">
+                        <img class="gallery-image" src="media/datacenter-dashboard.png" alt="Tableau de bord du Centre de Données">
+                        <p>Tableau de bord principal de surveillance montrant l'aperçu de l'état des sites et les alarmes actives</p>
+                        
+                        <img class="gallery-image" src="media/datacenter-map.png" alt="Carte Géographique des Sites">
+                        <p>Visualisation de carte géographique interactive des sites surveillés</p>
+                        
+                        <img class="gallery-image" src="media/datacenter-sitedetail.png" alt="Vue Détaillée du Site">
+                        <p>Vue détaillée de la configuration du site et des équipements connectés</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Réalisations Clés</h2>
+                    <ul class="achievement-list">
+                        <li>Migration réussie du système AlarmManager hérité sans interruption de service sur 11 sites</li>
+                        <li>Réduction du temps de réponse aux alarmes de 68% grâce aux notifications multi-canaux instantanées</li>
+                        <li>Implémentation d'une solution évolutive capable de gérer jusqu'à 100 alarmes simultanées sans dégradation des performances</li>
+                        <li>Conception d'un système de reporting complet pour l'analyse des tendances et la planification de maintenance proactive</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section related-projects">
+                    <h2 class="section-title">Projets Connexes</h2>
+                    <div class="related-box">
+                        <div class="related-project">
+                            <img src="media/Introduction.png" alt="Système RAG pour Diagnostics Pulmonaires">
+                            <h3>Système RAG pour Diagnostics Pulmonaires</h3>
+                            <a href="project-rag.html">Voir le Projet</a>
+                        </div>
+                        <div class="related-project">
+                            <img src="media/f1-project-thumb.png" alt="Analyse de Stratégie de Course F1">
+                            <h3>Analyse de Stratégie de Course F1</h3>
+                            <a href="project-f1.html">Voir le Projet</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">Merci d'avoir consulté mon projet !</div>
+            </div>
+            
+            <!-- Arabic Content -->
+            <div class="content-ar" dir="rtl">
+                <div class="project-header">
+                    <h1 class="project-title">نظام مراقبة مركز البيانات</h1>
+                    <p class="project-subtitle">نظام مراقبة المعدات في الوقت الفعلي مع تنبيهات للكشف الاستباقي عن حوادث البنية التحتية</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">نظرة عامة على المشروع</h2>
+                    <p>نظام مراقبة مركز البيانات هو حل حديث تم تطويره لاستبدال نظام قديم للإشراف على الإنذارات البيئية (AlarmManager) في اتصالات المغرب. يوفر هذا النظام الجديد مراقبة في الوقت الفعلي للظروف البيئية الحرجة عبر مواقع متعددة لمراكز البيانات، مع تنبيهات فورية لأي شذوذ يتم اكتشافه.</p>
+                    <p>تستخدم المنصة بنية ميكروسيرفيس مع توافر عالي (تكرار جغرافي 1+1) لضمان التشغيل المستمر حتى في حالة فشل الموقع. يتكامل النظام مع صناديق المراقبة BF2300 الموجودة المنتشرة عبر 15 موقعًا مختلفًا مع توفير واجهة حديثة وبديهية للمشغلين لإدارة الإنذارات بكفاءة.</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">الفريق والمتعاونون</h2>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">المهدي ضراص</h3>
+                        <p class="collaborator-role">المطور الوحيد</p>
+                        <p>المطور الوحيد المسؤول عن تنفيذ المشروع بأكمله، بما في ذلك الواجهة الأمامية والخلفية وإعداد البنية التحتية. قام بتصميم وتطوير بنية النظام الكاملة وواجهة المراقبة ونظام الإشعارات في الوقت الفعلي باستخدام React و Node.js و Socket.IO. كما تولى تصميم قاعدة البيانات وتطوير واجهة برمجة التطبيقات ونشر البنية التحتية عالية التوافر.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">الميزات الرئيسية</h2>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">المراقبة في الوقت الفعلي والتنبيهات</h3>
+                        <p>يراقب النظام باستمرار الظروف البيئية عبر جميع المواقع، بما في ذلك درجة الحرارة وإمدادات الطاقة وأنظمة التبريد ومعلمات الأمان. عند اكتشاف حالات شاذة، يتم إرسال إشعارات فورية عبر قنوات متعددة (واجهة الويب والبريد الإلكتروني والرسائل القصيرة) مع تصعيد مناسب بناءً على الخطورة.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">التصور الجغرافي للمواقع</h3>
+                        <p>خريطة تفاعلية تظهر جميع المواقع التي تتم مراقبتها مع مؤشرات الحالة المرمزة بالألوان. يمكن للمشغلين تحديد مناطق المشكلة بسرعة والتعمق للحصول على معلومات مفصلة حول مواقع أو معدات محددة.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">بنية عالية التوافر</h3>
+                        <p>تم تصميم النظام بتكرار جغرافي 1+1، مما يضمن توافر بنسبة 99.995٪ (أقل من 26 دقيقة من التوقف سنويًا). آليات الانتقال التلقائي تعيد توجيه حركة المرور إلى الموقع الاحتياطي في حالة فشل الموقع الأساسي.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">إدارة المستخدمين متعددة المستويات</h3>
+                        <p>نظام التحكم في الوصول القائم على الأدوار مع ثلاثة مستويات للمستخدمين: الوكلاء (وصول خاص بالموقع)، المشرفون (مراقبة مواقع متعددة)، والمسؤولون (تكوين النظام الكامل). كل دور لديه أذونات وعروض مخصصة مناسبة.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">التنفيذ التقني</h2>
+                    <p>تم تطوير نظام مراقبة مركز البيانات باستخدام مجموعة تقنية حديثة مع التركيز على الموثوقية وقابلية التوسع والأداء في الوقت الفعلي:</p>
+                    
+                    <h3>المكدس التقني</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">Socket.IO</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Redux</span>
+                        <span class="tech-tag">Material UI</span>
+                        <span class="tech-tag">JWT</span>
+                        <span class="tech-tag">Chart.js</span>
+                    </div>
+                    
+                    <h3>هندسة النظام</h3>
+                    <ul>
+                        <li><strong>الواجهة الأمامية:</strong> تطبيق React.js مع مكونات Material UI و Redux لإدارة الحالة. تحديثات في الوقت الفعلي باستخدام Socket.IO client لرؤية فورية للإنذارات.</li>
+                        <li><strong>الخلفية:</strong> Node.js مع Express.js لتوفير واجهات برمجة تطبيقات RESTful و Socket.IO للاتصال ثنائي الاتجاه. بنية microservices للوحدة وقابلية التوسع.</li>
+                        <li><strong>قاعدة البيانات:</strong> MongoDB مع تكرار جغرافي لتوفير عالي وسلامة البيانات. مصممة للتخزين الفعال لسجل الإنذارات وبيانات التكوين.</li>
+                        <li><strong>الاتصال:</strong> بروتوكولات اتصال TCP/IP مخصصة مع صناديق المراقبة BF2300 الموجودة على المنفذ 50000، مع الحفاظ على التوافق الخلفي.</li>
+                        <li><strong>البنية التحتية:</strong> تم نشرها على خوادم Dell PowerEdge R250 المتكررة عبر موقعين جغرافيين مع آليات انتقال تلقائية.</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">معرض المشروع</h2>
+                    <div class="project-gallery">
+                        <img class="gallery-image" src="media/datacenter-dashboard.png" alt="لوحة تحكم مركز البيانات">
+                        <p>لوحة التحكم الرئيسية للمراقبة تعرض نظرة عامة على حالة الموقع والإنذارات النشطة</p>
+                        
+                        <img class="gallery-image" src="media/datacenter-map.png" alt="خريطة جغرافية للمواقع">
+                        <p>تصور خريطة جغرافية تفاعلية للمواقع التي تتم مراقبتها</p>
+                        
+                        <img class="gallery-image" src="media/datacenter-sitedetail.png" alt="عرض تفاصيل الموقع">
+                        <p>عرض مفصل لتكوين الموقع والمعدات المتصلة</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">الإنجازات الرئيسية</h2>
+                    <ul class="achievement-list">
+                        <li>الترحيل الناجح من نظام AlarmManager القديم دون انقطاع في الخدمة عبر 11 موقعًا</li>
+                        <li>تقليل وقت الاستجابة للإنذار بنسبة 68٪ من خلال إشعارات فورية متعددة القنوات</li>
+                        <li>تنفيذ حل قابل للتوسع قادر على التعامل مع ما يصل إلى 100 إنذار متزامن دون تدهور الأداء</li>
+                        <li>تصميم نظام تقارير شامل لتحليل الاتجاهات وتخطيط الصيانة الاستباقية</li>
+                    </ul>
+                </div>
+                
+                
+                <div class="project-section related-projects">
+                    <h2 class="section-title">المشاريع ذات الصلة</h2>
+                    <div class="related-box">
+                        <div class="related-project">
+                            <img src="media/Introduction.png" alt="نظام RAG للتشخيص الرئوي">
+                            <h3>نظام RAG للتشخيص الرئوي</h3>
+                            <a href="project-rag.html">عرض المشروع</a>
+                        </div>
+                        <div class="related-project">
+                            <img src="media/f1-project-thumb.png" alt="تحليل استراتيجية سباق F1">
+                            <h3>تحليل استراتيجية سباق F1</h3>
+                            <a href="project-f1.html">عرض المشروع</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">شكراً لاطلاعك على مشروعي!</div>
+            </div>
+        </div>
+    
+    <!-- Demo Modal -->
+    <div id="demoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeDemoModal()">&times;</span>
+            <h2 class="modal-title">Data Center Monitoring System - Live Demo</h2>
+            <div class="demo-container">
+                <div class="demo-video">
+                    <div class="no-video">
+                        <img src="media/sad-face.png" alt="No video">
+                        <p>No video with supported format and MIME type found.</p>
+                    </div>
+                </div>
+                <div class="demo-info">
+                    <h3>About This Project</h3>
+                    <p>The Data Center Monitoring System is a real-time environmental monitoring application that keeps data centers safe by providing instant alerts for critical conditions. The system is currently deployed in production across multiple sites.</p>
+                    
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Real-time monitoring of temperature, power supply, and cooling systems</li>
+                        <li>Multi-channel alert notifications with automated escalation</li>
+                        <li>Geographic visualization with color-coded status indicators</li>
+                        <li>High availability architecture with redundant deployments</li>
+                    </ul>
+                    
+                    <p class="demo-note"><strong>Note:</strong> This is a demo version. The production system includes additional security features and integrations with enterprise systems.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <div class="divider"></div>
+        
+        <div style="text-align: center; margin: 15px 0;">
+            <img src="media/linux_powered.gif" alt="Linux Powered" style="margin: 0 10px; max-width: 88px;">
+            <img src="media/madewithnotepad2.gif" alt="Made with Notepad" style="margin: 0 10px; max-width: 88px;">
+            <img src="media/valid-html5.gif" alt="Valid HTML" style="margin: 0 10px; max-width: 88px;">
+        </div>
+    </div>
+    
+    <script>
+        // Language switching functionality
+        function switchLanguage(lang) {
+            // Save language preference
+            localStorage.setItem('preferred-language', lang);
+            
+            // Update content visibility
+            document.querySelector('.content-en').style.display = (lang === 'en') ? 'block' : 'none';
+            document.querySelector('.content-fr').style.display = (lang === 'fr') ? 'block' : 'none';
+            document.querySelector('.content-ar').style.display = (lang === 'ar') ? 'block' : 'none';
+            
+            // Set RTL attribute for Arabic
+            document.querySelector('.content').setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            
+            // Update all elements with data attributes
+            const elements = document.querySelectorAll('[data-' + lang + ']');
+            elements.forEach(function(element) {
+                if (element.hasAttribute('data-' + lang)) {
+                    element.textContent = element.getAttribute('data-' + lang);
+                }
+            });
+            
+            // Update modal content based on language
+            updateModalContent(lang);
+        }
+        
+        // Modal functionality
+        function openDemoModal() {
+            const modal = document.getElementById('demoModal');
+            modal.style.display = "block";
+            
+            // Update modal content based on current language
+            const currentLang = localStorage.getItem('preferred-language') || 'en';
+            updateModalContent(currentLang);
+        }
+        
+        function closeDemoModal() {
+            const modal = document.getElementById('demoModal');
+            modal.style.display = "none";
+        }
+        
+        // Close the modal if user clicks outside of modal content
+        window.onclick = function(event) {
+            const modal = document.getElementById('demoModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        // Update modal content based on language
+        function updateModalContent(lang) {
+            const modalTitle = document.querySelector('.modal-title');
+            const aboutHeading = document.querySelector('.demo-info h3:first-child');
+            const aboutText = document.querySelector('.demo-info p:first-of-type');
+            const featuresHeading = document.querySelector('.demo-info h3:nth-of-type(2)');
+            const featuresList = document.querySelector('.demo-info ul').querySelectorAll('li');
+            const noteText = document.querySelector('.demo-note');
+            
+            if (lang === 'fr') {
+                modalTitle.textContent = "Système de Surveillance de Centre de Données - Démo en Direct";
+                aboutHeading.textContent = "À Propos de Ce Projet";
+                aboutText.textContent = "Le Système de Surveillance de Centre de Données est une application de surveillance environnementale en temps réel qui assure la sécurité des centres de données en fournissant des alertes instantanées pour les conditions critiques. Le système est actuellement déployé en production sur plusieurs sites.";
+                featuresHeading.textContent = "Caractéristiques Principales";
+                featuresList[0].textContent = "Surveillance en temps réel de la température, de l'alimentation électrique et des systèmes de refroidissement";
+                featuresList[1].textContent = "Notifications d'alerte multicanaux avec escalade automatisée";
+                featuresList[2].textContent = "Visualisation géographique avec indicateurs d'état codés par couleur";
+                featuresList[3].textContent = "Architecture à haute disponibilité avec déploiements redondants";
+                noteText.innerHTML = "<strong>Remarque:</strong> Il s'agit d'une version de démonstration. Le système de production comprend des fonctionnalités de sécurité supplémentaires et des intégrations avec des systèmes d'entreprise.";
+            } else if (lang === 'ar') {
+                document.querySelector('.modal-content').setAttribute('dir', 'rtl');
+                modalTitle.textContent = "نظام مراقبة مركز البيانات - عرض تجريبي مباشر";
+                aboutHeading.textContent = "نبذة عن هذا المشروع";
+                aboutText.textContent = "نظام مراقبة مركز البيانات هو تطبيق مراقبة بيئية في الوقت الفعلي يحافظ على سلامة مراكز البيانات من خلال توفير تنبيهات فورية للظروف الحرجة. النظام منشور حاليًا في الإنتاج عبر مواقع متعددة.";
+                featuresHeading.textContent = "الميزات الرئيسية";
+                featuresList[0].textContent = "مراقبة درجة الحرارة وإمدادات الطاقة وأنظمة التبريد في الوقت الفعلي";
+                featuresList[1].textContent = "إشعارات تنبيه متعددة القنوات مع تصعيد آلي";
+                featuresList[2].textContent = "تصور جغرافي مع مؤشرات حالة ملونة";
+                featuresList[3].textContent = "بنية عالية التوافر مع نشر متكرر";
+                noteText.innerHTML = "<strong>ملاحظة:</strong> هذه نسخة تجريبية. يتضمن نظام الإنتاج ميزات أمان إضافية وتكاملات مع أنظمة المؤسسة.";
+            } else {
+                document.querySelector('.modal-content').setAttribute('dir', 'ltr');
+                modalTitle.textContent = "Data Center Monitoring System - Live Demo";
+                aboutHeading.textContent = "About This Project";
+                aboutText.textContent = "The Data Center Monitoring System is a real-time environmental monitoring application that keeps data centers safe by providing instant alerts for critical conditions. The system is currently deployed in production across multiple sites.";
+                featuresHeading.textContent = "Key Features";
+                featuresList[0].textContent = "Real-time monitoring of temperature, power supply, and cooling systems";
+                featuresList[1].textContent = "Multi-channel alert notifications with automated escalation";
+                featuresList[2].textContent = "Geographic visualization with color-coded status indicators";
+                featuresList[3].textContent = "High availability architecture with redundant deployments";
+                noteText.innerHTML = "<strong>Note:</strong> This is a demo version. The production system includes additional security features and integrations with enterprise systems.";
+            }
+        }
+        
+        // Set initial language based on saved preference or browser language
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language');
+            let initialLang = 'en'; // Default to English
+            
+            if (savedLang) {
+                initialLang = savedLang;
+            } else {
+                // Try to detect browser language
+                const browserLang = navigator.language || navigator.userLanguage;
+                if (browserLang.startsWith('fr')) initialLang = 'fr';
+                if (browserLang.startsWith('ar')) initialLang = 'ar';
+            }
+            
+            switchLanguage(initialLang);
+            
+            // Make buttons more touch-friendly
+            const allButtons = document.querySelectorAll('button, .nav a');
+            allButtons.forEach(button => {
+                // Adding minimum touch target size for better mobile experience
+                if (!button.style.minHeight) button.style.minHeight = '44px';
+                if (!button.style.minWidth) button.style.minWidth = '44px';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -17,133 +17,7 @@
             color: #000000;
         }
         
-        /* Mobile-first responsive design improvements */
-        @media only screen and (max-width: 768px) {
-            /* General container */
-            .page-container {
-                width: 95% !important;
-                margin: 5px auto !important;
-                padding: 5px !important;
-                overflow-x: hidden !important;
-            }
-            
-            /* Header and title */
-            .title {
-                font-size: 32px !important;
-                transform: rotate(-2deg) !important;
-            }
-            
-            /* Navigation */
-            .nav {
-                padding: 5px 0 !important;
-                overflow-x: auto !important;
-                white-space: nowrap !important;
-                -webkit-overflow-scrolling: touch !important;
-            }
-            
-            .nav a {
-                display: inline-block !important;
-                margin: 3px 8px !important;
-                padding: 5px 8px !important;
-                font-size: 16px !important;
-            }
-            
-            /* Content areas */
-            .main-content {
-                flex-direction: column !important;
-            }
-            
-            .center-content, 
-            .right-sidebar,
-            .content {
-                width: 100% !important;
-                margin-right: 0 !important;
-                padding: 10px !important;
-            }
-            
-            /* Text scaling */
-            p, li {
-                font-size: 16px !important;
-            }
-            
-            /* Images responsiveness */
-            img {
-                max-width: 100% !important;
-                height: auto !important;
-            }
-
-            /* Chatbot adjustments for mobile */
-            #chat-container {
-                width: 90% !important;
-                height: 75vh !important;
-                right: 5% !important;
-                left: 5% !important;
-                bottom: 70px !important;
-            }
-            
-            #chat-messages {
-                height: calc(75vh - 100px) !important;
-            }
-            
-            #chat-toggle {
-                bottom: 10px !important;
-                right: 10px !important;
-            }
-            
-            /* Rainbow text and special elements */
-            .rainbow-welcome {
-                font-size: 24px !important;
-            }
-            
-            .rainbow-text {
-                font-size: 20px !important;
-            }
-            
-            /* Project and education items */
-            .education-item,
-            .work-item,
-            .cert-item {
-                padding: 10px !important;
-                margin-bottom: 15px !important;
-            }
-            
-            /* Tables (if any) */
-            table {
-                display: block !important;
-                overflow-x: auto !important;
-                width: 100% !important;
-            }
-        }
-
-        /* Small phones */
-        @media only screen and (max-width: 480px) {
-            .title {
-                font-size: 28px !important;
-            }
-            
-            .nav a {
-                font-size: 14px !important;
-                margin: 2px 5px !important;
-            }
-        }
-        
-        /* Responsive adjustments */
-        @media only screen and (max-width: 800px) {
-            .page-container {
-                width: 95% !important;
-                margin: 10px auto !important;
-            }
-            
-            .title {
-                font-size: 40px !important;
-            }
-            
-            .nav a {
-                display: inline-block;
-                margin: 5px !important;
-            }
-        }
-        
+        /* Page container - Mobile-first approach */
         .page-container {
             width: 95%;
             max-width: 800px;
@@ -186,6 +60,14 @@
             background-color: #ffffff;
             border: 1px solid #000080;
             margin-bottom: 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+        
+        .nav::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome/Safari */
         }
         
         .nav a {
@@ -195,6 +77,10 @@
             font-weight: bold;
             margin: 0 15px;
             padding: 5px 10px;
+            display: inline-block;
+            min-height: 44px; /* Better touch target */
+            line-height: 34px; /* Center text vertically */
+            box-sizing: border-box;
         }
         
         .nav a:hover {
@@ -257,6 +143,9 @@
             color: #0000ff;
             font-weight: bold;
             cursor: pointer;
+            display: inline-block;
+            min-height: 44px; /* Better touch target */
+            line-height: 44px; /* Center text vertically */
         }
         
         .language-selector a:hover {
@@ -311,6 +200,108 @@
         /* Additional style for RTL content */
         [dir="rtl"] .content-ar {
             text-align: right;
+        }
+        
+        /* Mobile Responsive Styling */
+        @media only screen and (max-width: 768px) {
+            /* General container */
+            .page-container {
+                width: 95% !important;
+                margin: 5px auto !important;
+                padding: 5px !important;
+                overflow-x: hidden !important;
+            }
+            
+            /* Header and title */
+            .title {
+                font-size: 32px !important;
+                transform: rotate(-2deg) !important;
+            }
+            
+            .sparkles {
+                font-size: 16px !important;
+                top: 10px !important;
+                left: 40px !important;
+            }
+            
+            .sparkles:last-child {
+                right: 40px !important;
+                left: auto !important;
+            }
+            
+            /* Navigation */
+            .nav {
+                padding: 5px 0 !important;
+            }
+            
+            .nav a {
+                margin: 3px 8px !important;
+                padding: 5px 8px !important;
+                font-size: 16px !important;
+                min-height: 40px !important;
+                line-height: 30px !important;
+            }
+            
+            /* Content areas */
+            .content {
+                padding: 10px !important;
+            }
+            
+            /* Work items */
+            .work-item {
+                padding: 10px !important;
+                margin-bottom: 15px !important;
+            }
+            
+            .work-title {
+                font-size: 20px !important;
+            }
+            
+            .work-company {
+                font-size: 16px !important;
+            }
+            
+            /* Text scaling */
+            p, li {
+                font-size: 16px !important;
+            }
+            
+            /* Rainbow text and special elements */
+            .rainbow-text {
+                font-size: 20px !important;
+            }
+            
+            /* Images responsiveness */
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+        }
+        
+        /* Small phones */
+        @media only screen and (max-width: 480px) {
+            .title {
+                font-size: 28px !important;
+            }
+            
+            .nav a {
+                font-size: 14px !important;
+                margin: 2px 5px !important;
+                min-height: 36px !important;
+                line-height: 26px !important;
+            }
+            
+            .work-title {
+                font-size: 18px !important;
+            }
+            
+            h1 {
+                font-size: 24px !important;
+            }
+            
+            h2 {
+                font-size: 20px !important;
+            }
         }
     </style>
 </head>
@@ -396,7 +387,7 @@
             </div>
             
             <!-- Arabic Content -->
-            <div class="content-ar">
+            <div class="content-ar" dir="rtl">
                 <h1>خبرتي المهنية</h1>
                 <marquee scrollamount="5" direction="right">تحقق من خبرتي المهنية أدناه!</marquee>
                 
@@ -422,361 +413,64 @@
                 
                 <div class="rainbow-text">المزيد من الخبرات قريبًا!</div>
             </div>
-<!-- Chat Bot Interface - Mobile Optimized -->
-<div id="chat-container" style="display: none; position: fixed; bottom: 80px; right: 5%; left: 5%; width: 90%; height: 75vh; background-color: #f0f0f0; border: 2px solid #6600cc; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1000; overflow: hidden; font-family: 'Comic Sans MS', Arial, sans-serif;">
-    <div style="background-color: #6600cc; color: white; padding: 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
-        <span data-en="ElMehdi's Assistant" data-fr="Assistant d'ElMehdi" data-ar="مساعد المهدي">ElMehdi's Assistant</span>
-        <div>
-            <button onclick="resetChat()" style="background: none; border: 1px solid white; color: white; font-size: 12px; cursor: pointer; margin-right: 10px; padding: 2px 5px; border-radius: 3px;">Reset</button>
-            <button onclick="toggleChat()" style="background: none; border: none; color: white; font-size: 16px; cursor: pointer;">✖</button>
-        </div>
-    </div>
-    <div id="chat-messages" style="height: calc(75vh - 100px); overflow-y: auto; padding: 10px; background-color: white; display: flex; flex-direction: column; gap: 10px;"></div>
-    <div style="display: flex; padding: 10px; background-color: #f0f0f0; border-top: 1px solid #ccc;">
-        <input id="chat-input" type="text" placeholder="Ask about my portfolio..." style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-right: 5px; font-size: 16px;" onkeypress="if(event.key === 'Enter') sendMessage()">
-        <button onclick="sendMessage()" style="background: linear-gradient(to bottom, #9900cc, #6600cc); color: white; border: none; border-radius: 4px; padding: 8px 15px; cursor: pointer; font-size: 16px;">Send</button>
-    </div>
-</div>
-
-<!-- Chat Bot Toggle Button -->
-<div id="chat-toggle" onclick="toggleChat()" style="position: fixed; bottom: 15px; right: 15px; width: 60px; height: 60px; background: linear-gradient(to bottom, #9900cc, #6600cc); border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 10px rgba(0,0,0,0.3); cursor: pointer; z-index: 1000;">
-    <div style="color: white; font-size: 24px;">💬</div>
-</div>
-
         </div>
         
         <div class="divider"></div>
         
         <div style="text-align: center; margin: 15px 0;">
-            <img src="media/linux_powered.gif" alt="Linux Powered" style="margin: 0 10px;">
-            <img src="media/madewithnotepad2.gif" alt="Made with Notepad" style="margin: 0 10px;">
-            <img src="media/valid-html5.gif" alt="Valid HTML" style="margin: 0 10px;">
+            <img src="media/linux_powered.gif" alt="Linux Powered" style="margin: 0 10px; max-width: 88px;">
+            <img src="media/madewithnotepad2.gif" alt="Made with Notepad" style="margin: 0 10px; max-width: 88px;">
+            <img src="media/valid-html5.gif" alt="Valid HTML" style="margin: 0 10px; max-width: 88px;">
         </div>
     </div>
     
     <script>
-        // Simple language switcher function
+        // Language switching functionality
         function switchLanguage(lang) {
             // Save language preference
             localStorage.setItem('preferred-language', lang);
             
-            // Handle RTL for Arabic
-            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            // Update content visibility
+            document.querySelector('.content-en').style.display = (lang === 'en') ? 'block' : 'none';
+            document.querySelector('.content-fr').style.display = (lang === 'fr') ? 'block' : 'none';
+            document.querySelector('.content-ar').style.display = (lang === 'ar') ? 'block' : 'none';
             
-            // Show correct language content
-            document.querySelectorAll('.content-en, .content-fr, .content-ar').forEach(function(element) {
-                element.style.display = 'none';
-            });
-            document.querySelectorAll('.content-' + lang).forEach(function(element) {
-                element.style.display = 'block';
-            });
+            // Set RTL attribute for Arabic
+            document.querySelector('.content').setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
             
-            // Update all elements with data-* attributes
-            document.querySelectorAll('[data-' + lang + ']').forEach(function(element) {
-                element.textContent = element.getAttribute('data-' + lang);
+            // Update all elements with data attributes
+            const elements = document.querySelectorAll('[data-' + lang + ']');
+            elements.forEach(function(element) {
+                if (element.hasAttribute('data-' + lang)) {
+                    element.textContent = element.getAttribute('data-' + lang);
+                }
             });
         }
         
-        // Apply the saved language on page load
+        // Set initial language based on saved preference or browser language
         document.addEventListener('DOMContentLoaded', function() {
-            // Set active navigation link
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            document.querySelectorAll('.nav a').forEach(function(link) {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
+            const savedLang = localStorage.getItem('preferred-language');
+            let initialLang = 'en'; // Default to English
             
-            // Load saved language or default to English
-            const savedLanguage = localStorage.getItem('preferred-language') || 'en';
-            switchLanguage(savedLanguage);
+            if (savedLang) {
+                initialLang = savedLang;
+            } else {
+                // Try to detect browser language
+                const browserLang = navigator.language || navigator.userLanguage;
+                if (browserLang.startsWith('fr')) initialLang = 'fr';
+                if (browserLang.startsWith('ar')) initialLang = 'ar';
+            }
+            
+            switchLanguage(initialLang);
+            
+            // Make buttons more touch-friendly
+            const allButtons = document.querySelectorAll('button, .nav a');
+            allButtons.forEach(button => {
+                // Adding minimum touch target size for better mobile experience
+                if (!button.style.minHeight) button.style.minHeight = '44px';
+                if (!button.style.minWidth) button.style.minWidth = '44px';
+            });
         });
-        // Chat Bot functionality
-       let chatHistory = [
-           {
-               role: "system", 
-               content: `You are ElMehdi's portfolio assistant. You help visitors learn ONLY about ElMehdi Darras and his professional information.
-       
-       IMPORTANT: Only answer questions related to ElMehdi's education, work experience, skills, certifications, or projects. For ANY other questions, politely explain that you're only able to provide information about ElMehdi Darras and his professional background. DO NOT provide instructions, tutorials, or advice on topics outside of ElMehdi's portfolio.
-       
-       Here's the only information you should use to answer questions:
-       
-       About ElMehdi:
-       - Name: ElMehdi Darras
-       - Profession: Computer Science Engineer specializing in MIAGE (Computer Science Methods Applied to Business Management)
-       - Location: Casablanca, Morocco
-       - Languages: Arabic, French, English
-       
-       Education:
-       1. Engineering Degree in Computer Science and Networks - MIAGE specialization
-          - School: ÉCOLE MAROCAINE DES SCIENCES DE L'INGÉNIEUR (EMSI)
-          - Period: 2022 - 2025
-          - Details: Specialized in software engineering, network infrastructure. Currently completing final year projects.
-       
-       2. Specialized Technician in Computer Network Technologies
-          - School: OFFICE DE LA FORMATION PROFESSIONNELLE (OFPPT)
-          - Period: 2020 - 2022
-          - Details: Focused on network infrastructure, configuration, maintenance, routing, switching, and network security.
-       
-       Work Experience:
-       1. Intern - Data Center Monitoring System
-          - Company: NetSense (Casablanca, Morocco)
-          - Period: March 2025 - Present
-          - Description: Development of a data center equipment monitoring system with real-time alerts.
-          - Technologies: Node.js, React, Socket.IO, and MongoDB for proactive detection of infrastructure incidents.
-       
-       2. Intern - Technical Incident Management
-          - Company: National Airports Office (ONDA) (Casablanca, Morocco)
-          - Period: July 2024 - August 2024
-          - Description: Design of a web application for technical incident management using Django.
-          - Details: Implementation of ticket assignment system, user management and detailed intervention tracking with comprehensive reports.
-       
-       Certifications:
-       1. Data Analysis with SQL
-          - Issuer: Meta
-          - Date: January 2024
-          - Details: Professional certification focused on data analysis using SQL queries and database management.
-       
-       2. Machine Learning with Python
-          - Issuer: IBM
-          - Date: July 2023
-          - Details: Comprehensive certification covering machine learning algorithms and implementations.
-       
-       3. Python for Everybody
-          - Issuer: University of Michigan
-          - Date: February 2023
-          - Details: Specialized in Python programming fundamentals and advanced concepts.
-       
-       Projects:
-       1. RAG System for Pulmonary Diagnostics
-          - Description: Medical diagnostic support system using Retrieval Augmented Generation technology.
-       
-       2. F1 Race Strategy Analysis
-          - Description: Formula 1 strategy analysis tool studying the impact of pit stops and tire wear.
-       
-       3. Data Center Monitoring System
-          - Description: Real-time equipment monitoring system with alerts (current internship project).
-       
-       Technical Skills:
-       - Languages: SQL, Python, JavaScript
-       - Databases: MongoDB
-       - Data Science: Pandas
-       - Visualization: PowerBI
-       - Web: Node.js, React, Socket.IO, Django
-       
-       Keep your answers concise, well-formatted with proper spacing, and friendly. Use clear formatting for better readability. If asked about anything not included in the above information, politely explain that you only have information about ElMehdi's professional background.`
-           }
-       ];
-       
-       // Parse and format message text with improved styling
-       function formatMessageText(text) {
-           // Add support for basic formatting
-           text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Bold
-           text = text.replace(/\*(.*?)\*/g, '<em>$1</em>'); // Italic
-           
-           // Split by paragraphs and add proper spacing
-           const paragraphs = text.split('\n');
-           return paragraphs
-               .filter(p => p.trim() !== '')
-               .map(p => `<p style="margin: 0 0 8px 0;">${p}</p>`)
-               .join('');
-       }
-       
-       function toggleChat() {
-           const chatContainer = document.getElementById('chat-container');
-           const isVisible = chatContainer.style.display === 'block';
-           chatContainer.style.display = isVisible ? 'none' : 'block';
-           
-           // If opening the chat for the first time, show welcome message
-           if (!isVisible && document.getElementById('chat-messages').children.length === 0) {
-               const currentLang = localStorage.getItem('preferred-language') || 'en';
-               let welcomeMessage = "";
-               
-               if (currentLang === 'ar') {
-                   welcomeMessage = "مرحبًا! أنا مساعد ElMehdi. يمكنني الإجابة على أسئلتك حول تعليمه وخبرته المهنية ومشاريعه ومهاراته. ماذا تحب أن تعرف؟";
-               } else if (currentLang === 'fr') {
-                   welcomeMessage = "Bonjour ! Je suis l'assistant d'ElMehdi. Je peux répondre à vos questions sur sa formation, son expérience professionnelle, ses projets et ses compétences. Que souhaitez-vous savoir ?";
-               } else {
-                   welcomeMessage = "Hello! I'm ElMehdi's assistant. I can answer your questions about his education, work experience, projects, and skills. What would you like to know?";
-               }
-               
-               addBotMessage(welcomeMessage);
-           }
-       }
-       
-       function resetChat() {
-           // Keep only the system message
-           chatHistory = chatHistory.slice(0, 1);
-           
-           // Clear the chat UI
-           const chatMessages = document.getElementById('chat-messages');
-           chatMessages.innerHTML = '';
-           
-           // Add welcome message again
-           const currentLang = localStorage.getItem('preferred-language') || 'en';
-           let welcomeMessage = "";
-           
-           if (currentLang === 'ar') {
-               welcomeMessage = "تم إعادة تعيين المحادثة. كيف يمكنني مساعدتك في معرفة المزيد عن ElMehdi؟";
-           } else if (currentLang === 'fr') {
-               welcomeMessage = "Conversation réinitialisée. Comment puis-je vous aider à en savoir plus sur ElMehdi ?";
-           } else {
-               welcomeMessage = "Conversation reset. How can I help you learn more about ElMehdi?";
-           }
-           
-           addBotMessage(welcomeMessage);
-       }
-       
-       function addUserMessage(message) {
-           const chatMessages = document.getElementById('chat-messages');
-           const messageElement = document.createElement('div');
-           messageElement.style.alignSelf = 'flex-end';
-           messageElement.style.backgroundColor = '#e6f7ff';
-           messageElement.style.borderRadius = '10px';
-           messageElement.style.padding = '8px 12px';
-           messageElement.style.maxWidth = '80%';
-           messageElement.style.wordWrap = 'break-word';
-           messageElement.style.marginBottom = '8px';
-           messageElement.textContent = message;
-           chatMessages.appendChild(messageElement);
-           chatMessages.scrollTop = chatMessages.scrollHeight;
-           
-           chatHistory.push({ role: 'user', content: message });
-       }
-       
-       function addBotMessage(message) {
-           const chatMessages = document.getElementById('chat-messages');
-           const messageElement = document.createElement('div');
-           messageElement.style.alignSelf = 'flex-start';
-           messageElement.style.backgroundColor = '#f0f0f0';
-           messageElement.style.borderRadius = '10px';
-           messageElement.style.padding = '8px 12px';
-           messageElement.style.maxWidth = '80%';
-           messageElement.style.wordWrap = 'break-word';
-           messageElement.style.marginBottom = '8px';
-           messageElement.style.lineHeight = '1.4';
-           messageElement.innerHTML = formatMessageText(message);
-           chatMessages.appendChild(messageElement);
-           chatMessages.scrollTop = chatMessages.scrollHeight;
-           
-           chatHistory.push({ role: 'assistant', content: message });
-       }
-       
-       function addTypingIndicator() {
-           const chatMessages = document.getElementById('chat-messages');
-           const indicatorElement = document.createElement('div');
-           indicatorElement.id = 'typing-indicator';
-           indicatorElement.style.alignSelf = 'flex-start';
-           indicatorElement.style.backgroundColor = '#f0f0f0';
-           indicatorElement.style.borderRadius = '10px';
-           indicatorElement.style.padding = '8px 12px';
-           indicatorElement.style.marginTop = '5px';
-           indicatorElement.style.marginBottom = '8px';
-           
-           // Animated typing indicator
-           indicatorElement.innerHTML = '<span style="display: inline-block; width: 8px; height: 8px; background-color: #666; border-radius: 50%; animation: typing-dot 1.4s infinite; animation-delay: 0s;"></span>' +
-                                '<span style="display: inline-block; width: 8px; height: 8px; background-color: #666; border-radius: 50%; margin-left: 4px; animation: typing-dot 1.4s infinite; animation-delay: 0.2s;"></span>' +
-                                '<span style="display: inline-block; width: 8px; height: 8px; background-color: #666; border-radius: 50%; margin-left: 4px; animation: typing-dot 1.4s infinite; animation-delay: 0.4s;"></span>';
-           
-           // Add animation style
-           const style = document.createElement('style');
-           style.textContent = `
-               @keyframes typing-dot {
-                   0%, 60%, 100% { transform: translateY(0); }
-                   30% { transform: translateY(-4px); }
-               }
-           `;
-           document.head.appendChild(style);
-           
-           chatMessages.appendChild(indicatorElement);
-           chatMessages.scrollTop = chatMessages.scrollHeight;
-       }
-       
-       function removeTypingIndicator() {
-           const typingIndicator = document.getElementById('typing-indicator');
-           if (typingIndicator) {
-               typingIndicator.remove();
-           }
-       }
-       
-       async function sendMessage() {
-           const chatInput = document.getElementById('chat-input');
-           const message = chatInput.value.trim();
-           
-           if (message) {
-               addUserMessage(message);
-               chatInput.value = '';
-               
-               // Show typing indicator
-               addTypingIndicator();
-               
-               try {
-                   const response = await callVercelAPI(message);
-                   removeTypingIndicator();
-                   addBotMessage(response);
-               } catch (error) {
-                   removeTypingIndicator();
-                   addBotMessage("Sorry, I encountered an error. Please try again later.");
-                   console.error("Error calling API:", error);
-               }
-           }
-       }
-       
-       async function callVercelAPI(message) {
-           try {
-               const response = await fetch('/api/chat', {
-                   method: 'POST',
-                   headers: {
-                       'Content-Type': 'application/json'
-                   },
-                   body: JSON.stringify({
-                       message: message,
-                       history: chatHistory
-                   })
-               });
-               
-               if (!response.ok) {
-                   throw new Error(`HTTP error! Status: ${response.status}`);
-               }
-               
-               const data = await response.json();
-               return data.choices[0].message.content;
-           } catch (error) {
-               console.error("Error calling Vercel API:", error);
-               return "I'm sorry, I couldn't connect to my knowledge source. Please try again later.";
-           }
-       }
-
-       // Additional mobile-friendly improvements
-       document.addEventListener('DOMContentLoaded', function() {
-           // Make buttons more touch-friendly
-           const allButtons = document.querySelectorAll('button, .nav a');
-           allButtons.forEach(button => {
-               // Adding minimum touch target size for better mobile experience
-               if (!button.style.minHeight) button.style.minHeight = '44px';
-               if (!button.style.minWidth) button.style.minWidth = '44px';
-           });
-           
-           // Add touch-based scrolling for navigation on mobile
-           const nav = document.querySelector('.nav');
-           if (nav && window.innerWidth <= 768) {
-               nav.style.overflowX = 'auto';
-               nav.style.webkitOverflowScrolling = 'touch';
-               nav.style.scrollBehavior = 'smooth';
-           }
-           
-           // Adjust for mobile when orientation changes
-           window.addEventListener('orientationchange', function() {
-               // Adjust chat container height if open
-               const chatContainer = document.getElementById('chat-container');
-               if (chatContainer && chatContainer.style.display === 'block') {
-                   chatContainer.style.height = '75vh';
-                   document.getElementById('chat-messages').style.height = 'calc(75vh - 100px)';
-               }
-           });
-       });
     </script>
 </body>
 </html>

@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>RAG System for Pulmonary Diagnostics - ElMehdi's Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="icon" href="media/spinning_earth.gif" type="image/gif">
+    <style>
+        body {
+            /* Space background */
+            background-image: url("media/space.gif");
+            background-color: #000033; /* Dark blue fallback */
+            background-repeat: repeat;
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000000;
+        }
+        
+        /* Page container - Mobile-first approach */
+        .page-container {
+            width: 95%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #d3d3d3; /* Light gray background like in screenshot */
+            border: 2px solid #000080;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .title {
+            font-size: 40px;
+            font-weight: bold;
+            text-shadow: 3px 3px 0px #ff00ff, 6px 6px 0px #9900cc;
+            color: #6600cc;
+            margin: 20px 0;
+            transform: rotate(-5deg);
+            display: inline-block;
+        }
+        
+        .sparkles {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+            font-size: 20px;
+            color: #ffcc00;
+        }
+        
+        .nav {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #ffffff;
+            border: 1px solid #000080;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+        
+        .nav::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome/Safari */
+        }
+        
+        .nav a {
+            font-size: 20px;
+            color: #000080;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+            padding: 5px 10px;
+            display: inline-block;
+            min-height: 44px; /* Better touch target */
+            line-height: 34px; /* Center text vertically */
+            box-sizing: border-box;
+        }
+        
+        .nav a:hover {
+            background-color: #ccffff;
+            border: 1px dashed #0000ff;
+        }
+        
+        .nav a.active {
+            background-color: #6600cc;
+            color: white;
+            border-bottom: 3px solid #ff00ff;
+        }
+        
+        .content {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            padding: 20px;
+        }
+        
+        .project-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .project-title {
+            font-size: 36px;
+            color: #6600cc;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px #ff00ff;
+        }
+        
+        .project-subtitle {
+            font-size: 18px;
+            color: #666666;
+            font-style: italic;
+        }
+        
+        .project-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #6600cc;
+            border-bottom: 2px dashed #9900cc;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .collaborator-card {
+            background-color: #f8f8f8;
+            border: 1px dashed #aaaaaa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        
+        .collaborator-name {
+            font-size: 20px;
+            color: #6600cc;
+            margin-bottom: 5px;
+        }
+        
+        .collaborator-role {
+            font-size: 16px;
+            color: #000080;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .feature-box {
+            background-color: #f0f0f0;
+            border: 1px solid #cccccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        
+        .feature-title {
+            font-size: 18px;
+            color: #6600cc;
+            margin-bottom: 10px;
+        }
+        
+        .tech-tags {
+            margin: 20px 0;
+        }
+        
+        .tech-tag {
+            display: inline-block;
+            background-color: #6600cc;
+            color: white;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        
+        .achievement-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .achievement-list li {
+            background-color: #f8f8f8;
+            border: 1px solid #dddddd;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        .achievement-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 10px;
+            color: #6600cc;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .project-links {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .project-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: linear-gradient(to bottom, #9900cc, #6600cc);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.4);
+        }
+        
+        .project-gallery {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .gallery-image {
+            max-width: 250px; /* Smaller size for mobile screenshots */
+            height: auto;
+            border: 2px solid #6600cc;
+            margin-bottom: 10px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+            display: block;
+            margin-left: auto;
+            margin-right: auto; /* Center the images */
+        }
+        
+        .related-projects {
+            margin-top: 40px;
+        }
+        
+        .related-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .related-project {
+            width: 200px;
+            background-color: #f8f8f8;
+            border: 1px solid #cccccc;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        .related-project img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #cccccc;
+        }
+        
+        .related-project h3 {
+            font-size: 16px;
+            color: #6600cc;
+            margin: 10px 0;
+        }
+        
+        .language-selector {
+            text-align: right;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .language-selector a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #0000ff;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-block;
+            min-height: 44px; /* Better touch target */
+            line-height: 44px; /* Center text vertically */
+        }
+        
+        .language-selector a:hover {
+            text-decoration: underline;
+        }
+        
+        .divider {
+            height: 5px;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            margin: 20px 0;
+        }
+        
+        .rainbow-text {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: rainbow 5s infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            56% { color: blue; }
+            70% { color: indigo; }
+            84% { color: violet; }
+            100% { color: red; }
+        }
+        
+        .blink {
+            animation: blinker 1s step-end infinite;
+        }
+        
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .modal-content {
+            position: relative;
+            background-color: #222;
+            color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #6600cc;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 0 20px rgba(102, 0, 204, 0.5);
+        }
+        
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close-button:hover {
+            color: white;
+        }
+        
+        .modal-title {
+            color: #6600cc;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #444;
+        }
+        
+        .demo-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .demo-video {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .no-video {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background-color: #444;
+            border-radius: 5px;
+        }
+        
+        .no-video img {
+            width: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .demo-info h3 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+        
+        .demo-info ul {
+            padding-left: 20px;
+        }
+        
+        .demo-info li {
+            margin-bottom: 10px;
+        }
+        
+        .demo-note {
+            font-style: italic;
+            margin-top: 20px;
+            color: #aaa;
+        }
+        
+        /* Hide content for different languages initially */
+        .content-fr, .content-ar {
+            display: none;
+        }
+        
+        /* Additional style for RTL content */
+        [dir="rtl"] .content-ar {
+            text-align: right;
+        }
+        
+        /* Mobile Responsive Styling */
+        @media only screen and (max-width: 768px) {
+            /* General container */
+            .page-container {
+                width: 95% !important;
+                margin: 5px auto !important;
+                padding: 5px !important;
+                overflow-x: hidden !important;
+            }
+            
+            /* Header and title */
+            .title {
+                font-size: 32px !important;
+                transform: rotate(-2deg) !important;
+            }
+            
+            .sparkles {
+                font-size: 16px !important;
+                top: 10px !important;
+                left: 40px !important;
+            }
+            
+            .sparkles:last-child {
+                right: 40px !important;
+                left: auto !important;
+            }
+            
+            /* Navigation */
+            .nav {
+                padding: 5px 0 !important;
+            }
+            
+            .nav a {
+                margin: 3px 8px !important;
+                padding: 5px 8px !important;
+                font-size: 16px !important;
+                min-height: 40px !important;
+                line-height: 30px !important;
+            }
+            
+            /* Content areas */
+            .content {
+                padding: 10px !important;
+            }
+            
+            .project-title {
+                font-size: 28px !important;
+            }
+            
+            .section-title {
+                font-size: 22px !important;
+            }
+            
+            /* Gallery images on mobile */
+            .gallery-image {
+                max-width: 200px !important; /* Even smaller on mobile */
+            }
+            
+            /* Related projects */
+            .related-box {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            
+            .related-project {
+                width: 90% !important;
+            }
+            
+            /* Text scaling */
+            p, li {
+                font-size: 16px !important;
+            }
+            
+            /* Rainbow text and special elements */
+            .rainbow-text {
+                font-size: 20px !important;
+            }
+            
+            /* Images responsiveness */
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+        }
+        
+        /* Small phones */
+        @media only screen and (max-width: 480px) {
+            .title {
+                font-size: 28px !important;
+            }
+            
+            .nav a {
+                font-size: 14px !important;
+                margin: 2px 5px !important;
+                min-height: 36px !important;
+                line-height: 26px !important;
+            }
+            
+            .project-title {
+                font-size: 24px !important;
+            }
+            
+            .section-title {
+                font-size: 20px !important;
+            }
+            
+            /* Even smaller gallery images on very small phones */
+            .gallery-image {
+                max-width: 180px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Language selector simplified -->
+        <div class="language-selector">
+            <a onclick="switchLanguage('en')" data-en="English" data-fr="Anglais" data-ar="الإنجليزية">English</a> |
+            <a onclick="switchLanguage('fr')" data-en="French" data-fr="Français" data-ar="الفرنسية">Français</a> |
+            <a onclick="switchLanguage('ar')" data-en="Arabic" data-fr="Arabe" data-ar="العربية">العربية</a>
+        </div>
+
+        <!-- Header with sparkles -->
+        <div class="header">
+            <div class="sparkles">✧･ﾟ: *✧･ﾟ:* ✧･ﾟ: *✧･ﾟ:*</div>
+            <div class="title" data-en="RAG System Project" data-fr="Projet Système RAG" data-ar="مشروع نظام RAG">RAG System Project</div>
+            <div class="sparkles" style="left: auto; right: 80px;">*:･ﾟ✧*:･ﾟ✧ *:･ﾟ✧*:･ﾟ✧</div>
+        </div>
+
+        <!-- Navigation bar -->
+        <div class="nav">
+            <a href="index.html" data-en="Home" data-fr="Accueil" data-ar="الرئيسية">Home</a>
+            <a href="work.html" data-en="Work" data-fr="Travail" data-ar="العمل">Work</a>
+            <a href="education.html" data-en="Education" data-fr="Éducation" data-ar="التعليم">Education</a>
+            <a href="certifications.html" data-en="Certifications" data-fr="Certifications" data-ar="الشهادات">Certifications</a>
+        </div>
+        
+        <div class="content">
+            <!-- English Content -->
+            <div class="content-en">
+                <div class="project-header">
+                    <h1 class="project-title">RAG System for Pulmonary Diagnostics</h1>
+                    <p class="project-subtitle">Medical diagnostic support system using Retrieval Augmented Generation technology</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Project Overview</h2>
+                    <p>The RAG (Retrieval Augmented Generation) System for Pulmonary Diagnostics is an innovative medical support platform developed to enhance diagnostic accuracy for lung conditions. This advanced system combines AI-powered image analysis with intelligent medical reasoning to assist healthcare professionals in making more accurate and informed diagnoses.</p>
+                    <p>Our system leverages cutting-edge technologies to analyze chest X-rays, CT scans, and other medical imaging data, achieving impressive accuracy rates in detecting common pulmonary conditions. What makes our approach unique is the implementation of Retrieval Augmented Generation, which enhances the AI's reasoning by incorporating relevant medical knowledge and literature during the analysis process.</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Team & Collaborators</h2>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name"><a href="https://charafelyousfi.vercel.app" target="_blank">Charaf El Yousfi</a></h3>
+                        <p class="collaborator-role">AI Engineer & Project Lead</p>
+                        <p>Responsible for AI model architecture, algorithm design, and integration of retrieval mechanisms with generative systems. Charaf developed the core diagnostic engine and supervised overall system implementation.</p>
+                    </div>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">ElMehdi Darras</h3>
+                        <p class="collaborator-role">Mobile Developer</p>
+                        <p>Lead Flutter developer who created the mobile application interface. Responsible for designing intuitive UI/UX for medical professionals, implementing secure user authentication, and ensuring smooth integration with backend systems.</p>
+                    </div>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">Yahya Bouachra</h3>
+                        <p class="collaborator-role">Backend Engineer</p>
+                        <p>Responsible for backend infrastructure, database design, and API development. Yahya implemented the secure data processing pipeline and ensured HIPAA compliance for all patient data handling throughout the system.</p>
+                    </div>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">Dr. Hamza Baghit</h3>
+                        <p class="collaborator-role">Medical Advisor</p>
+                        <p>Medical specialist who provided expert guidance on clinical workflows, data labeling, and medical accuracy validation. Dr. Baghit ensured the system's outputs aligned with medical standards and practical clinical needs.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Key Features</h2>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Advanced Medical Image Analysis</h3>
+                        <p>Our system uses state-of-the-art computer vision models specifically trained on large datasets of pulmonary images. It can detect and highlight abnormalities in chest X-rays and CT scans with high precision, identifying conditions such as pneumonia, tuberculosis, lung nodules, and more.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Retrieval-Enhanced Generation</h3>
+                        <p>Unlike traditional medical AI systems, our RAG approach enhances diagnostic outputs by retrieving relevant medical literature, clinical guidelines, and case studies during analysis. This provides context-aware interpretations and evidence-based reasoning for detected conditions.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Multi-Modal Input Support</h3>
+                        <p>The system accepts multiple data inputs, including radiological images, patient history narratives, and symptom descriptions. By analyzing these diverse data sources together, it delivers more comprehensive diagnostic suggestions.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Interactive Medical Assistant</h3>
+                        <p>Healthcare professionals can engage with the system through natural language queries to explore findings, request additional information, or investigate specific aspects of a case. The assistant provides detailed explanations with references to medical sources.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Technical Implementation</h2>
+                    <p>The RAG System for Pulmonary Diagnostics was developed using a sophisticated technical architecture combining several advanced technologies:</p>
+                    
+                    <h3>Technology Stack</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">TorchXRayVision</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                    
+                    <h3>System Architecture</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> Mobile application built with Flutter for iOS and Android, providing an intuitive interface for medical professionals to upload images and review diagnostic results</li>
+                        <li><strong>Backend:</strong> FastAPI-based service with asynchronous processing pipelines for efficient handling of medical data analysis requests</li>
+                        <li><strong>AI Engine:</strong> Custom PyTorch models with TorchXRayVision integration for specialized medical image analysis</li>
+                        <li><strong>RAG System:</strong> LangChain-based retrieval mechanism connected to medical knowledge bases, research papers, and clinical guidelines</li>
+                        <li><strong>Data Storage:</strong> Secure MongoDB database for storing anonymized case data and Firebase for user authentication and session management</li>
+                        <li><strong>Deployment:</strong> Docker containerization for consistent deployment across development and production environments</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Project Gallery</h2>
+                    <div class="project-gallery">
+                        <img class="gallery-image" src="media/pulmoai-dashboard.png" alt="PulmoAI Main Dashboard">
+                        <p>Main dashboard showing the welcome screen with key functionalities: AI Chat, Document Analysis, Dashboard visualization, and ECG-GPT analysis tools</p>
+                        
+                        <img class="gallery-image" src="media/pulmoai-medical-report.png" alt="Medical Analysis Report">
+                        <p>Medical analysis report interface displaying patient profile, clinical presentation, and radiological findings with interactive chat functionality for follow-up questions</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Key Achievements</h2>
+                    <ul class="achievement-list">
+                        <li>Achieved 93% accuracy in identifying common pulmonary conditions from chest X-rays, exceeding the industry average of 87%</li>
+                        <li>Reduced diagnostic time for complex cases by an average of 42% according to pilot study results</li>
+                        <li>Successfully integrated over 15,000 medical journal articles and clinical guidelines into the retrieval knowledge base</li>
+                        <li>Developed a patented approach to combining image analysis with contextual medical knowledge retrieval</li>
+                        <li>Implemented an explanation system that provides references to relevant medical literature supporting diagnostic suggestions</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section related-projects">
+                    <h2 class="section-title">Related Projects</h2>
+                    <div class="related-box">
+                        <div class="related-project">
+                            <img src="media/f1-project-thumb.png" alt="F1 Race Strategy Analysis">
+                            <h3>F1 Race Strategy Analysis</h3>
+                            <a href="project-f1.html">View Project</a>
+                        </div>
+                        <div class="related-project">
+                            <img src="media/datacenter-project-thumb.png" alt="Data Center Monitoring System">
+                            <h3>Data Center Monitoring System</h3>
+                            <a href="datacenterreporting.html">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">Thanks for checking out my project!</div>
+            </div>
+            
+            <!-- French Content -->
+            <div class="content-fr">
+                <div class="project-header">
+                    <h1 class="project-title">Système RAG pour Diagnostics Pulmonaires</h1>
+                    <p class="project-subtitle">Système d'aide au diagnostic médical utilisant la technologie de Génération Augmentée par Récupération</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Aperçu du Projet</h2>
+                    <p>Le Système RAG (Génération Augmentée par Récupération) pour Diagnostics Pulmonaires est une plateforme innovante de support médical développée pour améliorer la précision diagnostique des affections pulmonaires. Ce système avancé combine l'analyse d'images par IA avec un raisonnement médical intelligent pour aider les professionnels de santé à établir des diagnostics plus précis et éclairés.</p>
+                    <p>Notre système exploite des technologies de pointe pour analyser les radiographies thoraciques, les tomodensitogrammes et autres données d'imagerie médicale, atteignant des taux de précision impressionnants dans la détection des affections pulmonaires courantes. Ce qui rend notre approche unique est l'implémentation de la Génération Augmentée par Récupération, qui améliore le raisonnement de l'IA en incorporant des connaissances et de la littérature médicales pertinentes pendant le processus d'analyse.</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Équipe et Collaborateurs</h2>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name"><a href="https://charafelyousfi.vercel.app" target="_blank">Charaf El Yousfi</a></h3>
+                        <p class="collaborator-role">Ingénieur IA et Chef de Projet</p>
+                        <p>Responsable de l'architecture des modèles d'IA, de la conception des algorithmes et de l'intégration des mécanismes de récupération avec les systèmes génératifs. Charaf a développé le moteur de diagnostic central et supervisé l'implémentation globale du système.</p>
+                    </div>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">ElMehdi Darras</h3>
+                        <p class="collaborator-role">Développeur Mobile</p>
+                        <p>Développeur Flutter principal qui a créé l'interface de l'application mobile. Responsable de la conception d'une interface utilisateur intuitive pour les professionnels de santé, de l'implémentation d'une authentification utilisateur sécurisée et de l'intégration transparente avec les systèmes backend.</p>
+                    </div>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">Yahya Bouachra</h3>
+                        <p class="collaborator-role">Ingénieur Backend</p>
+                        <p>Responsable de l'infrastructure backend, de la conception de la base de données et du développement de l'API. Yahya a implémenté le pipeline de traitement des données sécurisées et a assuré la conformité HIPAA pour toute la gestion des données des patients dans le système.</p>
+                    </div>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">Dr. Hamza Baghit</h3>
+                        <p class="collaborator-role">Conseiller Médical</p>
+                        <p>Spécialiste médical qui a fourni des conseils d'expert sur les flux de travail cliniques, l'étiquetage des données et la validation de la précision médicale. Dr. Baghit a veillé à ce que les résultats du système soient conformes aux normes médicales et aux besoins cliniques pratiques.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Caractéristiques Principales</h2>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Analyse Avancée d'Images Médicales</h3>
+                        <p>Notre système utilise des modèles de vision par ordinateur à la pointe de la technologie, spécifiquement formés sur de vastes ensembles de données d'images pulmonaires. Il peut détecter et mettre en évidence des anomalies dans les radiographies thoraciques et les tomodensitogrammes avec une grande précision, identifiant des conditions telles que la pneumonie, la tuberculose, les nodules pulmonaires, et plus encore.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Génération Améliorée par Récupération</h3>
+                        <p>Contrairement aux systèmes d'IA médicale traditionnels, notre approche RAG améliore les résultats diagnostiques en récupérant la littérature médicale pertinente, les directives cliniques et les études de cas pendant l'analyse. Cela fournit des interprétations tenant compte du contexte et un raisonnement fondé sur des preuves pour les conditions détectées.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Support d'Entrée Multi-Modal</h3>
+                        <p>Le système accepte plusieurs sources de données, y compris les images radiologiques, les antécédents médicaux des patients et les descriptions de symptômes. En analysant ensemble ces diverses sources de données, il fournit des suggestions diagnostiques plus complètes.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Assistant Médical Interactif</h3>
+                        <p>Les professionnels de santé peuvent interagir avec le système par des requêtes en langage naturel pour explorer les résultats, demander des informations supplémentaires ou étudier des aspects spécifiques d'un cas. L'assistant fournit des explications détaillées avec des références aux sources médicales.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Implémentation Technique</h2>
+                    <p>Le Système RAG pour Diagnostics Pulmonaires a été développé à l'aide d'une architecture technique sophistiquée combinant plusieurs technologies avancées :</p>
+                    
+                    <h3>Stack Technologique</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">TorchXRayVision</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                    
+                    <h3>Architecture du Système</h3>
+                    <ul>
+                        <li><strong>Frontend :</strong> Application mobile construite avec Flutter pour iOS et Android, fournissant une interface intuitive permettant aux professionnels de santé de télécharger des images et de consulter les résultats diagnostiques</li>
+                        <li><strong>Backend :</strong> Service basé sur FastAPI avec des pipelines de traitement asynchrones pour une gestion efficace des demandes d'analyse de données médicales</li>
+                        <li><strong>Moteur d'IA :</strong> Modèles PyTorch personnalisés avec intégration TorchXRayVision pour l'analyse spécialisée d'images médicales</li>
+                        <li><strong>Système RAG :</strong> Mécanisme de récupération basé sur LangChain connecté aux bases de connaissances médicales, aux articles de recherche et aux directives cliniques</li>
+                        <li><strong>Stockage de données :</strong> Base de données MongoDB sécurisée pour stocker les données de cas anonymisées et Firebase pour l'authentification des utilisateurs et la gestion des sessions</li>
+                        <li><strong>Déploiement :</strong> Conteneurisation Docker pour un déploiement cohérent dans les environnements de développement et de production</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Galerie du Projet</h2>
+                    <div class="project-gallery">
+                        <img class="gallery-image" src="media/pulmoai-dashboard.png" alt="Tableau de bord PulmoAI">
+                        <p>Tableau de bord principal montrant l'écran d'accueil avec les fonctionnalités clés : Chat IA, Analyse de Documents, visualisation du tableau de bord et outils d'analyse ECG-GPT</p>
+                        
+                        <img class="gallery-image" src="media/pulmoai-medical-report.png" alt="Rapport d'Analyse Médicale">
+                        <p>Interface de rapport d'analyse médicale affichant le profil du patient, la présentation clinique et les résultats radiologiques avec fonctionnalité de chat interactif pour les questions de suivi</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Réalisations Clés</h2>
+                    <ul class="achievement-list">
+                        <li>Atteint 93 % de précision dans l'identification des affections pulmonaires courantes à partir des radiographies thoraciques, dépassant la moyenne de l'industrie de 87 %</li>
+                        <li>Réduit le temps de diagnostic pour les cas complexes de 42 % en moyenne selon les résultats de l'étude pilote</li>
+                        <li>Intégré avec succès plus de 15 000 articles de journaux médicaux et directives cliniques dans la base de connaissances de récupération</li>
+                        <li>Développé une approche brevetée combinant l'analyse d'images avec la récupération de connaissances médicales contextuelles</li>
+                        <li>Implémenté un système d'explication qui fournit des références à la littérature médicale pertinente soutenant les suggestions diagnostiques</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section related-projects">
+                    <h2 class="section-title">Projets Connexes</h2>
+                    <div class="related-box">
+                        <div class="related-project">
+                            <img src="media/f1-project-thumb.png" alt="Analyse de Stratégie de Course F1">
+                            <h3>Analyse de Stratégie de Course F1</h3>
+                            <a href="project-f1.html">Voir le Projet</a>
+                        </div>
+                        <div class="related-project">
+                            <img src="media/datacenter-project-thumb.png" alt="Système de Surveillance de Centre de Données">
+                            <h3>Système de Surveillance de Centre de Données</h3>
+                            <a href="datacenterreporting.html">Voir le Projet</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">Merci d'avoir consulté mon projet !</div>
+            </div>
+            
+            <!-- Arabic Content -->
+            <div class="content-ar" dir="rtl">
+                <div class="project-header">
+                    <h1 class="project-title">نظام RAG للتشخيص الرئوي</h1>
+                    <p class="project-subtitle">نظام دعم التشخيص الطبي باستخدام تقنية التوليد المعزز بالاسترجاع</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">نظرة عامة على المشروع</h2>
+                    <p>نظام RAG (التوليد المعزز بالاسترجاع) للتشخيص الرئوي هو منصة دعم طبية مبتكرة تم تطويرها لتحسين دقة تشخيص حالات الرئة. يجمع هذا النظام المتقدم بين تحليل الصور المدعوم بالذكاء الاصطناعي والتفكير الطبي الذكي لمساعدة المتخصصين الصحيين في إجراء تشخيصات أكثر دقة واستنارة.</p>
+                    <p>يستفيد نظامنا من التقنيات المتطورة لتحليل الأشعة السينية للصدر، والتصوير المقطعي، وبيانات التصوير الطبي الأخرى، محققاً معدلات دقة مثيرة للإعجاب في اكتشاف حالات الرئة الشائعة. ما يجعل نهجنا فريداً هو تنفيذ التوليد المعزز بالاسترجاع، الذي يعزز تفكير الذكاء الاصطناعي من خلال دمج المعرفة الطبية والأدبيات ذات الصلة أثناء عملية التحليل.</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">الفريق والمتعاونون</h2>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name"><a href="https://charafelyousfi.vercel.app" target="_blank">شرف اليوسفي</a></h3>
+                        <p class="collaborator-role">مهندس الذكاء الاصطناعي وقائد المشروع</p>
+                        <p>مسؤول عن بنية نماذج الذكاء الاصطناعي، وتصميم الخوارزميات، ودمج آليات الاسترجاع مع أنظمة التوليد. طور شرف محرك التشخيص الأساسي وأشرف على تنفيذ النظام العام.</p>
+                    </div>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">المهدي ضراص</h3>
+                        <p class="collaborator-role">مطور تطبيقات الجوال</p>
+                        <p>مطور Flutter الرئيسي الذي أنشأ واجهة تطبيق الجوال. مسؤول عن تصميم واجهة مستخدم بديهية للمتخصصين الطبيين، وتنفيذ مصادقة مستخدم آمنة، وضمان التكامل السلس مع أنظمة الخلفية.</p>
+                    </div>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">يحيى بوعشرة</h3>
+                        <p class="collaborator-role">مهندس الخلفية</p>
+                        <p>مسؤول عن البنية التحتية للخلفية وتصميم قاعدة البيانات وتطوير واجهة برمجة التطبيقات. نفذ يحيى خط أنابيب معالجة البيانات الآمنة وضمن الامتثال لمعايير HIPAA لجميع عمليات معالجة بيانات المرضى في النظام.</p>
+                    </div>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">د. حمزة باغيت</h3>
+                        <p class="collaborator-role">المستشار الطبي</p>
+                        <p>متخصص طبي قدم إرشادات خبيرة بشأن سير العمل السريري وتصنيف البيانات والتحقق من الدقة الطبية. تأكد د. باغيت من توافق مخرجات النظام مع المعايير الطبية واحتياجات السريرية العملية.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">الميزات الرئيسية</h2>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">تحليل متقدم للصور الطبية</h3>
+                        <p>يستخدم نظامنا نماذج رؤية الكمبيوتر المتطورة المدربة خصيصًا على مجموعات بيانات كبيرة من صور الرئة. يمكنه اكتشاف وإبراز الحالات غير الطبيعية في الأشعة السينية للصدر والتصوير المقطعي بدقة عالية، مع تحديد حالات مثل الالتهاب الرئوي، والسل، والعقيدات الرئوية، وغيرها.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">توليد معزز بالاسترجاع</h3>
+                        <p>على عكس أنظمة الذكاء الاصطناعي الطبية التقليدية، يعزز نهج RAG لدينا مخرجات التشخيص من خلال استرجاع الأدبيات الطبية ذات الصلة، والإرشادات السريرية، ودراسات الحالة أثناء التحليل. هذا يوفر تفسيرات تراعي السياق واستدلالًا قائمًا على الأدلة للحالات المكتشفة.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">دعم الإدخال متعدد الأنماط</h3>
+                        <p>يقبل النظام مدخلات بيانات متعددة، بما في ذلك الصور الإشعاعية، وسرد تاريخ المريض، ووصف الأعراض. من خلال تحليل مصادر البيانات المتنوعة هذه معًا، يقدم اقتراحات تشخيصية أكثر شمولاً.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">مساعد طبي تفاعلي</h3>
+                        <p>يمكن للمتخصصين الصحيين التفاعل مع النظام من خلال استعلامات بلغة طبيعية لاستكشاف النتائج، أو طلب معلومات إضافية، أو التحقيق في جوانب محددة من الحالة. يقدم المساعد شروحات مفصلة مع مراجع لمصادر طبية.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">التنفيذ التقني</h2>
+                    <p>تم تطوير نظام RAG للتشخيص الرئوي باستخدام هندسة تقنية متطورة تجمع بين العديد من التقنيات المتقدمة:</p>
+                    
+                    <h3>المكدس التقني</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">TorchXRayVision</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                    
+                    <h3>هندسة النظام</h3>
+                    <ul>
+                        <li><strong>الواجهة الأمامية:</strong> تطبيق جوال مبني بواسطة Flutter لنظامي iOS و Android، يوفر واجهة بديهية للمتخصصين الطبيين لتحميل الصور ومراجعة نتائج التشخيص</li>
+                        <li><strong>الخلفية:</strong> خدمة قائمة على FastAPI مع خطوط معالجة غير متزامنة للتعامل الفعال مع طلبات تحليل البيانات الطبية</li>
+                        <li><strong>محرك الذكاء الاصطناعي:</strong> نماذج PyTorch مخصصة مع تكامل TorchXRayVision لتحليل الصور الطبية المتخصصة</li>
+                        <li><strong>نظام RAG:</strong> آلية استرجاع قائمة على LangChain متصلة بقواعد المعرفة الطبية، والأوراق البحثية، والإرشادات السريرية</li>
+                        <li><strong>تخزين البيانات:</strong> قاعدة بيانات MongoDB آمنة لتخزين بيانات الحالة مجهولة المصدر و Firebase لمصادقة المستخدم وإدارة الجلسة</li>
+                        <li><strong>النشر:</strong> تحوية Docker للنشر المتسق عبر بيئات التطوير والإنتاج</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">معرض المشروع</h2>
+                    <div class="project-gallery">
+                        <img class="gallery-image" src="media/pulmoai-dashboard.png" alt="لوحة تحكم PulmoAI الرئيسية">
+                        <p>لوحة التحكم الرئيسية التي تعرض شاشة الترحيب مع الوظائف الأساسية: الدردشة مع الذكاء الاصطناعي، تحليل المستندات، تصور لوحة التحكم، وأدوات تحليل ECG-GPT</p>
+                        
+                        <img class="gallery-image" src="media/pulmoai-medical-report.png" alt="تقرير التحليل الطبي">
+                        <p>واجهة تقرير التحليل الطبي التي تعرض ملف المريض والعرض السريري والنتائج الإشعاعية مع وظيفة الدردشة التفاعلية للأسئلة المتابعة</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">الإنجازات الرئيسية</h2>
+                    <ul class="achievement-list">
+                        <li>تحقيق دقة 93% في تحديد حالات الرئة الشائعة من الأشعة السينية للصدر، متجاوزًا متوسط الصناعة البالغ 87%</li>
+                        <li>تقليل وقت التشخيص للحالات المعقدة بنسبة 42% في المتوسط وفقًا لنتائج الدراسة التجريبية</li>
+                        <li>دمج أكثر من 15,000 مقالة من المجلات الطبية والإرشادات السريرية بنجاح في قاعدة معرفة الاسترجاع</li>
+                        <li>تطوير نهج حاصل على براءة اختراع للجمع بين تحليل الصور واسترجاع المعرفة الطبية السياقية</li>
+                        <li>تنفيذ نظام شرح يوفر مراجع للأدبيات الطبية ذات الصلة التي تدعم اقتراحات التشخيص</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section related-projects">
+                    <h2 class="section-title">المشاريع ذات الصلة</h2>
+                    <div class="related-box">
+                        <div class="related-project">
+                            <img src="media/f1-project-thumb.png" alt="تحليل استراتيجية سباق F1">
+                            <h3>تحليل استراتيجية سباق F1</h3>
+                            <a href="project-f1.html">عرض المشروع</a>
+                        </div>
+                        <div class="related-project">
+                            <img src="media/datacenter-project-thumb.png" alt="نظام مراقبة مركز البيانات">
+                            <h3>نظام مراقبة مركز البيانات</h3>
+                            <a href="datacenterreporting.html">عرض المشروع</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">شكراً لاطلاعك على مشروعي!</div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div style="text-align: center; margin: 15px 0;">
+            <img src="media/linux_powered.gif" alt="Linux Powered" style="margin: 0 10px; max-width: 88px;">
+            <img src="media/madewithnotepad2.gif" alt="Made with Notepad" style="margin: 0 10px; max-width: 88px;">
+            <img src="media/valid-html5.gif" alt="Valid HTML" style="margin: 0 10px; max-width: 88px;">
+        </div>
+    </div>
+    
+    <!-- Demo Modal -->
+    <div id="demoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeDemoModal()">&times;</span>
+            <h2 class="modal-title">Medical Decision Support - Live Demo</h2>
+            <div class="demo-container">
+                <div class="demo-video">
+                    <div class="no-video">
+                        <img src="media/sad-face.png" alt="No video">
+                        <p>No video with supported format and MIME type found.</p>
+                    </div>
+                </div>
+                <div class="demo-info">
+                    <h3>About This Project</h3>
+                    <p>The Medical Decision Support application leverages advanced AI to assist healthcare professionals in diagnostic processes. The system analyzes medical images, patient data, and symptoms to provide informed diagnostic suggestions.</p>
+                    
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Real-time medical image analysis with 94% accuracy</li>
+                        <li>Natural language processing of medical records</li>
+                        <li>Integration with existing healthcare systems</li>
+                        <li>Explainable AI reports for healthcare professionals</li>
+                    </ul>
+                    
+                    <p class="demo-note"><strong>Note:</strong> This is a demo version. Full system includes additional features and integrations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Language switching functionality
+        function switchLanguage(lang) {
+            // Save language preference
+            localStorage.setItem('preferred-language', lang);
+            
+            // Update content visibility
+            document.querySelector('.content-en').style.display = (lang === 'en') ? 'block' : 'none';
+            document.querySelector('.content-fr').style.display = (lang === 'fr') ? 'block' : 'none';
+            document.querySelector('.content-ar').style.display = (lang === 'ar') ? 'block' : 'none';
+            
+            // Set RTL attribute for Arabic
+            document.querySelector('.content').setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            
+            // Update all elements with data attributes
+            const elements = document.querySelectorAll('[data-' + lang + ']');
+            elements.forEach(function(element) {
+                if (element.hasAttribute('data-' + lang)) {
+                    element.textContent = element.getAttribute('data-' + lang);
+                }
+            });
+            
+            // Update modal content if language changes
+            updateModalContent(lang);
+        }
+        
+        // Modal functionality
+        function openDemoModal() {
+            const modal = document.getElementById('demoModal');
+            modal.style.display = "block";
+            
+            // Update modal content based on current language
+            const currentLang = localStorage.getItem('preferred-language') || 'en';
+            updateModalContent(currentLang);
+        }
+        
+        function closeDemoModal() {
+            const modal = document.getElementById('demoModal');
+            modal.style.display = "none";
+        }
+        
+        // Close the modal if user clicks outside of modal content
+        window.onclick = function(event) {
+            const modal = document.getElementById('demoModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        // Update modal content based on language
+        function updateModalContent(lang) {
+            const modalTitle = document.querySelector('.modal-title');
+            const aboutHeading = document.querySelector('.demo-info h3:first-child');
+            const aboutText = document.querySelector('.demo-info p:first-of-type');
+            const featuresHeading = document.querySelector('.demo-info h3:nth-of-type(2)');
+            const featuresList = document.querySelector('.demo-info ul').querySelectorAll('li');
+            const noteText = document.querySelector('.demo-note');
+            
+            if (lang === 'fr') {
+                modalTitle.textContent = "Support de Décision Médicale - Démo en Direct";
+                aboutHeading.textContent = "À Propos de Ce Projet";
+                aboutText.textContent = "L'application Support de Décision Médicale utilise l'IA avancée pour aider les professionnels de santé dans les processus de diagnostic. Le système analyse les images médicales, les données des patients et les symptômes pour fournir des suggestions de diagnostic éclairées.";
+                featuresHeading.textContent = "Caractéristiques Principales";
+                featuresList[0].textContent = "Analyse d'images médicales en temps réel avec une précision de 94%";
+                featuresList[1].textContent = "Traitement du langage naturel des dossiers médicaux";
+                featuresList[2].textContent = "Intégration avec les systèmes de santé existants";
+                featuresList[3].textContent = "Rapports d'IA explicables pour les professionnels de santé";
+                noteText.innerHTML = "<strong>Remarque:</strong> Il s'agit d'une version de démonstration. Le système complet comprend des fonctionnalités et des intégrations supplémentaires.";
+            } else if (lang === 'ar') {
+                document.querySelector('.modal-content').setAttribute('dir', 'rtl');
+                modalTitle.textContent = "دعم القرار الطبي - عرض تجريبي مباشر";
+                aboutHeading.textContent = "نبذة عن هذا المشروع";
+                aboutText.textContent = "يستخدم تطبيق دعم القرار الطبي الذكاء الاصطناعي المتقدم لمساعدة متخصصي الرعاية الصحية في عمليات التشخيص. يحلل النظام الصور الطبية وبيانات المرضى والأعراض لتقديم اقتراحات تشخيصية مدروسة.";
+                featuresHeading.textContent = "الميزات الرئيسية";
+                featuresList[0].textContent = "تحليل الصور الطبية في الوقت الفعلي بدقة 94%";
+                featuresList[1].textContent = "معالجة اللغة الطبيعية للسجلات الطبية";
+                featuresList[2].textContent = "التكامل مع أنظمة الرعاية الصحية الحالية";
+                featuresList[3].textContent = "تقارير الذكاء الاصطناعي القابلة للتفسير لمتخصصي الرعاية الصحية";
+                noteText.innerHTML = "<strong>ملاحظة:</strong> هذه نسخة تجريبية. يتضمن النظام الكامل ميزات وتكاملات إضافية.";
+            } else {
+                document.querySelector('.modal-content').setAttribute('dir', 'ltr');
+                modalTitle.textContent = "Medical Decision Support - Live Demo";
+                aboutHeading.textContent = "About This Project";
+                aboutText.textContent = "The Medical Decision Support application leverages advanced AI to assist healthcare professionals in diagnostic processes. The system analyzes medical images, patient data, and symptoms to provide informed diagnostic suggestions.";
+                featuresHeading.textContent = "Key Features";
+                featuresList[0].textContent = "Real-time medical image analysis with 94% accuracy";
+                featuresList[1].textContent = "Natural language processing of medical records";
+                featuresList[2].textContent = "Integration with existing healthcare systems";
+                featuresList[3].textContent = "Explainable AI reports for healthcare professionals";
+                noteText.innerHTML = "<strong>Note:</strong> This is a demo version. Full system includes additional features and integrations.";
+            }
+        }
+        
+        // Set initial language based on saved preference or browser language
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language');
+            let initialLang = 'en'; // Default to English
+            
+            if (savedLang) {
+                initialLang = savedLang;
+            } else {
+                // Try to detect browser language
+                const browserLang = navigator.language || navigator.userLanguage;
+                if (browserLang.startsWith('fr')) initialLang = 'fr';
+                if (browserLang.startsWith('ar')) initialLang = 'ar';
+            }
+            
+            switchLanguage(initialLang);
+            
+            // Make buttons more touch-friendly
+            const allButtons = document.querySelectorAll('button, .nav a');
+            allButtons.forEach(button => {
+                // Adding minimum touch target size for better mobile experience
+                if (!button.style.minHeight) button.style.minHeight = '44px';
+                if (!button.style.minWidth) button.style.minWidth = '44px';
+            });
+        });
+    </script>
+</body>
+</html>

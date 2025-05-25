@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>F1 Race Strategy Analysis - ElMehdi's Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="icon" href="media/spinning_earth.gif" type="image/gif">
+    <style>
+        body {
+            /* Space background */
+            background-image: url("media/space.gif");
+            background-color: #000033; /* Dark blue fallback */
+            background-repeat: repeat;
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000000;
+        }
+        
+        /* Page container - Mobile-first approach */
+        .page-container {
+            width: 95%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #d3d3d3; /* Light gray background like in screenshot */
+            border: 2px solid #000080;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .title {
+            font-size: 40px;
+            font-weight: bold;
+            text-shadow: 3px 3px 0px #ff00ff, 6px 6px 0px #9900cc;
+            color: #6600cc;
+            margin: 20px 0;
+            transform: rotate(-5deg);
+            display: inline-block;
+        }
+        
+        .sparkles {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+            font-size: 20px;
+            color: #ffcc00;
+        }
+        
+        .nav {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #ffffff;
+            border: 1px solid #000080;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+        
+        .nav::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome/Safari */
+        }
+        
+        .nav a {
+            font-size: 20px;
+            color: #000080;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+            padding: 5px 10px;
+            display: inline-block;
+            min-height: 44px; /* Better touch target */
+            line-height: 34px; /* Center text vertically */
+            box-sizing: border-box;
+        }
+        
+        .nav a:hover {
+            background-color: #ccffff;
+            border: 1px dashed #0000ff;
+        }
+        
+        .nav a.active {
+            background-color: #6600cc;
+            color: white;
+            border-bottom: 3px solid #ff00ff;
+        }
+        
+        .content {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            padding: 20px;
+        }
+        
+        .project-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .project-title {
+            font-size: 36px;
+            color: #6600cc;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px #ff00ff;
+        }
+        
+        .wip-badge {
+            background-color: #ff6600;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+            animation: blinker 1s step-end infinite;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+        
+        .project-subtitle {
+            font-size: 18px;
+            color: #666666;
+            font-style: italic;
+        }
+        
+        .project-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #6600cc;
+            border-bottom: 2px dashed #9900cc;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .collaborator-card {
+            background-color: #f8f8f8;
+            border: 1px dashed #aaaaaa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        
+        .collaborator-name {
+            font-size: 20px;
+            color: #6600cc;
+            margin-bottom: 5px;
+        }
+        
+        .collaborator-role {
+            font-size: 16px;
+            color: #000080;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .feature-box {
+            background-color: #f0f0f0;
+            border: 1px solid #cccccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        
+        .feature-title {
+            font-size: 18px;
+            color: #6600cc;
+            margin-bottom: 10px;
+        }
+        
+        .tech-tags {
+            margin: 20px 0;
+        }
+        
+        .tech-tag {
+            display: inline-block;
+            background-color: #6600cc;
+            color: white;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        
+        .related-projects {
+            margin-top: 40px;
+        }
+        
+        .related-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .related-project {
+            width: 200px;
+            background-color: #f8f8f8;
+            border: 1px solid #cccccc;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        .related-project img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #cccccc;
+        }
+        
+        .related-project h3 {
+            font-size: 16px;
+            color: #6600cc;
+            margin: 10px 0;
+        }
+        
+        .language-selector {
+            text-align: right;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .language-selector a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #0000ff;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-block;
+            min-height: 44px; /* Better touch target */
+            line-height: 44px; /* Center text vertically */
+        }
+        
+        .language-selector a:hover {
+            text-decoration: underline;
+        }
+        
+        .divider {
+            height: 5px;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            margin: 20px 0;
+        }
+        
+        .rainbow-text {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: rainbow 5s infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            56% { color: blue; }
+            70% { color: indigo; }
+            84% { color: violet; }
+            100% { color: red; }
+        }
+        
+        .wip-highlight {
+            background-color: #ffff99;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #cc6600;
+        }
+        
+        /* Hide content for different languages initially */
+        .content-fr, .content-ar {
+            display: none;
+        }
+        
+        /* Additional style for RTL content */
+        [dir="rtl"] .content-ar {
+            text-align: right;
+        }
+        
+        /* Mobile Responsive Styling */
+        @media only screen and (max-width: 768px) {
+            /* General container */
+            .page-container {
+                width: 95% !important;
+                margin: 5px auto !important;
+                padding: 5px !important;
+                overflow-x: hidden !important;
+            }
+            
+            /* Header and title */
+            .title {
+                font-size: 32px !important;
+                transform: rotate(-2deg) !important;
+            }
+            
+            .sparkles {
+                font-size: 16px !important;
+                top: 10px !important;
+                left: 40px !important;
+            }
+            
+            .sparkles:last-child {
+                right: 40px !important;
+                left: auto !important;
+            }
+            
+            /* Navigation */
+            .nav {
+                padding: 5px 0 !important;
+            }
+            
+            .nav a {
+                margin: 3px 8px !important;
+                padding: 5px 8px !important;
+                font-size: 16px !important;
+                min-height: 40px !important;
+                line-height: 30px !important;
+            }
+            
+            /* Content areas */
+            .content {
+                padding: 10px !important;
+            }
+            
+            .project-title {
+                font-size: 28px !important;
+            }
+            
+            .section-title {
+                font-size: 22px !important;
+            }
+            
+            /* Related projects */
+            .related-box {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            
+            .related-project {
+                width: 90% !important;
+            }
+            
+            /* Text scaling */
+            p, li {
+                font-size: 16px !important;
+            }
+            
+            /* Rainbow text and special elements */
+            .rainbow-text {
+                font-size: 20px !important;
+            }
+            
+            /* Images responsiveness */
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+        }
+        
+        /* Small phones */
+        @media only screen and (max-width: 480px) {
+            .title {
+                font-size: 28px !important;
+            }
+            
+            .nav a {
+                font-size: 14px !important;
+                margin: 2px 5px !important;
+                min-height: 36px !important;
+                line-height: 26px !important;
+            }
+            
+            .project-title {
+                font-size: 24px !important;
+            }
+            
+            .section-title {
+                font-size: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Language selector simplified -->
+        <div class="language-selector">
+            <a onclick="switchLanguage('en')" data-en="English" data-fr="Anglais" data-ar="الإنجليزية">English</a> |
+            <a onclick="switchLanguage('fr')" data-en="French" data-fr="Français" data-ar="الفرنسية">Français</a> |
+            <a onclick="switchLanguage('ar')" data-en="Arabic" data-fr="Arabe" data-ar="العربية">العربية</a>
+        </div>
+
+        <!-- Header with sparkles -->
+        <div class="header">
+            <div class="sparkles">✧･ﾟ: *✧･ﾟ:* ✧･ﾟ: *✧･ﾟ:*</div>
+            <div class="title" data-en="F1 Strategy Project" data-fr="Projet Stratégie F1" data-ar="مشروع استراتيجية F1">F1 Strategy Project</div>
+            <div class="sparkles" style="left: auto; right: 80px;">*:･ﾟ✧*:･ﾟ✧ *:･ﾟ✧*:･ﾟ✧</div>
+        </div>
+
+        <!-- Navigation bar -->
+        <div class="nav">
+            <a href="index.html" data-en="Home" data-fr="Accueil" data-ar="الرئيسية">Home</a>
+            <a href="work.html" data-en="Work" data-fr="Travail" data-ar="العمل">Work</a>
+            <a href="education.html" data-en="Education" data-fr="Éducation" data-ar="التعليم">Education</a>
+            <a href="certifications.html" data-en="Certifications" data-fr="Certifications" data-ar="الشهادات">Certifications</a>
+        </div>
+        
+        <div class="content">
+            <!-- English Content -->
+            <div class="content-en">
+                <div class="project-header">
+                    <h1 class="project-title">F1 Race Strategy Analysis <span class="wip-badge">WORK IN PROGRESS</span></h1>
+                    <p class="project-subtitle">Formula 1 strategy analysis tool studying the impact of pit stops and tire wear, this is a passion project of mine so am taking my time to perfect it ":)" .</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Project Overview</h2>
+                    <p>The F1 Race Strategy Analysis project is an <span class="wip-highlight">ongoing data science initiative</span> that dives deep into Formula 1 race strategies to understand the critical factors that determine race outcomes. This analytical tool examines the complex relationship between pit stop timing, tire degradation patterns, and overall race performance.</p>
+                    <p>Using real Formula 1 session data obtained through the FastF1 API, this project applies statistical analysis and data visualization techniques to uncover strategic insights that could help understand why certain pit strategies succeed while others fail. The analysis focuses on tire compound effectiveness, optimal pit windows, and the impact of strategic decisions on final race positions.</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Team & Collaborators</h2>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">ElMehdi Darras</h3>
+                        <p class="collaborator-role">Solo Developer & Data Analyst</p>
+                        <p>Sole developer responsible for the entire project implementation, including data extraction from the FastF1 API, statistical analysis of race strategies, and creation of insightful visualizations. Designed and developed custom algorithms to analyze pit stop effectiveness and tire performance patterns across multiple F1 seasons.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Key Features</h2>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Race Data Analysis</h3>
+                        <p>Comprehensive processing of real-time Formula 1 session data including lap times, sector times, pit stop duration, and tire information. The system extracts and processes data from multiple race weekends to build a comprehensive dataset for strategy analysis.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Pit Stop Strategy Evaluation</h3>
+                        <p>In-depth analysis of pit stop timing and its impact on race results. The system evaluates different pit strategies by comparing lap time degradation, track position changes, and final race outcomes to identify optimal pit windows for various race scenarios.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Tire Performance Tracking</h3>
+                        <p>Detailed analysis of tire degradation patterns across different compounds (soft, medium, hard) and track conditions. The system tracks performance drop-off rates and identifies the most effective tire strategies for different circuit characteristics.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Interactive Visualizations</h3>
+                        <p>Custom charts and graphs created with Matplotlib that visualize strategy comparisons, lap time evolution, tire performance curves, and pit stop effectiveness. These visualizations make complex race data accessible and provide clear insights into strategic decision-making.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Technical Implementation</h2>
+                    <p>The F1 Race Strategy Analysis project leverages Python's powerful data science ecosystem to process and analyze complex Formula 1 telemetry and timing data:</p>
+                    
+                    <h3>Technology Stack</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">FastF1 API</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Jupyter Notebooks</span>
+                    </div>
+                    
+                    <h3>System Architecture</h3>
+                    <ul>
+                        <li><strong>Data Source:</strong> FastF1 API providing official Formula 1 timing and telemetry data from race sessions, practice, and qualifying</li>
+                        <li><strong>Data Processing:</strong> Pandas-based data cleaning and transformation pipelines to structure raw F1 data for analysis</li>
+                        <li><strong>Analysis Engine:</strong> Custom Python algorithms for statistical analysis of pit strategies, tire performance, and race outcomes</li>
+                        <li><strong>Visualization:</strong> Matplotlib-powered charts and graphs for data visualization and insight presentation</li>
+                        <li><strong>Development Environment:</strong> Jupyter Notebooks for interactive data exploration and iterative analysis development</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section related-projects">
+                    <h2 class="section-title">Related Projects</h2>
+                    <div class="related-box">
+                        <div class="related-project">
+                            <img src="media/Introduction.png" alt="RAG System for Pulmonary Diagnostics">
+                            <h3>RAG System for Pulmonary Diagnostics</h3>
+                            <a href="project-rag.html">View Project</a>
+                        </div>
+                        <div class="related-project">
+                            <img src="media/datacenter-project-thumb.png" alt="Data Center Monitoring System">
+                            <h3>Data Center Monitoring System</h3>
+                            <a href="datacenterreporting.html">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">Racing towards insights! 🏎️💨</div>
+            </div>
+            
+            <!-- French Content -->
+            <div class="content-fr">
+                <div class="project-header">
+                    <h1 class="project-title">Analyse de Stratégie F1 <span class="wip-badge">EN COURS</span></h1>
+                    <p class="project-subtitle">Outil d'analyse de stratégie de Formule 1 étudiant l'impact des arrêts aux stands et de l'usure des pneus</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Aperçu du Projet</h2>
+                    <p>Le projet d'Analyse de Stratégie F1 est une <span class="wip-highlight">initiative de science des données en cours</span> qui plonge profondément dans les stratégies de course de Formule 1 pour comprendre les facteurs critiques qui déterminent les résultats de course. Cet outil analytique examine la relation complexe entre le timing des arrêts aux stands, les modèles de dégradation des pneus et les performances globales de course.</p>
+                    <p>En utilisant des données de session de Formule 1 réelles obtenues via l'API FastF1, ce projet applique des techniques d'analyse statistique et de visualisation de données pour découvrir des insights stratégiques qui pourraient aider à comprendre pourquoi certaines stratégies d'arrêts réussissent tandis que d'autres échouent.</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Équipe et Collaborateurs</h2>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">ElMehdi Darras</h3>
+                        <p class="collaborator-role">Développeur Unique et Analyste de Données</p>
+                        <p>Seul développeur responsable de l'ensemble de l'implémentation du projet, y compris l'extraction de données de l'API FastF1, l'analyse statistique des stratégies de course, et la création de visualisations perspicaces. A conçu et développé des algorithmes personnalisés pour analyser l'efficacité des arrêts aux stands et les modèles de performance des pneus.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Caractéristiques Principales</h2>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Analyse des Données de Course</h3>
+                        <p>Traitement complet des données de session de Formule 1 en temps réel, y compris les temps au tour, les temps de secteur, la durée des arrêts aux stands et les informations sur les pneus. Le système extrait et traite les données de plusieurs week-ends de course.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Évaluation de Stratégie d'Arrêts aux Stands</h3>
+                        <p>Analyse approfondie du timing des arrêts aux stands et de son impact sur les résultats de course. Le système évalue différentes stratégies d'arrêts en comparant la dégradation des temps au tour, les changements de position en piste et les résultats finaux de course.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Suivi de Performance des Pneus</h3>
+                        <p>Analyse détaillée des modèles de dégradation des pneus sur différents composés (tendre, medium, dur) et conditions de piste. Le système suit les taux de baisse de performance et identifie les stratégies de pneus les plus efficaces.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">Visualisations Interactives</h3>
+                        <p>Graphiques et diagrammes personnalisés créés avec Matplotlib qui visualisent les comparaisons de stratégies, l'évolution des temps au tour, les courbes de performance des pneus et l'efficacité des arrêts aux stands.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">Implémentation Technique</h2>
+                    <p>Le projet d'Analyse de Stratégie F1 exploite l'écosystème puissant de science des données de Python pour traiter et analyser des données complexes de télémétrie et de chronométrage de Formule 1:</p>
+                    
+                    <h3>Stack Technologique</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">FastF1 API</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Jupyter Notebooks</span>
+                    </div>
+                    
+                    <h3>Architecture du Système</h3>
+                    <ul>
+                        <li><strong>Source de Données:</strong> API FastF1 fournissant des données officielles de chronométrage et de télémétrie de Formule 1</li>
+                        <li><strong>Traitement des Données:</strong> Pipelines de nettoyage et transformation basés sur Pandas pour structurer les données F1 brutes</li>
+                        <li><strong>Moteur d'Analyse:</strong> Algorithmes Python personnalisés pour l'analyse statistique des stratégies d'arrêts et des performances</li>
+                        <li><strong>Visualisation:</strong> Graphiques et diagrammes alimentés par Matplotlib pour la présentation des insights</li>
+                        <li><strong>Environnement de Développement:</strong> Notebooks Jupyter pour l'exploration interactive des données</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section related-projects">
+                    <h2 class="section-title">Projets Connexes</h2>
+                    <div class="related-box">
+                        <div class="related-project">
+                            <img src="media/Introduction.png" alt="Système RAG pour Diagnostics Pulmonaires">
+                            <h3>Système RAG pour Diagnostics Pulmonaires</h3>
+                            <a href="project-rag.html">Voir le Projet</a>
+                        </div>
+                        <div class="related-project">
+                            <img src="media/datacenter-project-thumb.png" alt="Système de Surveillance de Centre de Données">
+                            <h3>Système de Surveillance de Centre de Données</h3>
+                            <a href="datacenterreporting.html">Voir le Projet</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">En route vers les insights! 🏎️💨</div>
+            </div>
+            
+            <!-- Arabic Content -->
+            <div class="content-ar" dir="rtl">
+                <div class="project-header">
+                    <h1 class="project-title">تحليل استراتيجية F1 <span class="wip-badge">قيد التطوير</span></h1>
+                    <p class="project-subtitle">أداة تحليل استراتيجية الفورمولا 1 لدراسة تأثير توقفات الصيانة وتآكل الإطارات</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">نظرة عامة على المشروع</h2>
+                    <p>مشروع تحليل استراتيجية F1 هو <span class="wip-highlight">مبادرة علوم البيانات الجارية</span> التي تتعمق في استراتيجيات سباق الفورمولا 1 لفهم العوامل الحاسمة التي تحدد نتائج السباق. تفحص هذه الأداة التحليلية العلاقة المعقدة بين توقيت توقفات الصيانة وأنماط تدهور الإطارات والأداء العام للسباق.</p>
+                    <p>باستخدام بيانات جلسة الفورمولا 1 الحقيقية المحصل عليها من خلال FastF1 API، يطبق هذا المشروع تقنيات التحليل الإحصائي وتصور البيانات لاكتشاف رؤى استراتيجية يمكن أن تساعد في فهم سبب نجاح بعض استراتيجيات التوقف بينما تفشل أخرى.</p>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">الفريق والمتعاونون</h2>
+                    
+                    <div class="collaborator-card">
+                        <h3 class="collaborator-name">المهدي ضراص</h3>
+                        <p class="collaborator-role">المطور الوحيد ومحلل البيانات</p>
+                        <p>المطور الوحيد المسؤول عن تنفيذ المشروع بأكمله، بما في ذلك استخراج البيانات من FastF1 API، والتحليل الإحصائي لاستراتيجيات السباق، وإنشاء تصورات بصرية ثاقبة. صمم وطور خوارزميات مخصصة لتحليل فعالية توقفات الصيانة وأنماط أداء الإطارات.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">الميزات الرئيسية</h2>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">تحليل بيانات السباق</h3>
+                        <p>معالجة شاملة لبيانات جلسة الفورمولا 1 في الوقت الفعلي بما في ذلك أوقات اللفة وأوقات القطاع ومدة توقفات الصيانة ومعلومات الإطارات. يستخرج النظام ويعالج البيانات من عدة عطل نهاية أسبوع السباق لبناء مجموعة بيانات شاملة لتحليل الاستراتيجية.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">تقييم استراتيجية توقفات الصيانة</h3>
+                        <p>تحليل معمق لتوقيت توقفات الصيانة وتأثيرها على نتائج السباق. يقيم النظام استراتيجيات توقف مختلفة من خلال مقارنة تدهور أوقات اللفة وتغييرات موقع المسار ونتائج السباق النهائية لتحديد نوافذ التوقف المثلى.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">تتبع أداء الإطارات</h3>
+                        <p>تحليل مفصل لأنماط تدهور الإطارات عبر مركبات مختلفة (ناعم، متوسط، صلب) وظروف المسار. يتتبع النظام معدلات انخفاض الأداء ويحدد استراتيجيات الإطارات الأكثر فعالية لخصائص الدوائر المختلفة.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3 class="feature-title">التصورات التفاعلية</h3>
+                        <p>مخططات وجرافيك مخصصة تم إنشاؤها باستخدام Matplotlib تصور مقارنات الاستراتيجيات وتطور أوقات اللفة ومنحنيات أداء الإطارات وفعالية توقفات الصيانة. هذه التصورات تجعل بيانات السباق المعقدة سهلة المنال.</p>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2 class="section-title">التنفيذ التقني</h2>
+                    <p>يستفيد مشروع تحليل استراتيجية F1 من النظام البيئي القوي لعلوم البيانات في Python لمعالجة وتحليل بيانات القياس عن بُعد والتوقيت المعقدة للفورمولا 1:</p>
+                    
+                    <h3>المكدس التقني</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">FastF1 API</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Jupyter Notebooks</span>
+                    </div>
+                    
+                    <h3>هندسة النظام</h3>
+                    <ul>
+                        <li><strong>مصدر البيانات:</strong> FastF1 API يوفر بيانات التوقيت والقياس عن بُعد الرسمية للفورمولا 1 من جلسات السباق والتدريب والتأهيل</li>
+                        <li><strong>معالجة البيانات:</strong> خطوط أنابيب تنظيف وتحويل البيانات القائمة على Pandas لهيكلة بيانات F1 الخام للتحليل</li>
+                        <li><strong>محرك التحليل:</strong> خوارزميات Python مخصصة للتحليل الإحصائي لاستراتيجيات التوقف وأداء الإطارات ونتائج السباق</li>
+                        <li><strong>التصور:</strong> مخططات وجرافيك مدعومة بـ Matplotlib لتصور البيانات وعرض الرؤى</li>
+                        <li><strong>بيئة التطوير:</strong> دفاتر Jupyter للاستكشاف التفاعلي للبيانات وتطوير التحليل التكراري</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section related-projects">
+                    <h2 class="section-title">المشاريع ذات الصلة</h2>
+                    <div class="related-box">
+                        <div class="related-project">
+                            <img src="media/Introduction.png" alt="نظام RAG للتشخيص الرئوي">
+                            <h3>نظام RAG للتشخيص الرئوي</h3>
+                            <a href="project-rag.html">عرض المشروع</a>
+                        </div>
+                        <div class="related-project">
+                            <img src="media/datacenter-project-thumb.png" alt="نظام مراقبة مركز البيانات">
+                            <h3>نظام مراقبة مركز البيانات</h3>
+                            <a href="datacenterreporting.html">عرض المشروع</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rainbow-text">نحو رؤى السباق! 🏎️💨</div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div style="text-align: center; margin: 15px 0;">
+            <img src="media/linux_powered.gif" alt="Linux Powered" style="margin: 0 10px; max-width: 88px;">
+            <img src="media/madewithnotepad2.gif" alt="Made with Notepad" style="margin: 0 10px; max-width: 88px;">
+            <img src="media/valid-html5.gif" alt="Valid HTML" style="margin: 0 10px; max-width: 88px;">
+        </div>
+    </div>
+    
+    <script>
+        // Language switching functionality
+        function switchLanguage(lang) {
+            // Save language preference
+            localStorage.setItem('preferred-language', lang);
+            
+            // Update content visibility
+            document.querySelector('.content-en').style.display = (lang === 'en') ? 'block' : 'none';
+            document.querySelector('.content-fr').style.display = (lang === 'fr') ? 'block' : 'none';
+            document.querySelector('.content-ar').style.display = (lang === 'ar') ? 'block' : 'none';
+            
+            // Set RTL attribute for Arabic
+            document.querySelector('.content').setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            
+            // Update all elements with data attributes
+            const elements = document.querySelectorAll('[data-' + lang + ']');
+            elements.forEach(function(element) {
+                if (element.hasAttribute('data-' + lang)) {
+                    element.textContent = element.getAttribute('data-' + lang);
+                }
+            });
+        }
+        
+        // Set initial language based on saved preference or browser language
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language');
+            let initialLang = 'en'; // Default to English
+            
+            if (savedLang) {
+                initialLang = savedLang;
+            } else {
+                // Try to detect browser language
+                const browserLang = navigator.language || navigator.userLanguage;
+                if (browserLang.startsWith('fr')) initialLang = 'fr';
+                if (browserLang.startsWith('ar')) initialLang = 'ar';
+            }
+            
+            switchLanguage(initialLang);
+            
+            // Make buttons more touch-friendly
+            const allButtons = document.querySelectorAll('button, .nav a');
+            allButtons.forEach(button => {
+                // Adding minimum touch target size for better mobile experience
+                if (!button.style.minHeight) button.style.minHeight = '44px';
+                if (!button.style.minWidth) button.style.minWidth = '44px';
+            });
+        });
+    </script>
+</body>
+</html>
